@@ -35,7 +35,6 @@
           title: 'Val Saven on Twitter',
           label: 'Twitter',
         }],
-        msg: 'Welcome to Your Vue.js App',
       };
     },
   };
