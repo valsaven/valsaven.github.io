@@ -3,17 +3,8 @@
     <img src="../assets/logo.png">
     <h2>Contacts:</h2>
     <ul class="contacts">
-      <li>
-        <a href="mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com" title="Contact Val Saven">email</a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/valsaven" target="_blank" title="Val Saven's CV on LinkedIn">LinkedIn</a>
-      </li>
-      <li>
-        <a href="https://github.com/valsaven" target="_blank" title="Val Saven on Github">Github</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/valsaven" target="_blank" title="Val Saven on Twitter">Twitter</a>
+      <li v-for="item in contacts">
+        <a :href="item.href" target="_blank" :title="item.title">{{item.label}}</a>
       </li>
     </ul>
   </div>
@@ -24,6 +15,26 @@
     name: 'main',
     data() {
       return {
+        contacts: [{
+          href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
+          title: 'Contact Val Saven',
+          label: 'email',
+        },
+        {
+          href: 'https://www.linkedin.com/in/valsaven',
+          title: 'Val Saven\'s CV on LinkedIn',
+          label: 'LinkedIn',
+        },
+        {
+          href: 'https://github.com/valsaven',
+          title: 'Val Saven on Github',
+          label: 'Github',
+        },
+        {
+          href: 'https://twitter.com/valsaven',
+          title: 'Val Saven on Twitter',
+          label: 'Twitter',
+        }],
         msg: 'Welcome to Your Vue.js App',
       };
     },
