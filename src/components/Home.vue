@@ -1,20 +1,42 @@
 <template>
-  <div class="main">
-    <img src="../assets/logo.png">
-    <h2>Contacts:</h2>
-    <ul class="contacts">
-      <li v-for="item in contacts">
-        <a :href="item.href" target="_blank" :title="item.title">{{item.label}}</a>
-      </li>
-    </ul>
+  <div class="wrapper">
+    <!-- Menu -->
+    <nav>
+      <h2>Menu</h2>
+      <ul>
+        <li v-for="item in menu">
+          <a href="">{{item}}</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Main block -->
+    <article>
+      <h2>Current path</h2>
+      <img src="../assets/logo.png">
+      <h2>Contacts:</h2>
+      <ul class="contacts">
+        <li v-for="(item, i) in contacts" :key=i>
+          <a :href="item.href" target="_blank" :title="item.title">{{item.label}}</a>
+        </li>
+      </ul>
+    </article>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'main',
+    name: 'home',
     data() {
       return {
+        menu: [
+          'Home',
+          'Programming',
+          'Anime',
+          'Movies',
+          'Books',
+          'Photography',
+          'Contacts',
+        ],
         contacts: [{
           href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
           title: 'Contact Val Saven',

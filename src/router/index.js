@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Main from '../components/Main';
 
 // Components
+import Home from '../components/Home';
 import Anime from '../components/Anime';
 import Books from '../components/Books';
 import Contacts from '../components/Contacts';
@@ -16,8 +16,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main,
+      name: 'Home',
+      component: Home,
     },
     {
       path: '/anime',
