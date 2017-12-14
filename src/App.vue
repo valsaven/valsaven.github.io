@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1>
-        <a class="hehe" href="/" title="Val Saven. Software Developer">Val Saven</a>
+        <a href="/" title="Val Saven. Software Developer">Val Saven</a>
       </h1>
       <h2>Software Developer</h2>
     </header>
@@ -18,7 +18,7 @@
         </nav>
         <!-- Main block -->
         <article>
-          <h2>Current path</h2>
+          <h2>{{$route.name}}</h2>
           <router-view></router-view>
         </article>
       </div>
