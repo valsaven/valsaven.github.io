@@ -4,7 +4,9 @@
 <script>
   export default {
     name: 'books',
-    data() {},
+    data() {
+      return {};
+    },
   };
 </script>
 

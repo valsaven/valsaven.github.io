@@ -4,7 +4,9 @@
 <script>
   export default {
     name: 'programming',
-    data() {},
+    data() {
+      return {};
+    },
   };
 </script>
 

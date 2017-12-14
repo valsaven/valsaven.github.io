@@ -4,7 +4,9 @@
 <script>
   export default {
     name: 'anime',
-    data() {},
+    data() {
+      return {};
+    },
   };
 </script>
 
