@@ -14,7 +14,7 @@
         contacts: [{
           href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
           title: 'Contact Val Saven',
-          label: 'email',
+          label: 'Email',
         },
         {
           href: 'https://www.linkedin.com/in/valsaven',
@@ -24,7 +24,7 @@
         {
           href: 'https://github.com/valsaven',
           title: 'Val Saven on Github',
-          label: 'Github',
+          label: 'GitHub',
         },
         {
           href: 'https://twitter.com/valsaven',
