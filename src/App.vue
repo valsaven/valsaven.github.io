@@ -9,16 +9,20 @@
       <div class="wrapper">
         <!-- Menu -->
         <nav>
-          <h2>Menu</h2>
+          <header>
+            <h2>Menu</h2>
+          </header>
           <ul>
-            <li v-for="(item, i) in menu" :key=i>
+            <li class="grow" v-for="(item, i) in menu" :key=i>
               <router-link :to=item.path>{{item.name}}</router-link>
             </li>
           </ul>
         </nav>
         <!-- Main block -->
         <article>
-          <h2>{{$route.name}}</h2>
+          <header>
+            <h2>{{$route.name}}</h2>
+          </header>
           <router-view></router-view>
         </article>
       </div>

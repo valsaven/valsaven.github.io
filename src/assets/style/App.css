@@ -1,10 +1,74 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+:root {
+    --main-text-color: #fffffa;
+    --main-bg-color: #222;
+    --head-bg-color: #41B883;
+    --body-bg-color: #35495E;
+
+    --wings-1-color: #45ccca;
+    --wings-2-color: #8fd67a;
+    --wings-3-color: #e5d59a;
+    --wings-4-color: #e7966a;
+    --wings-5-color: #ed5589;
+    --wings-6-color: #b565c6;
+    --wings-7-color: #7392ec;
+}
+
+/* Flandre Theme */
+/* :root {
+    --main-text-color: #fffffa;
+    --main-bg-color: #941737;
+    --head-bg-color: #cf343e;
+    --body-bg-color: #b51833;
+
+    --wings-1-color: #45ccca;
+    --wings-2-color: #8fd67a;
+    --wings-3-color: #e5d59a;
+    --wings-4-color: #e7966a;
+    --wings-5-color: #ed5589;
+    --wings-6-color: #b565c6;
+    --wings-7-color: #7392ec;
+} */
+
 body {
-    background: #222;
+    background: var(--main-bg-color);
     font-family: sans-serif;
 }
 
-a {
+h1,
+h2 {
+    text-align: center;
+}
+
+h1, h2, a {
     text-decoration: none;
+    color: var(--main-text-color);
+}
+
+nav > header > h2 {
+    font-family: 'Raleway', sans-serif;
+}
+
+nav > ul {
+    /* list-style-type: "\2666"; */
+    list-style: none;
+    margin: 0;
+    padding: 0 20px;
+}
+
+nav > ul li {
+    font-size: 48px;
+    height: 60px;
+    /* display: flex;
+    align-items: center; */
+}
+
+nav > ul > li > a {
+    padding-left: 14px;
+    font-size: 24px;
 }
 
 #app {
@@ -15,12 +79,55 @@ a {
     margin: 0 auto;
 }
 
-#app > header > h1,
-#app > header > h2 {
-    text-align: center;
+#app > header > h1 {
+    font-family: "Poiret One", sans-serif;
+    font-size: 48px;
+    margin: 20px 0;
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 200px);
+    /* grid-template-columns: repeat(auto-fill, minmax(220px, auto)); */
+    /* grid-template-columns: minmax(auto, 220px) minmax(300px, auto); */
+    grid-template-columns: 220px repeat(auto-fit, minmax(220px, 1fr));
+    background-color: var(--body-bg-color);
+}
+
+.wrapper > nav,
+.wrapper > article {
+    display: grid;
+    grid-template-rows: 60px auto;
+}
+
+.wrapper > article {
+    grid-column: span 2;
+}
+
+.wrapper > nav > header,
+.wrapper > article > header {
+    background-color: #41B883;
+}
+
+.wrapper > article > div {
+    background-color: #fff;
+}
+
+nav > ul > li::first-letter {
+    font-weight: bold;
+}
+/* Flandre Wings */
+nav > ul > li:nth-child(1)::first-letter { color: var(--wings-1-color); }
+nav > ul > li:nth-child(2)::first-letter { color: var(--wings-2-color); }
+nav > ul > li:nth-child(3)::first-letter { color: var(--wings-3-color); }
+nav > ul > li:nth-child(4)::first-letter { color: var(--wings-4-color); }
+nav > ul > li:nth-child(5)::first-letter { color: var(--wings-5-color); }
+nav > ul > li:nth-child(6)::first-letter { color: var(--wings-6-color); }
+nav > ul > li:nth-child(7)::first-letter { color: var(--wings-7-color); }
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.1);
 }
