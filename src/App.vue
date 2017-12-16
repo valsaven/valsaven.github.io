@@ -8,63 +8,24 @@
     </header>
       <div class="wrapper">
         <!-- Menu -->
-        <nav>
-          <header>
-            <h2>Menu</h2>
-          </header>
-          <ul>
-            <li class="grow" v-for="(item, i) in menu" :key=i>
-              <router-link :to=item.path>{{item.name}}</router-link>
-            </li>
-          </ul>
-        </nav>
+        <main-menu></main-menu>
         <!-- Main block -->
-        <article>
-          <header>
-            <h2>{{$route.name}}</h2>
-          </header>
-          <router-view></router-view>
-        </article>
+        <main-block></main-block>
       </div>
   </div>
 </template>
 
 <script>
+  import MainMenu from './components/MainMenu.vue';
+  import MainBlock from './components/MainBlock.vue';
+
   export default {
     name: 'app',
+    components: {
+      MainMenu, MainBlock
+    },
     data() {
-     return {
-        menu: [
-          {
-            path: '/',
-            name: 'Home',
-          },
-          {
-            path: '/programming',
-            name: 'Programming',
-          },
-          {
-            path: '/anime',
-            name: 'Anime',
-          },
-          {
-            path: '/movies',
-            name: 'Movies',
-          },
-          {
-            path: '/books',
-            name: 'Books',
-          },
-          {
-            path: '/photography',
-            name: 'Photography',
-          },
-          {
-            path: '/contacts',
-            name: 'Contacts',
-          },
-        ],
-     }
+     return {}
     },
   };
 </script>
