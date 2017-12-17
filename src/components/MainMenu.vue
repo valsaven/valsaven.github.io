@@ -4,9 +4,12 @@
             <h2>Menu</h2>
         </header>
         <ul class="menu-list">
-            <li class="grow menu-list-item" @click="setActive(item.name)" :class="{ active: isActive(item.name) }" v-for="(item, i) in menu"
-                :key=i>
-                <router-link :to=item.path>{{item.name}}</router-link>
+            <li class="grow menu-list-item"
+                :class="{ active: isActive(item.name) }"
+                v-for="(item, i) in menu" :key="i"
+                @click="setActive(item.name)"
+            >
+                <router-link :to="item.path">{{item.name}}</router-link>
             </li>
         </ul>
     </nav>

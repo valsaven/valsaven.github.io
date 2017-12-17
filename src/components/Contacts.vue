@@ -1,6 +1,6 @@
 <template>
 <ul class="contacts">
-  <li class="contact" v-for="(item, i) in contacts" :key=i>
+  <li class="contact" v-for="(item, i) in contacts" :key="i">
     <i :class="item.icon"></i>
     <a :href="item.href" target="_blank" :title="item.title">{{item.label}}</a>
   </li>

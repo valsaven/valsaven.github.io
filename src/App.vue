@@ -22,7 +22,8 @@
   export default {
     name: 'app',
     components: {
-      MainMenu, MainBlock
+      MainMenu,
+      MainBlock
     },
     data() {
      return {}
