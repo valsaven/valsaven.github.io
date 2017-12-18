@@ -1,0 +1,82 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+:root {
+    --main-text-color: #fffffa;
+    --main-bg-color: #222;
+    --head-bg-color: #41B883;
+    --body-bg-color: #35495E;
+
+    --wings-1-color: #45ccca;
+    --wings-2-color: #8fd67a;
+    --wings-3-color: #e5d59a;
+    --wings-4-color: #e7966a;
+    --wings-5-color: #ed5589;
+    --wings-6-color: #b565c6;
+    --wings-7-color: #7392ec;
+}
+
+/* Flandre Theme */
+/* :root {
+    --main-text-color: #fffffa;
+    --main-bg-color: #941737;
+    --head-bg-color: #cf343e;
+    --body-bg-color: #b51833;
+
+    --wings-1-color: #45ccca;
+    --wings-2-color: #8fd67a;
+    --wings-3-color: #e5d59a;
+    --wings-4-color: #e7966a;
+    --wings-5-color: #ed5589;
+    --wings-6-color: #b565c6;
+    --wings-7-color: #7392ec;
+} */
+
+body {
+    background: var(--main-bg-color);
+    font-family: sans-serif;
+}
+
+h1,
+h2,
+a {
+    color: var(--main-text-color);
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#app > header > h1 {
+    font-family: "Poiret One", sans-serif;
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.wrapper {
+    display: flex;
+    background-color: var(--body-bg-color);
+    flex-wrap: wrap;
+}
+
+.menu > header,
+.block > header {
+    background-color: #41B883;
+}
+
+/* TODO: Remove */
+.wrapper > article > div {
+    background-color: #fff;
+}
