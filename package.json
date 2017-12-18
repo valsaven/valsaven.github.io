@@ -13,6 +13,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -23,6 +24,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "file-loader": "^1.1.6",
+    "postcss-loader": "^2.0.9",
     "vue-loader": "^13.6.0",
     "vue-template-compiler": "^2.5.11",
     "webpack": "^3.10.0",
