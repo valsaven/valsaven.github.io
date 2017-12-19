@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <header>
       <h1>
         <a href="/" title="Val Saven. Software Developer">Val Saven</a>
@@ -12,7 +12,7 @@
         <!-- Main block -->
         <main-block></main-block>
       </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -32,5 +32,6 @@
 </script>
 
 <style lang="css">
+  @import '../node_modules/vuetify/dist/vuetify.min.css';
   @import './assets/style/App.css';
 </style>
