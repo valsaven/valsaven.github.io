@@ -36,5 +36,6 @@
   .home-item {
     border: 1px solid var(--head-bg-color);
     margin: 20px;
+    padding: 10px;
   }
 </style>

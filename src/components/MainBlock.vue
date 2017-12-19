@@ -24,4 +24,11 @@
     flex-direction: column;
     flex: 4;
   }
+
+  .block > header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+  }
 </style>

@@ -72,6 +72,13 @@
     background-color: var(--main-bg-color);
   }
 
+  .menu > header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+  }
+
   .menu-list-item::first-letter {
     font-weight: bold;
   }
