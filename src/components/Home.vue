@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="block-body home">
     <div class="home-item">
       <h1>Site overview</h1>
       <p>This website is a homepage of Val Saven.</p>
@@ -24,10 +24,6 @@
 </script>
 
 <style scoped>
-  .home {
-    background-color: var(--body-bg-color);
-  }
-
   .home p {
     color: var(--main-text-color);
     margin: 10px 20px;

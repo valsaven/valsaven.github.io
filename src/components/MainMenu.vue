@@ -26,26 +26,26 @@
             path: '/',
             name: 'Home',
           },
-          // {
-          //   path: '/programming',
-          //   name: 'Programming',
-          // },
-          // {
-          //   path: '/anime',
-          //   name: 'Anime',
-          // },
-          // {
-          //   path: '/movies',
-          //   name: 'Movies',
-          // },
-          // {
-          //   path: '/books',
-          //   name: 'Books',
-          // },
-          // {
-          //   path: '/photography',
-          //   name: 'Photography',
-          // },
+          {
+            path: '/programming',
+            name: 'Programming',
+          },
+          {
+            path: '/anime',
+            name: 'Anime',
+          },
+          {
+            path: '/movies',
+            name: 'Movies',
+          },
+          {
+            path: '/books',
+            name: 'Books',
+          },
+          {
+            path: '/photography',
+            name: 'Photography',
+          },
           {
             path: '/contacts',
             name: 'Contacts',

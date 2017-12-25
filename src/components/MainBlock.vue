@@ -31,4 +31,8 @@
     align-items: center;
     height: 68px;
   }
+
+  .block-body {
+    background-color: var(--body-bg-color);
+  }
 </style>
