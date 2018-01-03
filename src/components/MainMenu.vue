@@ -20,8 +20,8 @@
     name: 'main-menu',
     data() {
       return {
-          activeItem: 'Home',
-          menu: [
+        activeItem: this.$route.name,
+        menu: [
           {
             path: '/',
             name: 'Home',
@@ -53,7 +53,15 @@
         ],
       };
     },
-        methods: {
+    watch: {
+      '$route.name' () {
+        this.updateActiveItem();
+      }
+    },
+    methods: {
+      updateActiveItem() {
+        return this.activeItem = this.$route.name;
+      },
       isActive: function (menuItem) {
         return this.activeItem === menuItem
       },
