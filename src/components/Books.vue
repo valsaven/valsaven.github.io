@@ -9,11 +9,56 @@
         v-model="search"
       ></v-text-field>
     </v-card-title>
-    <v-data-table
-        v-bind:headers="headers"
-        v-bind:items="books"
-        v-bind:search="search"
+    <v-data-iterator
+        content-tag="v-layout"
+        row wrap
+        :items="books"
+        :search="search"
+        :rows-per-page-items="rowsPerPageItems"
+        :pagination.sync="pagination"
       >
+
+       <v-flex slot="item" slot-scope="props" xs12 sm6 md4 lg3>
+        <v-card>
+          <v-card-title>
+            <h4>{{ props.item.title }}</h4>
+          </v-card-title>
+
+          <v-divider></v-divider>
+
+          <v-list dense>
+            <v-list-tile>
+              <v-list-tile-content>Author:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.author }}</v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile>
+              <v-list-tile-content>Year:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.year }}</v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile>
+              <v-list-tile-content>Date read:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.dateRead }}</v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile>
+              <v-list-tile-content>Rating:</v-list-tile-content>
+              <v-list-tile-content class="align-end">
+                <div class="rating">
+                  <i class="material-icons star">star_rate</i>{{ props.item.rating }}
+                </div>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile>
+              <v-list-tile-content>Comment:</v-list-tile-content>
+              <v-list-tile-content class="align-end">{{ props.item.comment }}</v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
+
       <template slot="items" slot-scope="props">
         <td class="text-xs-center">{{ props.item.title }}</td>
         <td class="text-xs-center">{{ props.item.author }}</td>
@@ -27,10 +72,7 @@
         </td>
         <td class="text-xs-right">{{ props.item.comment }}</td>
       </template>
-      <template slot="pageText" slot-scope="{ pageStart, pageStop }">
-        From {{ pageStart }} to {{ pageStop }}
-      </template>
-    </v-data-table>
+    </v-data-iterator>
   </v-card>
 </template>
 
@@ -42,15 +84,10 @@ export default {
   data() {
     return {
       search: '',
-      pagination: {},
-      headers: [
-        { text: 'Title', value: 'title', align: 'center' },
-        { text: 'Author', value: 'author', align: 'center' },
-        { text: 'Year', value: 'year', align: 'center' },
-        { text: 'Date read', value: 'dateRead', align: 'center' },
-        { text: 'Rating', value: 'rating', align: 'center' },
-        { text: 'Comment', value: 'comment', align: 'center' },
-      ],
+      rowsPerPageItems: [4, 8, 12],
+      pagination: {
+        rowsPerPage: 4,
+      },
       books: booksList,
     };
   },
@@ -65,6 +102,7 @@ export default {
 .rating {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .star {
