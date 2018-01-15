@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallow } from '@vue/test-utils';
 import App from '../src/App.vue';
 
 describe('App.vue', () => {
