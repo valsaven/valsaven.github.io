@@ -1,4 +1,4 @@
-import { shallow } from 'vue-test-utils';
+import { shallow } from '@vue/test-utils';
 import Home from '../src/components/Home.vue';
 
 describe('Home.vue', () => {
