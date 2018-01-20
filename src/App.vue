@@ -16,22 +16,22 @@
 </template>
 
 <script>
-  import MainMenu from './components/MainMenu.vue';
-  import MainBlock from './components/MainBlock.vue';
+import MainMenu from './components/MainMenu.vue';
+import MainBlock from './components/MainBlock.vue';
 
-  export default {
-    name: 'app',
-    components: {
-      MainMenu,
-      MainBlock
-    },
-    data() {
-     return {}
-    },
-  };
+export default {
+  name: 'app',
+  components: {
+    MainMenu,
+    MainBlock,
+  },
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style lang="css">
-  @import '../node_modules/vuetify/dist/vuetify.min.css';
-  @import './assets/style/App.css';
+@import '../node_modules/vuetify/dist/vuetify.min.css';
+@import './assets/style/App.css';
 </style>
