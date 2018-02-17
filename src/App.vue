@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" dark>
     <header>
       <h1>
         <a href="/" title="Val Saven. Software Developer">Val Saven</a>
