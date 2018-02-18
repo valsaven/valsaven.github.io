@@ -29,9 +29,9 @@
     margin: 10px 20px;
   }
 
-  .home-item {
-    border: 1px solid var(--head-bg-color);
-    margin: 20px;
-    padding: 10px;
-  }
+.home-item {
+  margin: 20px;
+  padding: 10px;
+  background-color: #353535;
+}
 </style>
