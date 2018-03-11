@@ -1,4 +1,5 @@
 module.exports = [
+  // Toradora
   {
     title: 'とらドラ! (とらドラ! [Toradora!] Light Novel #1)',
     author: 'Takemiya, Yuyuko',
@@ -79,6 +80,7 @@ module.exports = [
     rating: 10,
     comment: '',
   },
+  // Harry Potter
   {
     title: "Harry Potter and the Sorcerer's Stone (Harry Potter #1)",
     author: 'Rowling, J.K.',
@@ -135,6 +137,7 @@ module.exports = [
     rating: 7,
     comment: '',
   },
+  // Темный лорд
   {
     title: 'Тёмный Лорд (Темный Лорд #1)',
     author: 'Прозоров, Александр',
@@ -151,6 +154,7 @@ module.exports = [
     rating: 10,
     comment: '',
   },
+  // Bartimaeus Sequence
   {
     title: 'The Amulet of Samarkand (Bartimaeus #1)',
     author: 'Stroud, Jonathan',
@@ -231,6 +235,7 @@ module.exports = [
     rating: 6,
     comment: '',
   },
+  // Metro Book Series
   {
     title: 'Metro 2033 (Метро #1)',
     author: 'Glukhovsky, Dmitry',
