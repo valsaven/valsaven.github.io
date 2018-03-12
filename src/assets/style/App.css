@@ -32,6 +32,10 @@
   --wings-7-color: #7392ec;
 } */
 
+html {
+  font-size: 16px;
+}
+
 body {
   background: var(--main-bg-color);
   font-family: sans-serif;
