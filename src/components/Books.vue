@@ -111,7 +111,8 @@ export default {
   created() {
     axios
       .get(
-        'https://www.goodreads.com/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
+        // Goodreads API doesn't give the right headers. They can't fix it for 3 years. Brilliant!
+        'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/GoodReadsProxy/gr/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
       )
       .then(res => {
         const booksInJson = xml2json.xml2json(res.data, {
