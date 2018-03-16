@@ -10,9 +10,11 @@
       ></v-text-field>
     </v-card-title>
     <v-container class="books-list" fluid grid-list-md>
+      <v-progress-linear :indeterminate="true" id="books-loader"></v-progress-linear>
       <v-data-iterator
           content-tag="v-layout"
           row wrap
+          no-data-text="Loading..."
           :items="books"
           :search="search"
           :rows-per-page-items="rowsPerPageItems"
@@ -21,6 +23,9 @@
 
         <v-flex slot="item" slot-scope="props" xs12 sm6 md4 lg3>
           <v-card>
+             <a :href="props.item.link" target="_blank">
+               <v-card-media :src="props.item.img" height="213px" class="book-cover"></v-card-media>
+             </a>
             <v-card-title>
               <h4>{{ props.item.title }}</h4>
             </v-card-title>
@@ -51,11 +56,6 @@
                   </div>
                 </v-list-tile-content>
               </v-list-tile>
-
-              <v-list-tile>
-                <v-list-tile-content>Comment:</v-list-tile-content>
-                <v-list-tile-content class="align-end">{{ props.item.comment }}</v-list-tile-content>
-              </v-list-tile>
             </v-list>
           </v-card>
         </v-flex>
@@ -71,7 +71,6 @@
               {{ props.item.rating }}
             </v-container>
           </td>
-          <td class="text-xs-right">{{ props.item.comment }}</td>
         </template>
       </v-data-iterator>
     </v-container>
@@ -79,7 +78,23 @@
 </template>
 
 <script>
-import booksList from './lists/booksList';
+import axios from 'axios';
+import moment from 'moment';
+import xml2json from 'xml-js';
+
+import bookIcon from '../assets/icons/book.png';
+
+class Book {
+  constructor(img, link, title, author, year, dateRead, rating) {
+    this.img = img.includes('nophoto') ? bookIcon : img;
+    this.link = link;
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.dateRead = dateRead;
+    this.rating = rating;
+  }
+}
 
 export default {
   name: 'books',
@@ -90,8 +105,45 @@ export default {
       pagination: {
         rowsPerPage: 4,
       },
-      books: booksList,
+      books: [],
     };
+  },
+  created() {
+    axios
+      .get(
+        'https://www.goodreads.com/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
+      )
+      .then(res => {
+        const booksInJson = xml2json.xml2json(res.data, {
+          compact: true,
+          spaces: 4,
+          ignoreDeclaration: true,
+          ignoreInstruction: true,
+        });
+
+        const data = JSON.parse(booksInJson).GoodreadsResponse.reviews.review;
+
+        data.forEach(i => {
+          const img = i.book.image_url._text;
+          const link = i.book.link._text;
+          const title = i.book.title._text;
+          const author = i.book.authors.author.name._text;
+          const year = i.book.published._text;
+          const dateRead = moment(new Date().setTime(Date.parse(i.date_added._text))).format(
+            'MMMM Do YYYY',
+          );
+          const rating = Number(i.rating._text);
+
+          const book = new Book(img, link, title, author, year, dateRead, rating);
+
+          this.books.push(book);
+        });
+
+        document.getElementById('books-loader').style.display = 'none';
+      })
+      .catch(e => {
+        console.log(`Error: ${e}`);
+      });
   },
 };
 </script>
@@ -101,6 +153,11 @@ export default {
 .books-list,
 .table {
   background-color: var(--body-bg-color);
+}
+
+.card .book-cover {
+  margin: auto;
+  max-width: 150px;
 }
 
 .rating {
