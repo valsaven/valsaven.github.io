@@ -109,13 +109,14 @@ export default {
     };
   },
   created() {
-    axios
-      .get(
+    async function getBooks() {
+      try {
+        const xmlData = await axios.get(
         // Goodreads API doesn't give the right headers. They can't fix it for 3 years. Brilliant!
         'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/GoodReadsProxy/gr/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
-      )
-      .then(res => {
-        const booksInJson = xml2json.xml2json(res.data, {
+      );
+
+      const booksInJson = xml2json.xml2json(xmlData.data, {
           compact: true,
           spaces: 4,
           ignoreDeclaration: true,
@@ -141,10 +142,13 @@ export default {
         });
 
         document.getElementById('books-loader').style.display = 'none';
-      })
-      .catch(e => {
+
+      } catch (e) {
         console.log(`Error: ${e}`);
-      });
+      }
+    }
+
+    getBooks.call(this);
   },
 };
 </script>
