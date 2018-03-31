@@ -111,38 +111,49 @@ export default {
   created() {
     async function getBooks() {
       try {
-        const xmlData = await axios.get(
-        // Goodreads API doesn't give the right headers. They can't fix it for 3 years. Brilliant!
-        'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/GoodReadsProxy/gr/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
-      );
+        const books = JSON.parse(localStorage.getItem('books'));
 
-      const booksInJson = xml2json.xml2json(xmlData.data, {
+        const xmlData = await axios.get(
+          // Goodreads API doesn't give the right headers. They can't fix it for 3 years. Brilliant!
+          'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/GoodReadsProxy/gr/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
+        );
+
+        const booksInJson = xml2json.xml2json(xmlData.data, {
           compact: true,
           spaces: 4,
           ignoreDeclaration: true,
           ignoreInstruction: true,
         });
 
-        const data = JSON.parse(booksInJson).GoodreadsResponse.reviews.review;
+        const actualBooksCount = Number(
+          JSON.parse(booksInJson).GoodreadsResponse.reviews._attributes.total,
+        );
 
-        data.forEach(i => {
-          const img = i.book.image_url._text;
-          const link = i.book.link._text;
-          const title = i.book.title._text;
-          const author = i.book.authors.author.name._text;
-          const year = i.book.published._text;
-          const dateRead = moment(new Date().setTime(Date.parse(i.date_added._text))).format(
-            'MMMM Do YYYY',
-          );
-          const rating = Number(i.rating._text);
+        if (books && books.length === actualBooksCount) {
+          this.books = books;
+        } else {
+          const data = JSON.parse(booksInJson).GoodreadsResponse.reviews.review;
 
-          const book = new Book(img, link, title, author, year, dateRead, rating);
+          data.forEach(i => {
+            const img = i.book.image_url._text;
+            const link = i.book.link._text;
+            const title = i.book.title._text;
+            const author = i.book.authors.author.name._text;
+            const year = i.book.published._text;
+            const dateRead = moment(new Date().setTime(Date.parse(i.date_added._text))).format(
+              'MMMM Do YYYY',
+            );
+            const rating = Number(i.rating._text);
 
-          this.books.push(book);
-        });
+            const book = new Book(img, link, title, author, year, dateRead, rating);
+
+            this.books.push(book);
+          });
+
+          localStorage.setItem('books', JSON.stringify(this.books));
+        }
 
         document.getElementById('books-loader').style.display = 'none';
-
       } catch (e) {
         console.log(`Error: ${e}`);
       }
