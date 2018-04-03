@@ -27,7 +27,11 @@
                <v-card-media :src="props.item.img" height="213px" class="book-cover"></v-card-media>
              </a>
             <v-card-title>
-              <h4>{{ props.item.title }}</h4>
+              <v-tooltip bottom>
+                <h4 slot="activator" class="book-title">{{ props.item.title }}</h4>
+                <span >{{ props.item.title }}</span>
+              </v-tooltip>
+
             </v-card-title>
 
             <v-divider></v-divider>
@@ -169,6 +173,14 @@ export default {
 .books-list,
 .table {
   background-color: var(--body-bg-color);
+}
+
+.book-title {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 180px;
 }
 
 .card .book-cover {
