@@ -1,5 +1,5 @@
 import { shallow } from '@vue/test-utils';
-import App from '../src/App.vue';
+import App from '@/App.vue';
 
 describe('App.vue', () => {
   it('header has correct text', () => {

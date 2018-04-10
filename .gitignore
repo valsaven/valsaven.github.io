@@ -18,3 +18,7 @@ codealike.json
 
 # Webpack Stats
 stats.json
+
+# Tests
+.nyc_output
+coverage

@@ -1,5 +1,5 @@
 import { shallow } from '@vue/test-utils';
-import Home from '../src/components/Home.vue';
+import Home from '@/components/Home.vue';
 
 describe('Home.vue', () => {
   it('header has correct text', () => {
