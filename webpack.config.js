@@ -51,6 +51,7 @@ module.exports = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
+      '@': path.resolve(__dirname, 'src'),
     },
     extensions: ['*', '.js', '.vue', '.json'],
   },
@@ -63,3 +64,9 @@ module.exports = {
     hints: false,
   },
 };
+
+// Tests setup
+if (process.env.NODE_ENV === 'test') {
+  module.exports.externals = [require('webpack-node-externals')()];
+  module.exports.devtool = 'eval';
+}
