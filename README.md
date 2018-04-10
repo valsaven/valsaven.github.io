@@ -7,7 +7,7 @@ Val's Homepage
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm i
 
@@ -16,4 +16,7 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+# run tests
+npm run test
 ```
