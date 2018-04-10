@@ -1,13 +1,29 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false,
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false,
+            "targets": { "node": "current" }
+          }
+        ]
+      ],
+      "plugins": ["istanbul"]
+    }
+  }
 }
