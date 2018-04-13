@@ -59,7 +59,7 @@ a {
 #app {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  max-width: 60%;
   margin: 0 auto;
   background-color: var(--main-bg-color);
 }
