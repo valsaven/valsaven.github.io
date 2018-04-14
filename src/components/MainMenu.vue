@@ -31,6 +31,10 @@
             name: 'Programming',
           },
           {
+            path: '/games',
+            name: 'Games',
+          },
+          {
             path: '/anime',
             name: 'Anime',
           },
@@ -99,6 +103,7 @@
   .menu-list-item:nth-child(5)::first-letter { color: var(--wings-5-color); }
   .menu-list-item:nth-child(6)::first-letter { color: var(--wings-6-color); }
   .menu-list-item:nth-child(7)::first-letter { color: var(--wings-7-color); }
+  .menu-list-item:nth-child(8)::first-letter { color: var(--wings-8-color); }
 
   /* Hover animation  */
   .grow {

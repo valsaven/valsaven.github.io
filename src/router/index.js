@@ -6,6 +6,7 @@ import Home from '../components/Home';
 import Anime from '../components/Anime';
 import Books from '../components/Books';
 import Contacts from '../components/Contacts';
+import Games from '../components/Games';
 import Movies from '../components/Movies';
 import Photography from '../components/Photography';
 import Programming from '../components/Programming';
@@ -18,6 +19,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
+    },
+    {
+      path: '/games',
+      name: 'Games',
+      component: Games,
     },
     {
       path: '/anime',
