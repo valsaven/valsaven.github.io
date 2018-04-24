@@ -107,12 +107,20 @@ export default {
   background-color: var(--body-bg-color);
 }
 
+.card__title {
+  width: 100%;
+  width: fill-available;
+}
+
+.tooltip {
+  width: inherit;
+}
+
 .game-title {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 180px;
 }
 
 .card .game-cover {
