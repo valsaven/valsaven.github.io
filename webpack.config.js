@@ -1,4 +1,5 @@
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -29,10 +30,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {},
-          // other vue-loader options go here
-        },
       },
       {
         test: /\.js$/,
@@ -63,6 +60,7 @@ module.exports = {
   performance: {
     hints: false,
   },
+  plugins: [new VueLoaderPlugin()],
 };
 
 // Tests setup
