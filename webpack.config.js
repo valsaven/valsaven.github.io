@@ -1,5 +1,7 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const FriendlyFormatter = require('eslint-friendly-formatter');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -10,6 +12,16 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [path.resolve('src')],
+        options: {
+          formatter: FriendlyFormatter,
+          emitWarning: true, // Не останавливать сборку при обнаружении ошибки
+        },
+      },
       {
         test: /\.css$/,
         use: [
@@ -60,7 +72,10 @@ module.exports = {
   performance: {
     hints: false,
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new FriendlyErrorsPlugin(),
+  ],
 };
 
 // Tests setup
