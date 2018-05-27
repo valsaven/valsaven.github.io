@@ -2,43 +2,69 @@
   <v-card dark>
     <v-card-title class="search">
       <v-text-field
+        v-model="search"
         append-icon="search"
         label="Search"
         single-line
         hide-details
-        v-model="search"
-      ></v-text-field>
+      />
     </v-card-title>
-    <v-container class="games-list" fluid grid-list-md>
-      <v-progress-linear :indeterminate="true" id="games-loader"></v-progress-linear>
+
+    <v-container
+      class="games-list"
+      fluid
+      grid-list-md
+    >
+      <v-progress-linear
+        id="games-loader"
+        :indeterminate="true"
+      />
       <v-data-iterator
-        content-tag="v-layout"
-        row
-        wrap
-        no-data-text="Loading..."
         :items="games"
         :search="search"
         :rows-per-page-items="rowsPerPageItems"
         :pagination.sync="pagination"
+        content-tag="v-layout"
+        row
+        wrap
+        no-data-text="Loading..."
       >
-        <v-flex slot="item" slot-scope="props" xs12 sm6 md4 lg3>
+        <v-flex
+          slot="item"
+          slot-scope="props"
+          xs12
+          sm6
+          md4
+          lg3
+        >
           <v-card>
-            <a :href="props.item.link" target="_blank">
+            <a
+              :href="props.item.link"
+              target="_blank"
+            >
               <v-card-media
                 :src="`${imageURL}/${props.item.appid}/${props.item.img_logo_url}.jpg`"
                 height="213px"
                 class="game-cover"
-              ></v-card-media>
+              />
             </a>
             <v-card-title>
               <v-tooltip bottom>
-                <h5 slot="activator" class="game-title">{{ props.item.name }}</h5>
+                <h5
+                  slot="activator"
+                  class="game-title"
+                >
+                  {{ props.item.name }}
+                </h5>
                 <span>{{ props.item.name }}</span>
               </v-tooltip>
             </v-card-title>
           </v-card>
         </v-flex>
-        <template slot="items" slot-scope="props">
+        <template
+          slot="items"
+          slot-scope="props"
+        >
           <td class="text-xs-center">{{ props.item.name }}</td>
           <td class="text-xs-center">{{ props.item.playtime_forever }}</td>
         </template>
@@ -49,9 +75,10 @@
 
 <script>
 import axios from 'axios';
+import oneLineTrim from 'common-tags/es/oneLineTrim';
 
 export default {
-  name: 'games',
+  name: 'Games',
   data() {
     return {
       search: '',
@@ -71,11 +98,16 @@ export default {
       try {
         const games = JSON.parse(localStorage.getItem('games'));
 
-        const req = await axios.get(
-          `https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/proxy/stm/IPlayerService/GetOwnedGames/v0001/?key=${
-            this.apiKey
-          }&include_played_free_games=1&include_appinfo=1&format=json&steamid=${this.steamID}`,
-        );
+        const link = 'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/proxy/stm/IPlayerService/GetOwnedGames/v0001/';
+        const options = oneLineTrim`
+          ?key=${this.apiKey}
+          &include_played_free_games=1
+          &include_appinfo=1
+          &format=json
+          &steamid=${this.steamID}
+          `;
+
+        const req = await axios.get(`${link}${options}`);
 
         const res = req.data.response;
 

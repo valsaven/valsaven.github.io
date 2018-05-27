@@ -10,9 +10,9 @@ Vue.use(Vuetify, {
   },
 });
 
-new Vue({
+new Vue({ // eslint-disable-line no-new
   el: '#app',
   router,
-  template: '<App/>',
   components: { App },
+  template: '<App/>',
 });

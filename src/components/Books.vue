@@ -2,39 +2,62 @@
   <v-card dark>
     <v-card-title class="search">
       <v-text-field
+        v-model="search"
         append-icon="search"
         label="Search"
         single-line
         hide-details
-        v-model="search"
-      ></v-text-field>
+      />
     </v-card-title>
-    <v-container class="books-list" fluid grid-list-md>
-      <v-progress-linear :indeterminate="true" id="books-loader"></v-progress-linear>
+    <v-container
+      class="books-list"
+      fluid
+      grid-list-md
+    >
+      <v-progress-linear
+        id="books-loader"
+        :indeterminate="true"
+      />
       <v-data-iterator
-          content-tag="v-layout"
-          row wrap
-          no-data-text="Loading..."
-          :items="books"
-          :search="search"
-          :rows-per-page-items="rowsPerPageItems"
-          :pagination.sync="pagination"
+        :items="books"
+        :search="search"
+        :rows-per-page-items="rowsPerPageItems"
+        :pagination.sync="pagination"
+        content-tag="v-layout"
+        row
+        wrap
+        no-data-text="Loading..."
+      >
+        <v-flex
+          slot="item"
+          slot-scope="props"
+          xs12
+          sm6
+          md4
+          lg3
         >
-
-        <v-flex slot="item" slot-scope="props" xs12 sm6 md4 lg3>
           <v-card>
-             <a :href="props.item.link" target="_blank">
-               <v-card-media :src="props.item.img" height="213px" class="book-cover"></v-card-media>
-             </a>
+            <a
+              :href="props.item.link"
+              target="_blank">
+              <v-card-media
+                :src="props.item.img"
+                height="213px"
+                class="book-cover"
+              />
+            </a>
             <v-card-title>
               <v-tooltip bottom>
-                <h4 slot="activator" class="book-title">{{ props.item.title }}</h4>
-                <span >{{ props.item.title }}</span>
+                <h4
+                  slot="activator"
+                  class="book-title"
+                >
+                  {{ props.item.title }}
+                </h4>
+                <span>{{ props.item.title }}</span>
               </v-tooltip>
-
             </v-card-title>
-
-            <v-divider></v-divider>
+            <v-divider/>
 
             <v-list dense>
               <v-list-tile>
@@ -64,7 +87,10 @@
           </v-card>
         </v-flex>
 
-        <template slot="items" slot-scope="props">
+        <template
+          slot="items"
+          slot-scope="props"
+        >
           <td class="text-xs-center">{{ props.item.title }}</td>
           <td class="text-xs-center">{{ props.item.author }}</td>
           <td class="text-xs-center">{{ props.item.year }}</td>
@@ -101,7 +127,7 @@ class Book {
 }
 
 export default {
-  name: 'books',
+  name: 'Books',
   data() {
     return {
       search: '',
@@ -117,10 +143,8 @@ export default {
       try {
         const books = JSON.parse(localStorage.getItem('books'));
 
-        const xmlData = await axios.get(
-          // Goodreads API doesn't give the right headers. They can't fix it for 3 years. Brilliant!
-          'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/proxy/gr/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1',
-        );
+        // Goodreads API doesn't give the right headers. They can't fix it for 3 years. Brilliant!
+        const xmlData = await axios.get('https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/proxy/gr/review/list/22911991?key=aZfzScxYHwb0s5nrnhpXg&v=2&shelf=read&per_page=200&page=1');
 
         const booksInJson = xml2json.xml2json(xmlData.data, {
           compact: true,
@@ -129,24 +153,20 @@ export default {
           ignoreInstruction: true,
         });
 
-        const actualBooksCount = Number(
-          JSON.parse(booksInJson).GoodreadsResponse.reviews._attributes.total,
-        );
+        const actualBooksCount = Number(JSON.parse(booksInJson).GoodreadsResponse.reviews._attributes.total);
 
         if (books && books.length === actualBooksCount) {
           this.books = books;
         } else {
           const data = JSON.parse(booksInJson).GoodreadsResponse.reviews.review;
 
-          data.forEach(i => {
+          data.forEach((i) => {
             const img = i.book.image_url._text;
             const link = i.book.link._text;
             const title = i.book.title._text;
             const author = i.book.authors.author.name._text;
             const year = i.book.published._text;
-            const dateRead = moment(new Date().setTime(Date.parse(i.date_added._text))).format(
-              'MMMM Do YYYY',
-            );
+            const dateRead = moment(new Date().setTime(Date.parse(i.date_added._text))).format('MMMM Do YYYY');
             const rating = Number(i.rating._text);
 
             const book = new Book(img, link, title, author, year, dateRead, rating);

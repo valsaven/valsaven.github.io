@@ -1,17 +1,25 @@
 <template>
-  <v-app id="app" dark>
+  <v-app
+    id="app"
+    dark
+  >
     <header>
       <h1>
-        <a href="/" title="Val Saven. Software Developer">Val Saven</a>
+        <a
+          href="/"
+          title="Val Saven. Software Developer"
+        >
+          Val Saven
+        </a>
       </h1>
       <h2>Software Developer</h2>
     </header>
-      <div class="wrapper">
-        <!-- Menu -->
-        <main-menu></main-menu>
-        <!-- Main block -->
-        <main-block></main-block>
-      </div>
+    <div class="wrapper">
+      <!-- Menu -->
+      <main-menu/>
+      <!-- Main block -->
+      <main-block/>
+    </div>
   </v-app>
 </template>
 
@@ -20,7 +28,7 @@ import MainMenu from './components/MainMenu.vue';
 import MainBlock from './components/MainBlock.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     MainMenu,
     MainBlock,

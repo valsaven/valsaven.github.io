@@ -5,12 +5,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'programming',
-    data() {
-      return {};
-    },
-  };
+export default {
+  name: 'Programming',
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scoped>

@@ -15,19 +15,19 @@
 </template>
 
 <script>
-  export default {
-    name: 'home',
-    data() {
-      return {};
-    },
-  };
+export default {
+  name: 'Home',
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scoped>
-  .home p {
-    color: var(--main-text-color);
-    margin: 10px 20px;
-  }
+.home p {
+  color: var(--main-text-color);
+  margin: 10px 20px;
+}
 
 .home-item {
   margin: 20px;
