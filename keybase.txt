@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/valsaven
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://valsaven.com
+  * I am valsaven (https://keybase.io/valsaven) on keybase.
+  * I have a public key ASDcJxR63ia4LuUIAnyYuSesQP1uKTClbqjMtFh8Gm1zygo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120dc27147ade26b82ee508027c98b927ac40fd6e2930a56ea8ccb4587c1a6d73ca0a",
+      "host": "keybase.io",
+      "kid": "0120dc27147ade26b82ee508027c98b927ac40fd6e2930a56ea8ccb4587c1a6d73ca0a",
+      "uid": "ffc884d26a6d453378124cb16b3f7519",
+      "username": "valsaven"
+    },
+    "merkle_root": {
+      "ctime": 1528190178,
+      "hash": "087ff8e7885bd0652dc2409bdf359d8af1b9ceab5d1c050d035ea0b76784f4e98265a38cb3e3791ed21b4f9e3c72ce22d3319b580ed8c76f9c67cac7010b385a",
+      "hash_meta": "b6b8f6edcbcff974e8f5e224e63a7fcc82bc12a742e92a3108f76c40e310ba25",
+      "seqno": 2997032
+    },
+    "service": {
+      "entropy": "H0AN7CvnjhcVX6uzuBDKFy9w",
+      "hostname": "valsaven.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.0.0"
+  },
+  "ctime": 1528190227,
+  "expire_in": 504576000,
+  "prev": "1bc7c293b7cb5ebd560295844f77ac5de55933997ac98b19f779689f570f6c6d",
+  "seqno": 17,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg3CcUet4muC7lCAJ8mLknrED9bikwpW6ozLRYfBptc8oKp3BheWxvYWTESpcCEcQgG8fCk7fLXr1WApWET3esXeVZM5l6yYsZ93lon1cPbG3EIMtakoRdzqwQ5qUUyicrhC4jcMG4oo+q5WvnmPYOov3jAgHCo3NpZ8RAJ48l32WF6+o+jS/S+zGJniFLPJYTdGedcX2y0yAwVX8pUZoZqWcxhRkv+PYryfONryz1m9dfmADh7BbqQ6Q0BahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIPeAIbbJAAyMCvMmYIBMKsImuZn11FZkZyNVG31bbTiao3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/valsaven
+
+==================================================================
