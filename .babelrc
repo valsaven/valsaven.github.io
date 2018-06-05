@@ -3,7 +3,7 @@
     "development": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "modules": false,
             "targets": {
@@ -16,14 +16,18 @@
     "test": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "modules": false,
-            "targets": { "node": "current" }
+            "targets": {
+              "node": "current"
+            }
           }
         ]
       ],
-      "plugins": ["istanbul"]
+      "plugins": [
+        "istanbul"
+      ]
     }
   }
 }
