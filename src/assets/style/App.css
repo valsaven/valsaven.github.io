@@ -87,3 +87,9 @@ a {
 .wrapper > article > div {
   background-color: #fff;
 }
+
+@media only screen and (max-device-width : 568px) {
+  #app {
+    max-width: 100%;
+  }
+}
