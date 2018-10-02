@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('../assets/style/contacts-icons.css');
+@import url('../assets/contacts-icons.css');
 
 .contacts {
   margin: 20px;

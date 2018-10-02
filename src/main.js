@@ -1,7 +1,16 @@
 import Vue from 'vue';
+import Vuetify from 'vuetify';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
+
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#fffffa',
+    table: '#525252',
+  },
+});
 
 Vue.config.productionTip = false;
 

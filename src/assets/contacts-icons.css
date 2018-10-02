@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'contacts';
-  src: url('../icons/contacts.woff2') format('woff2'), url('../icons/contacts.woff') format('woff'),
-    url('../icons/contacts.svg') format('svg');
+  src: url('./icons/contacts.woff2') format('woff2'), url('./icons/contacts.woff') format('woff'),
+    url('./icons/contacts.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
