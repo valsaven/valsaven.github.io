@@ -38,10 +38,11 @@ $wings-3-color: #e5d59a;
 $wings-4-color: #e7966a;
 $wings-5-color: #ed5589;
 $wings-6-color: #b565c6;
-$wings-7-color: #3366ff;
+$wings-7-color: #36f;
 $wings-8-color: #7392ec;
 
 /* Flandre Theme */
+
 /* :root {
   --main-text-color: #fffffa;
   --main-bg-color: #941737;

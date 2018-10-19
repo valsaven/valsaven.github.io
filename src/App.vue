@@ -52,7 +52,7 @@ $wings-3-color: #e5d59a;
 $wings-4-color: #e7966a;
 $wings-5-color: #ed5589;
 $wings-6-color: #b565c6;
-$wings-7-color: #3366ff;
+$wings-7-color: #36f;
 $wings-8-color: #7392ec;
 
 html {
@@ -62,31 +62,6 @@ html {
 body {
   background: $main-bg-color;
   font-family: sans-serif;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-
-  h1,
-  h2,
-  a {
-    color: $main-text-color;
-  }
-}
-
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 
 h1,
@@ -124,12 +99,7 @@ a {
   background-color: #41b883;
 }
 
-/* TODO: Remove */
-.wrapper > article > div {
-  background-color: #fff;
-}
-
-@media only screen and (max-device-width : 568px) {
+@media only screen and (max-device-width: 568px) {
   #app {
     max-width: 100%;
   }

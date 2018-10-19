@@ -42,10 +42,11 @@
               :href="props.item.link"
               target="_blank"
             >
-              <v-card-media
+              <v-img
                 :src="`${imageURL}/${props.item.appid}/${props.item.img_logo_url}.jpg`"
                 height="213px"
                 class="game-cover"
+                aspect-ratio="1"
               />
             </a>
             <v-card-title>
