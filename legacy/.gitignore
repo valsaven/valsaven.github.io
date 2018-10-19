@@ -1,0 +1,24 @@
+.DS_Store
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Codealike
+codealike.json
+
+# VSCode
+.vscode
+
+# Webpack Stats
+stats.json
+
+# Tests
+.nyc_output
+coverage

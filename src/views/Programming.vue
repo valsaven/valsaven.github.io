@@ -6,12 +6,9 @@
 
 <script>
 export default {
-  name: 'Photography',
+  name: 'Programming',
   data() {
     return {};
   },
 };
 </script>
-
-<style scoped>
-</style>

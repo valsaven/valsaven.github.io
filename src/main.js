@@ -1,18 +1,21 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-import App from './App';
+
+import App from './App.vue';
 import router from './router';
+import store from './store';
 
 Vue.use(Vuetify, {
   theme: {
-    primary: 'var(--main-text-color)',
-    table: 'var(--body-bg-color)',
+    primary: '#fffffa',
+    table: '#525252',
   },
 });
 
-new Vue({ // eslint-disable-line no-new
-  el: '#app',
+Vue.config.productionTip = false;
+
+new Vue({
   router,
-  components: { App },
-  template: '<App/>',
-});
+  store,
+  render: h => h(App),
+}).$mount('#app');

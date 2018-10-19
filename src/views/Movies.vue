@@ -6,12 +6,9 @@
 
 <script>
 export default {
-  name: 'Programming',
+  name: 'Movies',
   data() {
     return {};
   },
 };
 </script>
-
-<style scoped>
-</style>

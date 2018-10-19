@@ -42,13 +42,14 @@
               :href="props.item.link"
               target="_blank"
             >
-              <v-card-media
+              <v-img
                 :src="`${imageURL}/${props.item.appid}/${props.item.img_logo_url}.jpg`"
                 height="213px"
                 class="game-cover"
+                aspect-ratio="1"
               />
             </a>
-            <v-card-title>
+            <v-card-text>
               <v-tooltip bottom>
                 <h5
                   slot="activator"
@@ -58,7 +59,7 @@
                 </h5>
                 <span>{{ props.item.name }}</span>
               </v-tooltip>
-            </v-card-title>
+            </v-card-text>
           </v-card>
         </v-flex>
         <template
