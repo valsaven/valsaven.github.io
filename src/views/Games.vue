@@ -37,37 +37,22 @@
           md4
           lg3
         >
-          <v-card>
-            <a
-              :href="props.item.link"
-              target="_blank"
-            >
-              <v-img
-                :src="`${imageURL}/${props.item.appid}/${props.item.img_logo_url}.jpg`"
-                :contain="true"
-                class="game-cover"
-                aspect-ratio="1"
-              />
-            </a>
-            <v-card-text>
-              <v-tooltip bottom>
-                <h5
-                  slot="activator"
-                  class="game-title"
-                >
-                  {{ props.item.name }}
-                </h5>
-                <span>{{ props.item.name }}</span>
-              </v-tooltip>
-            </v-card-text>
-          </v-card>
+          <game-card
+            :game="props.item"
+          />
         </v-flex>
         <template
           slot="items"
           slot-scope="props"
         >
-          <td class="text-xs-center">{{ props.item.name }}</td>
-          <td class="text-xs-center">{{ props.item.playtime_forever }}</td>
+          <td
+            class="text-xs-center"
+            v-text="props.item.name"
+          />
+          <td
+            class="text-xs-center"
+            v-text="props.item.playtime_forever"
+          />
         </template>
       </v-data-iterator>
     </v-container>
@@ -78,8 +63,13 @@
 import axios from 'axios';
 import oneLineTrim from 'common-tags/es/oneLineTrim';
 
+import GameCard from '../components/GameCard.vue';
+
 export default {
   name: 'Games',
+  components: {
+    gameCard: GameCard,
+  },
   data() {
     return {
       search: '',
@@ -91,7 +81,6 @@ export default {
       games: [],
       apiKey: '4E1F1A228D42C10C36263E8F46176A33',
       steamID: '76561198076053493',
-      imageURL: 'http://media.steampowered.com/steamcommunity/public/images/apps',
     };
   },
   created() {
