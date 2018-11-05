@@ -40,13 +40,13 @@
             <a
               :href="props.item.link"
               target="_blank">
-              <v-card-media
+              <v-img
                 :src="props.item.img"
-                height="213px"
+                :contain="true"
                 class="book-cover"
               />
             </a>
-            <v-card-title>
+            <v-card-text>
               <v-tooltip bottom>
                 <h4
                   slot="activator"
@@ -56,7 +56,7 @@
                 </h4>
                 <span>{{ props.item.title }}</span>
               </v-tooltip>
-            </v-card-title>
+            </v-card-text>
             <v-divider/>
 
             <v-list dense>
@@ -211,8 +211,9 @@ export default {
   white-space: nowrap;
 }
 
-.card .book-cover {
+.v-card .book-cover {
   margin: auto;
+  max-height: 213px;
   max-width: 150px;
 }
 
@@ -223,7 +224,7 @@ export default {
 }
 
 .star {
-  width: 30px;
   color: #ffc600;
+  width: 30px;
 }
 </style>
