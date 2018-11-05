@@ -36,72 +36,11 @@
           md4
           lg3
         >
-          <v-card>
-            <a
-              :href="props.item.link"
-              target="_blank">
-              <v-img
-                :src="props.item.img"
-                :contain="true"
-                class="book-cover"
-              />
-            </a>
-            <v-card-text>
-              <v-tooltip bottom>
-                <h4
-                  slot="activator"
-                  class="book-title"
-                >
-                  {{ props.item.title }}
-                </h4>
-                <span>{{ props.item.title }}</span>
-              </v-tooltip>
-            </v-card-text>
-            <v-divider/>
-
-            <v-list dense>
-              <v-list-tile>
-                <v-list-tile-content>Author:</v-list-tile-content>
-                <v-list-tile-content class="align-end">{{ props.item.author }}</v-list-tile-content>
-              </v-list-tile>
-
-              <v-list-tile>
-                <v-list-tile-content>Year:</v-list-tile-content>
-                <v-list-tile-content class="align-end">{{ props.item.year }}</v-list-tile-content>
-              </v-list-tile>
-
-              <v-list-tile>
-                <v-list-tile-content>Date read:</v-list-tile-content>
-                <v-list-tile-content class="align-end">{{ props.item.dateRead }}</v-list-tile-content>
-              </v-list-tile>
-
-              <v-list-tile>
-                <v-list-tile-content>Rating:</v-list-tile-content>
-                <v-list-tile-content class="align-end">
-                  <div class="rating">
-                    <i class="material-icons star">star_rate</i>{{ props.item.rating }}
-                  </div>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list>
-          </v-card>
+          <book-card
+            :book="props.item"
+          />
         </v-flex>
 
-        <template
-          slot="items"
-          slot-scope="props"
-        >
-          <td class="text-xs-center">{{ props.item.title }}</td>
-          <td class="text-xs-center">{{ props.item.author }}</td>
-          <td class="text-xs-center">{{ props.item.year }}</td>
-          <td class="text-xs-center">{{ props.item.dateRead }}</td>
-          <td class="text-xs-center">
-            <v-container class="rating">
-              <i class="material-icons star">star_rate</i>
-              {{ props.item.rating }}
-            </v-container>
-          </td>
-        </template>
       </v-data-iterator>
     </v-container>
   </v-card>
@@ -112,6 +51,7 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import xml2json from 'xml-js';
 
+import BookCard from '../components/BookCard.vue';
 import bookIcon from '../assets/icons/book.png';
 
 class Book {
@@ -128,6 +68,9 @@ class Book {
 
 export default {
   name: 'Books',
+  components: {
+    bookCard: BookCard,
+  },
   data() {
     return {
       search: '',
