@@ -44,7 +44,7 @@
             >
               <v-img
                 :src="`${imageURL}/${props.item.appid}/${props.item.img_logo_url}.jpg`"
-                height="213px"
+                :contain="true"
                 class="game-cover"
                 aspect-ratio="1"
               />
