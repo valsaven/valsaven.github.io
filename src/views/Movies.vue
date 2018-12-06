@@ -7,8 +7,5 @@
 <script>
 export default {
   name: 'Movies',
-  data() {
-    return {};
-  },
 };
 </script>

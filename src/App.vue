@@ -3,18 +3,17 @@
     id="app"
     dark
   >
-    <header>
-      <h1>
+    <header class="header">
+      <h1 class="header__name">
         <a
           href="/"
           title="Val Saven. Software Developer"
-        >
-          Val Saven
-        </a>
+          v-text="'Val Saven'"
+        />
       </h1>
-      <h2>Software Developer</h2>
+      <h2 class="header__role">Software Developer</h2>
     </header>
-    <div class="wrapper">
+    <div class="body">
       <!-- Menu -->
       <main-menu/>
       <!-- Main block -->
@@ -32,9 +31,6 @@ export default {
   components: {
     MainMenu,
     MainBlock,
-  },
-  data() {
-    return {};
   },
 };
 </script>
@@ -81,13 +77,13 @@ a {
   background-color: $main-bg-color;
 }
 
-#app > div > header > h1 {
+.header__name {
   font-family: 'Poiret One', sans-serif;
   font-size: 48px;
   margin: 20px 0;
 }
 
-.wrapper {
+.body {
   display: flex;
   background-color: $body-bg-color;
   flex-wrap: wrap;

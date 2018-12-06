@@ -7,8 +7,5 @@
 <script>
 export default {
   name: 'Anime',
-  data() {
-    return {};
-  },
 };
 </script>

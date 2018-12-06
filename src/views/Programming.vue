@@ -7,8 +7,5 @@
 <script>
 export default {
   name: 'Programming',
-  data() {
-    return {};
-  },
 };
 </script>

@@ -1,13 +1,14 @@
 <template>
-  <v-card>
+  <v-card class="game">
     <a
       :href="game.link"
       target="_blank"
+      class="game__link"
     >
       <v-img
         :src="`${imageURL}/${game.appid}/${game.img_logo_url}.jpg`"
         :contain="true"
-        class="game-cover"
+        class="game__cover"
         aspect-ratio="1"
       />
     </a>
@@ -15,10 +16,9 @@
       <v-tooltip bottom>
         <h5
           slot="activator"
-          class="game-title"
-        >
-          {{ game.name }}
-        </h5>
+          class="game__title"
+          v-text="game.name"
+        />
         <span>{{ game.name }}</span>
       </v-tooltip>
     </v-card-text>
@@ -40,6 +40,22 @@ export default {
       imageURL: 'http://media.steampowered.com/steamcommunity/public/images/apps',
     };
   },
-  methods: {},
 };
 </script>
+
+<style lang="scss" scoped>
+.game {
+  &__title {
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  &__cover {
+    margin: auto;
+    max-height: 46px;
+  }
+}
+</style>

@@ -10,9 +10,8 @@
         :href="item.href"
         :title="item.title"
         target="_blank"
-      >
-        {{ item.label }}
-      </a>
+        v-text="item.label"
+      />
     </li>
   </ul>
 </template>

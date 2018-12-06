@@ -1,6 +1,9 @@
 <template>
-  <v-card dark>
-    <v-card-title class="search">
+  <v-card
+    dark
+    class="games"
+  >
+    <v-card-title class="games__search">
       <v-text-field
         v-model="search"
         append-icon="search"
@@ -11,7 +14,7 @@
     </v-card-title>
 
     <v-container
-      class="games-list"
+      class="games__list"
       fluid
       grid-list-md
     >
@@ -122,31 +125,11 @@ export default {
 };
 </script>
 
-<style scoped>
-.search,
-.games-list,
-.table {
-  background-color: var(--body-bg-color);
-}
-
-.card__title {
-  width: 100%;
-  width: fill-available;
-}
-
-.tooltip {
-  width: inherit;
-}
-
-.game-title {
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.card .game-cover {
-  margin: auto;
-  max-height: 46px;
+<style lang="scss" scoped>
+.games {
+  &__search,
+  &__list {
+    background-color: var(--body-bg-color);
+  }
 }
 </style>
