@@ -11,10 +11,6 @@
 <script>
 export default {
   name: 'MainBlock',
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 

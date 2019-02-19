@@ -62,7 +62,7 @@
         />
         <v-list-tile-content class="align-end">
           <div class="rating">
-            <i class="material-icons star">star_rate</i>{{ book.rating }}
+            <span v-text="book.rating"/>
           </div>
         </v-list-tile-content>
       </v-list-tile>
@@ -80,9 +80,15 @@ export default {
       default: () => ({}),
     },
   },
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
+
+<style scoped>
+.book-title {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+</style>

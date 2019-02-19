@@ -40,7 +40,6 @@
             :book="props.item"
           />
         </v-flex>
-
       </v-data-iterator>
     </v-container>
   </v-card>
@@ -166,6 +165,7 @@ export default {
   align-items: center;
 }
 
+/* TODO: Remove? */
 .star {
   color: #ffc600;
   width: 30px;
