@@ -64,7 +64,6 @@
 
 <script>
 import axios from 'axios';
-import oneLineTrim from 'common-tags/es/oneLineTrim';
 
 import GameCard from '../components/GameCard.vue';
 
@@ -82,8 +81,6 @@ export default {
       },
       gameCount: 0,
       games: [],
-      apiKey: '4E1F1A228D42C10C36263E8F46176A33',
-      steamID: '76561198076053493',
     };
   },
   created() {
@@ -91,17 +88,7 @@ export default {
       try {
         const games = JSON.parse(localStorage.getItem('games'));
 
-        const link = 'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.run.webtask.io/proxy/stm/IPlayerService/GetOwnedGames/v0001/';
-        const options = oneLineTrim`
-          ?key=${this.apiKey}
-          &include_played_free_games=1
-          &include_appinfo=1
-          &format=json
-          &steamid=${this.steamID}
-          `;
-
-        const req = await axios.get(`${link}${options}`);
-
+        const req = await axios.get('https://wt-2f9b37427d5e30fe8da0999bd311e211-0.sandbox.auth0-extend.com/proxy/games');
         const res = req.data.response;
 
         this.gameCount = Number(res.game_count);
