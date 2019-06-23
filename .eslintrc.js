@@ -5,17 +5,18 @@ module.exports = {
     node: true,
   },
 
-  extends: [
-    'plugin:vue/recommended',
-    '@vue/airbnb',
-  ],
-
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
   },
 
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@typescript-eslint/parser',
   },
+
+  extends: [
+    'plugin:vue/recommended',
+    '@vue/airbnb',
+    '@vue/typescript',
+  ],
 };

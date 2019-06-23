@@ -22,17 +22,18 @@
   </v-app>
 </template>
 
-<script>
-import MainMenu from './components/MainMenu.vue';
-import MainBlock from './components/MainBlock.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import MainMenu from '@/components/MainMenu.vue';
+import MainBlock from '@/components/MainBlock.vue';
 
-export default {
-  name: 'App',
+@Component({
   components: {
     MainMenu,
     MainBlock,
   },
-};
+})
+export default class Home extends Vue {}
 </script>
 
 <style lang="scss">
