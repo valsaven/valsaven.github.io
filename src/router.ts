@@ -18,37 +18,37 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      component: () => import(/* webpackChunkName: "games" */ './views/Games.vue'),
     },
     {
       path: '/anime',
       name: 'Anime',
-      component: () => import(/* webpackChunkName: "about" */ './views/Anime.vue'),
+      component: () => import(/* webpackChunkName: "anime" */ './views/Anime.vue'),
     },
     {
       path: '/books',
       name: 'Books',
-      component: () => import(/* webpackChunkName: "about" */ './views/Books.vue'),
+      component: () => import(/* webpackChunkName: "books" */ './views/Books.vue'),
     },
     {
       path: '/contacts',
       name: 'Contacts',
-      component: () => import(/* webpackChunkName: "about" */ './views/Contacts.vue'),
+      component: () => import(/* webpackChunkName: "contacts" */ './views/Contacts.vue'),
     },
     {
       path: '/movies',
       name: 'Movies',
-      component: () => import(/* webpackChunkName: "about" */ './views/Movies.vue'),
+      component: () => import(/* webpackChunkName: "movies" */ './views/Movies.vue'),
     },
     {
       path: '/photography',
       name: 'Photography',
-      component: () => import(/* webpackChunkName: "about" */ './views/Photography.vue'),
+      component: () => import(/* webpackChunkName: "photography" */ './views/Photography.vue'),
     },
     {
       path: '/programming',
       name: 'Programming',
-      component: () => import(/* webpackChunkName: "about" */ './views/Programming.vue'),
+      component: () => import(/* webpackChunkName: "programming" */ './views/Programming.vue'),
     },
   ],
 });

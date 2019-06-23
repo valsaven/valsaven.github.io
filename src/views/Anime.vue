@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Anime',
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+export default class Anime extends Vue {}
 </script>

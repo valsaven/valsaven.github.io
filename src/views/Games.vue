@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapState, mapActions } from 'vuex';
 
 import GameCard from '../components/GameCard.vue';
 
@@ -79,35 +79,21 @@ export default {
       pagination: {
         rowsPerPage: 12,
       },
-      gameCount: 0,
-      games: [],
     };
   },
+  computed: {
+    ...mapState([
+    ]),
+  },
   created() {
-    async function getGames() {
-      try {
-        const games = JSON.parse(localStorage.getItem('games'));
+    this.getGames();
+    // getGames.call(this);
+  },
+  methods: {
+    ...mapActions([
+      'getGames',
+    ]),
 
-        const req = await axios.get('https://wt-2f9b37427d5e30fe8da0999bd311e211-0.sandbox.auth0-extend.com/proxy/games');
-        const res = req.data.response;
-
-        this.gameCount = Number(res.game_count);
-        this.games = res.games;
-
-        if (games && games.length === this.gameCount) {
-          this.games = games;
-        } else {
-          this.games = res.games;
-          localStorage.setItem('games', JSON.stringify(this.games));
-        }
-      } catch (e) {
-        console.log(`Error: ${e}`);
-      } finally {
-        document.getElementById('games-loader').style.display = 'none';
-      }
-    }
-
-    getGames.call(this);
   },
 };
 </script>
