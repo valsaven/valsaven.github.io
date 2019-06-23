@@ -82,18 +82,18 @@ export default {
     };
   },
   computed: {
-    ...mapState([
+    ...mapState('games', [
+      'games',
+      'gamesCount',
     ]),
   },
   created() {
     this.getGames();
-    // getGames.call(this);
   },
   methods: {
-    ...mapActions([
+    ...mapActions('games', [
       'getGames',
     ]),
-
   },
 };
 </script>

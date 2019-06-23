@@ -1,46 +1,84 @@
 import axios from 'axios';
-import { Module, MutationTree, ActionTree } from 'vuex';
-import { RootState, GamesState } from '@/types';
+import {
+  Module,
+  MutationTree,
+  ActionTree,
+  ActionContext,
+} from 'vuex';
 
-
-const namespaced: boolean = true;
-
-const state: GamesState = {
-  games: [],
-  gamesCount: null,
-};
-
-const actions: ActionTree<GamesState, any> = {
-  async getGames(): Promise<any> {
-    try {
-      this.games.push(1);
-      const games = JSON.parse(localStorage.getItem('games'));
-      debugger
-
-      const req = await axios.get('https://wt-2f9b37427d5e30fe8da0999bd311e211-0.sandbox.auth0-extend.com/proxy/games');
-      const res = req.data.response;
-
-      this.gameCount = Number(res.game_count);
-      this.games = res.games;
-
-      if (games && games.length === this.gameCount) {
-        this.games = games;
-      } else {
-        this.games = res.games;
-        localStorage.setItem('games', JSON.stringify(this.games));
-      }
-    } catch (e) {
-      console.log(`Error: ${e}`);
-    } finally {
-      document.getElementById('games-loader').style.display = 'none';
-    }
+class GamesState {
+  public games: Array<any>;
+  public gamesCount: number | null;
+  constructor() {
+    this.games = [];
+    this.gamesCount = null;
   }
 };
 
-export const games: Module<GamesState, RootState> = {
-    namespaced,
-    state,
-    // getters,
-    actions,
-    // mutations
-};
+/* Mutations */
+interface Item {
+  item: string;
+  value: any;
+}
+function setItem(state: GamesState, Item: Item ) {
+  state[Item.item] = Item.value;
+}
+
+const GamesMutations: MutationTree<GamesState> = {
+  setItem,
+}
+
+/* Actions */
+async function getGames(
+  store: ActionContext<GamesState, any>,
+  state: GamesState,
+): Promise<any> {
+  try {
+    const games = JSON.parse(localStorage.getItem('games'));
+
+    const req = await axios.get('https://wt-2f9b37427d5e30fe8da0999bd311e211-0.sandbox.auth0-extend.com/proxy/games');
+    const res = req.data.response;
+
+    store.commit('setItem', {
+      item: 'gamesCount',
+      value: Number(res.game_count),
+    });
+
+    store.commit('setItem', {
+      item: 'games',
+      value: res.games,
+    });
+
+    // FIXME: state is undefined here
+    if (games && games.length === state.gamesCount) {
+      store.commit('setItem', {
+        item: 'games',
+        value: games,
+      });
+    } else {
+      store.commit('setItem', {
+        item: 'games',
+        value: res.games,
+      });
+      localStorage.setItem('games', JSON.stringify(state.games));
+    }
+  } catch (e) {
+    console.log(`Error: ${e}`);
+  } finally {
+    document.getElementById('games-loader').style.display = 'none';
+  }
+}
+
+const GamesActions: ActionTree<GamesState, any> = {
+  getGames,
+}
+
+export class GamesModule implements Module<GamesState, any> {
+  public namespaced = true;
+  public state: GamesState;
+  public mutations = GamesMutations;
+  public actions = GamesActions;
+  constructor() {
+    this.state = new GamesState();
+  }
+}
