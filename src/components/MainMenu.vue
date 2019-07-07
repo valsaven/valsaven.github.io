@@ -6,12 +6,14 @@
     <ul class="menu-list">
       <li
         v-for="(item, i) in menu"
-        :class="{ active: isActive(item.name) }"
         :key="i"
+        :class="{ active: isActive(item.name) }"
         class="grow menu-list-item"
         @click="setActive(item.name)"
       >
-        <router-link :to="item.path">{{ item.name }}</router-link>
+        <router-link :to="item.path">
+          {{ item.name }}
+        </router-link>
       </li>
     </ul>
   </nav>
