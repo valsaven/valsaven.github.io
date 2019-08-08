@@ -47,7 +47,7 @@
 
 <script>
 import axios from 'axios';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import xml2json from 'xml-js';
 
 import BookCard from '../components/BookCard.vue';
@@ -108,7 +108,7 @@ export default {
             const title = i.book.title._text;
             const author = i.book.authors.author.name._text;
             const year = i.book.published._text;
-            const dateRead = format(new Date().setTime(Date.parse(i.date_added._text)), 'MMMM Do YYYY');
+            // const dateRead = format(new Date().setTime(Date.parse(i.date_added._text)), 'MMMM Do YYYY');
             const rating = Number(i.rating._text);
 
             const book = new Book(img, link, title, author, year, dateRead, rating);
