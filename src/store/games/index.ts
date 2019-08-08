@@ -21,7 +21,7 @@ interface Item {
   value: any;
 }
 function setItem(state: GamesState, Item: Item ) {
-  state[Item.item] = Item.value;
+  (state as any)[Item.item] = Item.value;
 }
 
 const GamesMutations: MutationTree<GamesState> = {
