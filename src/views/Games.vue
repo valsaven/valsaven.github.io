@@ -6,7 +6,7 @@
     <v-card-title class="games__search">
       <v-text-field
         v-model="search"
-        append-icon="search"
+        append-icon="mdi-magnify"
         label="Search"
         single-line
         hide-details
@@ -25,9 +25,7 @@
       <v-data-iterator
         :items="games"
         :search="search"
-        :rows-per-page-items="rowsPerPageItems"
-        :pagination.sync="pagination"
-        content-tag="v-layout"
+        :options.sync="options"
         row
         wrap
         no-data-text="Loading..."
@@ -40,9 +38,7 @@
           md4
           lg3
         >
-          <game-card
-            :game="props.item"
-          />
+          <game-card :game="props.item" />
         </v-flex>
         <template
           slot="items"
@@ -75,25 +71,20 @@ export default {
   data() {
     return {
       search: '',
-      rowsPerPageItems: [12, 24, 48, 100, 500, 1000],
-      pagination: {
-        rowsPerPage: 12,
+      itemsPerPageArray: [12, 24, 48, 100, 500, 1000],
+      options: {
+        itemsPerPage: 4,
       },
     };
   },
   computed: {
-    ...mapState('games', [
-      'games',
-      'gamesCount',
-    ]),
+    ...mapState('games', ['games', 'gamesCount']),
   },
   created() {
     this.getGames();
   },
   methods: {
-    ...mapActions('games', [
-      'getGames',
-    ]),
+    ...mapActions('games', ['getGames']),
   },
 };
 </script>

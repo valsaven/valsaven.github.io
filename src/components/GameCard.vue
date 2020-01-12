@@ -14,17 +14,18 @@
     </a>
     <v-card-text>
       <v-tooltip bottom>
-        <h5
-          slot="activator"
-          class="game__title"
-          v-text="game.name"
-        />
+        <template v-slot:activator="{ on }">
+          <h5
+            class="game__title"
+            v-on="on"
+            v-text="game.name"
+          />
+        </template>
         <span>{{ game.name }}</span>
       </v-tooltip>
     </v-card-text>
   </v-card>
 </template>
-
 
 <script>
 export default {

@@ -15,27 +15,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Vue } from 'vue-property-decorator';
+import Component from 'vue-class-component';
 
+@Component({})
 export default class Home extends Vue {}
 </script>
 
 <style lang="scss" scoped>
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
-
-$main-text-color: #fffffa;
-$main-bg-color: #222;
-$head-bg-color: #41b883;
-$body-bg-color: #525252;
-$wings-1-color: #45ccca;
-$wings-2-color: #8fd67a;
-$wings-3-color: #e5d59a;
-$wings-4-color: #e7966a;
-$wings-5-color: #ed5589;
-$wings-6-color: #b565c6;
-$wings-7-color: #36f;
-$wings-8-color: #7392ec;
+@import '../assets/_vars.scss';
 
 /* Flandre Theme */
 

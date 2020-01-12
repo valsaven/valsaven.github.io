@@ -11,18 +11,62 @@
           v-text="'Val Saven'"
         />
       </h1>
-      <h2 class="header__role">Software Developer</h2>
+      <h2 class="header__role">
+        Software Developer
+      </h2>
     </header>
     <div class="body">
       <!-- Menu -->
-      <main-menu/>
+      <main-menu />
       <!-- Main block -->
-      <main-block/>
+      <main-block />
     </div>
   </v-app>
 </template>
 
 <script lang="ts">
+// <v-app>
+//     <v-app-bar
+//       app
+//       color="primary"
+//       dark
+//     >
+//       <div class="d-flex align-center">
+//         <v-img
+//           alt="Vuetify Logo"
+//           class="shrink mr-2"
+//           contain
+//           src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+//           transition="scale-transition"
+//           width="40"
+//         />
+
+//         <v-img
+//           alt="Vuetify Name"
+//           class="shrink mt-1 hidden-sm-and-down"
+//           contain
+//           min-width="100"
+//           src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+//           width="100"
+//         />
+//       </div>
+
+//       <v-spacer />
+
+//       <v-btn
+//         href="https://github.com/vuetifyjs/vuetify/releases/latest"
+//         target="_blank"
+//         text
+//       >
+//         <span class="mr-2">Latest Release</span>
+//         <v-icon>mdi-open-in-new</v-icon>
+//       </v-btn>
+//     </v-app-bar>
+
+//     <v-content>
+//       <router-view />
+//     </v-content>
+//   </v-app>
 import { Component, Vue } from 'vue-property-decorator';
 import MainMenu from '@/components/MainMenu.vue';
 import MainBlock from '@/components/MainBlock.vue';
@@ -37,20 +81,7 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="scss">
-@import '../node_modules/vuetify/dist/vuetify.min.css';
-
-$main-text-color: #fffffa;
-$main-bg-color: #222;
-$head-bg-color: #41b883;
-$body-bg-color: #525252;
-$wings-1-color: #45ccca;
-$wings-2-color: #8fd67a;
-$wings-3-color: #e5d59a;
-$wings-4-color: #e7966a;
-$wings-5-color: #ed5589;
-$wings-6-color: #b565c6;
-$wings-7-color: #36f;
-$wings-8-color: #7392ec;
+@import './assets/_vars.scss';
 
 html {
   font-size: 16px;
@@ -67,10 +98,12 @@ h2 {
 }
 
 a {
+  color: #fffffa !important;
   text-decoration: none;
 }
 
 #app {
+  color: #fffffa;
   display: flex;
   flex-direction: column;
   max-width: 60%;

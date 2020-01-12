@@ -3,10 +3,9 @@
     <header>
       <h2>{{ $route.name }}</h2>
     </header>
-    <router-view/>
+    <router-view />
   </article>
 </template>
-
 
 <script>
 export default {

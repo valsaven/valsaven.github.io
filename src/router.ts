@@ -1,54 +1,53 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from './views/Home.vue';
-
 Vue.use(Router);
+
+function loadView(view: string) {
+  return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`);
+}
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Home',
-      component: Home,
+      component: loadView('Home'),
     },
     {
       path: '/games',
       name: 'Games',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "games" */ './views/Games.vue'),
+      component: loadView('Games'),
     },
     {
       path: '/anime',
       name: 'Anime',
-      component: () => import(/* webpackChunkName: "anime" */ './views/Anime.vue'),
+      component: loadView('Anime'),
     },
     {
       path: '/books',
       name: 'Books',
-      component: () => import(/* webpackChunkName: "books" */ './views/Books.vue'),
+      component: loadView('Books'),
     },
     {
       path: '/contacts',
       name: 'Contacts',
-      component: () => import(/* webpackChunkName: "contacts" */ './views/Contacts.vue'),
+      component: loadView('Contacts'),
     },
     {
       path: '/movies',
       name: 'Movies',
-      component: () => import(/* webpackChunkName: "movies" */ './views/Movies.vue'),
+      component: loadView('Movies'),
     },
     {
       path: '/photography',
       name: 'Photography',
-      component: () => import(/* webpackChunkName: "photography" */ './views/Photography.vue'),
+      component: loadView('Photography'),
     },
     {
       path: '/programming',
       name: 'Programming',
-      component: () => import(/* webpackChunkName: "programming" */ './views/Programming.vue'),
+      component: loadView('Programming'),
     },
   ],
 });

@@ -1,42 +1,42 @@
 import axios from 'axios';
 import {
-  Module,
-  MutationTree,
-  ActionTree,
-  ActionContext,
+  Module, MutationTree, ActionTree, ActionContext,
 } from 'vuex';
 
 class GamesState {
-  public games: Array<any>;
+  public games: any[];
+
   public gamesCount: number | null;
+
   constructor() {
     this.games = [];
     this.gamesCount = null;
   }
-};
+}
 
 /* Mutations */
 interface Item {
   item: string;
   value: any;
 }
-function setItem(state: GamesState, Item: Item ) {
-  (state as any)[Item.item] = Item.value;
+
+function setItem(state: GamesState, Item: Item) {
+  (state as any)[Item.item] = Item.value; // eslint-disable-line no-param-reassign
 }
 
 const GamesMutations: MutationTree<GamesState> = {
   setItem,
-}
+};
 
 /* Actions */
-async function getGames(
-  store: ActionContext<GamesState, any>,
-  state: GamesState,
-): Promise<any> {
+async function getGames(store: ActionContext<GamesState, any>, state: GamesState): Promise<any> {
   try {
-    const games = JSON.parse(localStorage.getItem('games'));
+    const gamesData = localStorage.getItem('games');
+    const games = JSON.parse(gamesData || '');
 
-    const req = await axios.get('https://wt-2f9b37427d5e30fe8da0999bd311e211-0.sandbox.auth0-extend.com/proxy/games');
+    const req = await axios.get(
+      'https://wt-2f9b37427d5e30fe8da0999bd311e211-0.sandbox.auth0-extend.com/proxy/games'
+    );
     const res = req.data.response;
 
     store.commit('setItem', {
@@ -65,19 +65,23 @@ async function getGames(
   } catch (e) {
     console.log(`Error: ${e}`);
   } finally {
-    document.getElementById('games-loader').style.display = 'none';
+    // document.getElementById('games-loader').style.display = 'none';
   }
 }
 
 const GamesActions: ActionTree<GamesState, any> = {
   getGames,
-}
+};
 
-export class GamesModule implements Module<GamesState, any> {
+export default class GamesModule implements Module<GamesState, any> {
   public namespaced = true;
+
   public state: GamesState;
+
   public mutations = GamesMutations;
+
   public actions = GamesActions;
+
   constructor() {
     this.state = new GamesState();
   }

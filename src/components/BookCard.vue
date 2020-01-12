@@ -12,64 +12,55 @@
     </a>
     <v-card-text>
       <v-tooltip bottom>
-        <h4
-          slot="activator"
-          class="book-title"
-          v-text="book.title"
-        />
-        <span
-          v-text="book.title"
-        />
+        <template v-slot:activator="{ on }">
+          <h4
+            class="book-title"
+            v-on="on"
+            v-text="book.title"
+          />
+        </template>
+        <span v-text="book.title" />
       </v-tooltip>
     </v-card-text>
 
-    <v-divider/>
+    <v-divider />
 
     <v-list dense>
-      <v-list-tile>
-        <v-list-tile-content
-          v-text="'Author:'"
-        />
-        <v-list-tile-content
+      <v-list-item>
+        <v-list-item-content v-text="'Author:'" />
+        <v-list-item-content
           class="align-end"
           v-text="book.author"
         />
-      </v-list-tile>
+      </v-list-item>
 
-      <v-list-tile>
-        <v-list-tile-content
-          v-text="'Year'"
-        />
-        <v-list-tile-content
+      <v-list-item>
+        <v-list-item-content v-text="'Year'" />
+        <v-list-item-content
           class="align-end"
           v-text="book.year"
         />
-      </v-list-tile>
+      </v-list-item>
 
-      <v-list-tile>
-        <v-list-tile-content
-          v-text="'Date read:'"
-        />
-        <v-list-tile-content
+      <v-list-item>
+        <v-list-item-content v-text="'Date read:'" />
+        <v-list-item-content
           class="align-end"
           v-text="book.dateRead"
         />
-      </v-list-tile>
+      </v-list-item>
 
-      <v-list-tile>
-        <v-list-tile-content
-          v-text="'Rating:'"
-        />
-        <v-list-tile-content class="align-end">
+      <v-list-item>
+        <v-list-item-content v-text="'Rating:'" />
+        <v-list-item-content class="align-end">
           <div class="rating">
-            <span v-text="book.rating"/>
+            <span v-text="book.rating" />
           </div>
-        </v-list-tile-content>
-      </v-list-tile>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-card>
 </template>
-
 
 <script>
 export default {
