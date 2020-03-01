@@ -1,9 +1,11 @@
 <template>
   <article class="block">
     <header>
-      <h2>{{ $route.name }}</h2>
+      <h2 v-text="`/* ${$route.name} */`" />
     </header>
-    <router-view />
+    <v-content>
+      <router-view />
+    </v-content>
   </article>
 </template>
 
