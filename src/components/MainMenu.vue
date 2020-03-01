@@ -49,7 +49,7 @@ export default {
         },
         {
           path: '/programming',
-          name: 'Programming',
+          name: 'dev',
         },
         {
           path: '/games',
@@ -104,10 +104,11 @@ export default {
 .menu {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: 180px;
 
   &-header {
     align-items: center;
+    border: 2px dashed black;
     display: flex;
     height: 68px;
     justify-content: center;
@@ -119,7 +120,7 @@ export default {
     flex-direction: column;
     list-style: none;
     margin: 0 0 20px 0;
-    padding: 0 20px;
+    padding: 16px 0 0 0;
   }
 
   &-item {
@@ -158,8 +159,8 @@ $colors:
 
 @for $i from 1 through length($colors) {
   .menu-item-#{$i} .menu-item-title::first-letter {
-    color: rgba(nth($colors, $i), 1) !important;
-    font-weight: bold;
+    //color: rgba(nth($colors, $i), 1) !important;
+    //font-weight: bold;
   }
 }
 

@@ -58,7 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 .contacts {
-  margin: 20px;
   padding: 0;
   list-style: none;
 }

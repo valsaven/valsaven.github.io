@@ -1,9 +1,9 @@
 <template>
   <article class="block">
-    <header>
+    <header class="block-header">
       <h2 v-text="`/* ${$route.name} */`" />
     </header>
-    <v-content>
+    <v-content class="block-content">
       <router-view />
     </v-content>
   </article>
@@ -15,21 +15,23 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .block {
   display: flex;
   flex-direction: column;
   flex: 4;
-}
+  padding-left: 14px;
 
-.block > header {
-  align-items: center;
-  display: flex;
-  height: 68px;
-  justify-content: center;
-}
+  &-header {
+    align-items: center;
+    border: 2px dashed black;
+    display: flex;
+    height: 68px;
+    justify-content: center;
+  }
 
-.block-body {
-  background-color: var(--body-bg-color);
+  &-content {
+    padding: 16px 0 0 20px !important;
+  }
 }
 </style>
