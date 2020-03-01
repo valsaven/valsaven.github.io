@@ -69,19 +69,29 @@ export default class Programming extends Vue {
       color: '#e14c2f',
     },
     {
-      title: '',
-      progress: 0,
-      color: '',
+      title: 'Electron',
+      progress: 10,
+      color: '#87edfc',
     },
     {
-      title: '',
-      progress: 0,
-      color: '',
+      title: 'Rust',
+      progress: 5,
+      color: '#cf5001',
     },
     {
-      title: '',
-      progress: 0,
-      color: '',
+      title: 'Go',
+      progress: 5,
+      color: '#67cfdc',
+    },
+    {
+      title: 'Haskell',
+      progress: 1,
+      color: '#5c4f82',
+    },
+    {
+      title: 'C',
+      progress: 1,
+      color: '#03599c',
     },
 
     // HTML/CSS
