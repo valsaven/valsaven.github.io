@@ -15,6 +15,6 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TS
-    'max-classes-per-file': 1
+    'max-classes-per-file': 1,
   },
 };

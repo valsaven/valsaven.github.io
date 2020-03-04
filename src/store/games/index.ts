@@ -50,20 +50,20 @@ async function getGames(store: ActionContext<GamesState, any>, state: GamesState
     });
 
     // FIXME: state is undefined here
-    if (games && games.length === state.gamesCount) {
-      store.commit('setItem', {
-        item: 'games',
-        value: games,
-      });
-    } else {
-      store.commit('setItem', {
-        item: 'games',
-        value: res.games,
-      });
-      localStorage.setItem('games', JSON.stringify(state.games));
-    }
+    // if (games && games.length === state.gamesCount) {
+    //   store.commit('setItem', {
+    //     item: 'games',
+    //     value: games,
+    //   });
+    // } else {
+    store.commit('setItem', {
+      item: 'games',
+      value: res.games,
+    });
+    localStorage.setItem('games', JSON.stringify(state.games));
+    // }
   } catch (e) {
-    console.log(`Error: ${e}`);
+    throw new Error(`Error: ${e}`);
   } finally {
     const loader = document.getElementById('games-loader');
     if (loader) {
