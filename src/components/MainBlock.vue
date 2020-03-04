@@ -1,7 +1,7 @@
 <template>
   <article class="block">
     <header class="block-header">
-      <h2 v-text="`/* ${$route.name} */`" />
+      <h2 v-text="`・゜・。. ${$route.name} ・゜・。.`" />
     </header>
     <v-content class="block-content">
       <router-view />

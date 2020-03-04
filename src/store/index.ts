@@ -1,9 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import books from './books';
+import GamesModule from './games';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true,
   state: {
   },
   mutations: {
@@ -11,25 +15,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    books,
+    games: new GamesModule(),
   },
 });
-
-//
-// import Vue from 'vue';
-// import Vuex from 'vuex';
-//
-// import books from './books';
-// import GamesModule from './games';
-//
-// Vue.use(Vuex);
-//
-// export default new Vuex.Store<{}>({
-//   strict: true,
-//   modules: {
-//     books,
-//     games: new GamesModule(),
-//   },
-//   state: {},
-//   mutations: {},
-//   actions: {},
-// });
