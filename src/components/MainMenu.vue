@@ -1,17 +1,35 @@
 <template>
   <nav class="menu">
-    <header>
-      <h2>Menu</h2>
+    <header class="menu-header">
+      <h2 v-text="'<!-- Menu -->'" />
     </header>
     <ul class="menu-list">
       <li
         v-for="(item, i) in menu"
         :key="i"
-        :class="{ active: isActive(item.name) }"
-        class="grow menu-list-item"
-        @click="setActive(item.name)"
+        :class="[
+          {
+            active: isActive(item.name)
+          },
+          `menu-item-${i + 1}`
+        ]"
+        class="grow menu-item"
       >
-        <router-link :to="item.path">
+        <v-btn
+          class="ma-2 menu-item-icon"
+          tile
+          icon
+          :class="[`obj-${i}`]"
+          @click="goToRoute(item)"
+        >
+          <v-icon :class="item.icon" />
+          <!--          <v-icon>fas fa-square-full</v-icon>-->
+        </v-btn>
+
+        <router-link
+          :to="item.path"
+          class="menu-item-title"
+        >
           {{ item.name }}
         </router-link>
       </li>
@@ -29,34 +47,42 @@ export default {
         {
           path: '/',
           name: 'Home',
+          icon: 'fas fa-home',
         },
         {
           path: '/programming',
           name: 'Programming',
+          icon: 'fas fa-code-branch',
         },
         {
           path: '/games',
           name: 'Games',
+          icon: 'fas fa-gamepad',
         },
         {
           path: '/anime',
           name: 'Anime',
+          icon: 'fas fa-pastafarianism',
         },
         {
           path: '/movies',
           name: 'Movies',
+          icon: 'fas fa-film',
         },
         {
           path: '/books',
           name: 'Books',
+          icon: 'fas fa-book',
         },
         {
           path: '/photography',
           name: 'Photography',
+          icon: 'fas fa-camera-retro',
         },
         {
           path: '/contacts',
           name: 'Contacts',
+          icon: 'far fa-address-card',
         },
       ],
     };
@@ -73,8 +99,9 @@ export default {
     isActive(menuItem) {
       return this.activeItem === menuItem;
     },
-    setActive(menuItem) {
-      this.activeItem = menuItem;
+    goToRoute(item) {
+      this.activeItem = item.name;
+      this.$router.push(item.path);
     },
   },
 };
@@ -86,45 +113,64 @@ export default {
 .menu {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  background-color: $main-bg-color;
-}
+  width: 180px;
 
-.menu > header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 68px;
-}
+  &-header {
+    align-items: center;
+    border: 2px dashed black;
+    display: flex;
+    height: 68px;
+    justify-content: center;
+  }
 
-.menu-list-item::first-letter {
-  font-weight: bold;
+  &-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 16px 0 0 0;
+  }
+
+  &-item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &-icon {
+      border: 1px solid #000;
+      color: #e1e1e1 !important;
+    }
+
+    &-title {
+      font-size: 18px;
+      padding-left: 8px;
+    }
+
+    &.active {
+      .menu-item-icon {
+        color: #000 !important;
+      }
+    }
+  }
 }
 
 /* Flandre Wings */
-.menu-list-item:nth-child(1)::first-letter {
-  color: $wings-1-color;
-}
-.menu-list-item:nth-child(2)::first-letter {
-  color: $wings-2-color;
-}
-.menu-list-item:nth-child(3)::first-letter {
-  color: $wings-3-color;
-}
-.menu-list-item:nth-child(4)::first-letter {
-  color: $wings-4-color;
-}
-.menu-list-item:nth-child(5)::first-letter {
-  color: $wings-5-color;
-}
-.menu-list-item:nth-child(6)::first-letter {
-  color: $wings-6-color;
-}
-.menu-list-item:nth-child(7)::first-letter {
-  color: $wings-7-color;
-}
-.menu-list-item:nth-child(8)::first-letter {
-  color: $wings-8-color;
+$colors:
+  $wings-1-color,
+  $wings-2-color,
+  $wings-3-color,
+  $wings-4-color,
+  $wings-5-color,
+  $wings-6-color,
+  $wings-7-color,
+  $wings-8-color;
+
+@for $i from 1 through length($colors) {
+  .menu-item-#{$i} .menu-item-title::first-letter {
+    color: rgba(nth($colors, $i), 1) !important;
+    font-weight: bold;
+  }
 }
 
 /* Hover animation  */
@@ -135,21 +181,5 @@ export default {
 .active,
 .grow:hover {
   transform: scale(1.2);
-}
-
-.menu-list {
-  list-style: none;
-  margin: 0 0 20px 0;
-  padding: 0 20px;
-}
-
-.menu-list-item {
-  font-size: 48px;
-  height: 60px;
-}
-
-.menu-list-item > a {
-  padding-left: 14px;
-  font-size: 24px;
 }
 </style>

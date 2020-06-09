@@ -1,8 +1,5 @@
 <template>
-  <v-card
-    dark
-    class="games"
-  >
+  <v-card class="games">
     <v-card-title class="games__search">
       <v-text-field
         v-model="search"
@@ -26,20 +23,23 @@
         :items="games"
         :search="search"
         :options.sync="options"
-        row
-        wrap
         no-data-text="Loading..."
       >
-        <v-flex
-          slot="item"
-          slot-scope="props"
-          xs12
-          sm6
-          md4
-          lg3
-        >
-          <game-card :game="props.item" />
-        </v-flex>
+        <template v-slot:default="props">
+          <v-row>
+            <v-col
+              v-for="(item, i) in props.items"
+              :key="i"
+              cols="12"
+              sm="6"
+              md="4"
+              lg="3"
+            >
+              <game-card :game="item" />
+            </v-col>
+          </v-row>
+        </template>
+
         <template
           slot="items"
           slot-scope="props"

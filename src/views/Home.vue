@@ -1,15 +1,12 @@
 <template>
   <div class="block-body home">
     <div class="home-item">
-      <h1>Site overview</h1>
-      <p>This website is a homepage of Val Saven.</p>
+      <h3 class="home-title">
+        Site overview
+      </h3>
+      <p>Hi! My name is Val Saven. This is my working alias.</p>
+      <p>Welcome to my homepage (´• ω •`).</p>
       <p>If you want to contact me, please use the ones listed in the contacts menu.</p>
-    </div>
-    <div class="home-item">
-      <h1>Simple self-introduction</h1>
-      <p>My name is Val Saven. This is my working alias.</p>
-      <p>I'm a software developer.</p>
-      <p>My favorite language is JavaScript, I develop on Linux and Windows.</p>
     </div>
   </div>
 </template>
@@ -46,14 +43,17 @@ export default class Home extends Vue {}
 
 .home {
   p {
-    color: $main-text-color;
     margin: 10px 20px;
   }
-}
 
-.home-item {
-  margin: 20px;
-  padding: 10px;
-  background-color: #353535;
+  &-title {
+    text-align: center;
+  }
+
+  &-item {
+    margin: 20px;
+    padding: 10px;
+    /*background-color: #353535;*/
+  }
 }
 </style>

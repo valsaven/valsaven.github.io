@@ -6,13 +6,16 @@ import GamesModule from './games';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store<{}>({
+export default new Vuex.Store({
   strict: true,
+  state: {
+  },
+  mutations: {
+  },
+  actions: {
+  },
   modules: {
     books,
     games: new GamesModule(),
   },
-  state: {},
-  mutations: {},
-  actions: {},
 });
