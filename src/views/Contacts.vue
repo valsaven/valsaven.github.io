@@ -5,55 +5,54 @@
       :key="i"
       class="contact"
     >
-      <i
-        class="contact-icon"
-        :class="item.icon"
-      />
       <a
         class="contact-title"
         :href="item.href"
         :title="item.title"
         target="_blank"
-        v-text="item.label"
-      />
+      >
+        <i
+          class="contact-icon"
+          :class="item.icon"
+        />
+        {{ item.label }}
+      </a>
     </li>
   </ul>
 </template>
 
-<script>
-export default {
-  name: 'Contacts',
-  data() {
-    return {
-      contacts: [
-        {
-          href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
-          title: 'Contact Val Saven',
-          label: 'Email',
-          icon: 'fas fa-envelope',
-        },
-        {
-          href: 'https://www.linkedin.com/in/valsaven',
-          title: "Val Saven's CV on LinkedIn",
-          label: 'LinkedIn',
-          icon: 'fab fa-linkedin-in',
-        },
-        {
-          href: 'https://github.com/valsaven',
-          title: 'Val Saven on Github',
-          label: 'GitHub',
-          icon: 'fab fa-github-alt',
-        },
-        {
-          href: 'https://twitter.com/valsaven',
-          title: 'Val Saven on Twitter',
-          label: 'Twitter',
-          icon: 'fab fa-twitter',
-        },
-      ],
-    };
-  },
-};
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Contacts extends Vue {
+    contacts = [
+      {
+        href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
+        title: 'Contact Val Saven',
+        label: 'Email',
+        icon: 'fas fa-envelope',
+      },
+      {
+        href: 'https://www.linkedin.com/in/valsaven',
+        title: "Val Saven's CV on LinkedIn",
+        label: 'LinkedIn',
+        icon: 'fab fa-linkedin-in',
+      },
+      {
+        href: 'https://github.com/valsaven',
+        title: 'Val Saven on Github',
+        label: 'GitHub',
+        icon: 'fab fa-github-alt',
+      },
+      {
+        href: 'https://twitter.com/valsaven',
+        title: 'Val Saven on Twitter',
+        label: 'Twitter',
+        icon: 'fab fa-twitter',
+      },
+    ];
+}
 </script>
 
 <style lang="scss" scoped>
@@ -70,6 +69,7 @@ export default {
   &-icon {
     font-size: 32px;
     height: 32px;
+    margin-right: 10px;
     width: 32px;
 
     &.fa-envelope {
@@ -90,8 +90,9 @@ export default {
   }
 
   &-title {
+    align-items: center;
+    display: flex;
     font-size: 18px;
-    padding-left: 10px;
   }
 }
 </style>
