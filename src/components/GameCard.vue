@@ -44,19 +44,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.game {
-  &__title {
-    overflow: hidden;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-  }
+<style scoped>
+.game__title {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
 
-  &__cover {
-    margin: auto;
-    max-height: 46px;
-  }
+.game__cover {
+  margin: auto;
+  max-height: 46px;
 }
 </style>

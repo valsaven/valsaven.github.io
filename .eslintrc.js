@@ -4,17 +4,17 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/recommended',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    // 'plugin:vue/recommended',
+    // '@vue/airbnb',
   ],
   parserOptions: {
     ecmaVersion: 2020,
+    // "parser": "babel-eslint"
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // TS
-    'max-classes-per-file': 1,
   },
 };
