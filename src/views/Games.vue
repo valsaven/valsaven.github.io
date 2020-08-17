@@ -22,7 +22,7 @@
       <v-data-iterator
         :items="games"
         :search="search"
-        :options.sync="options"
+        v-model:options="options"
         no-data-text="Loading..."
       >
         <template v-slot:default="props">
@@ -41,8 +41,8 @@
         </template>
 
         <template
-          slot="items"
-          slot-scope="props"
+          v-slot:items="props"
+
         >
           <td
             class="text-xs-center"
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+// import { mapState, mapActions } from 'vuex';
 
 import GameCard from '../components/GameCard.vue';
 
@@ -78,22 +78,20 @@ export default {
     };
   },
   computed: {
-    ...mapState('games', ['games', 'gamesCount']),
+    // ...mapState('games', ['games', 'gamesCount']),
   },
   created() {
     this.getGames();
   },
   methods: {
-    ...mapActions('games', ['getGames']),
+    // ...mapActions('games', ['getGames']),
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.games {
-  &__search,
-  &__list {
-    background-color: var(--body-bg-color);
-  }
+<style scoped>
+.games__search,
+.games__list {
+  background-color: var(--body-bg-color);
 }
 </style>

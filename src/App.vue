@@ -1,6 +1,7 @@
 <template>
-  <v-app
+  <div
     id="app"
+    class="app"
   >
     <header class="header">
       <h1 class="header__name">
@@ -11,40 +12,57 @@
         />
       </h1>
     </header>
-    <v-content>
-      <div class="body">
-        <!-- Menu -->
-        <main-menu />
-        <!-- Main block -->
-        <main-block />
-      </div>
-    </v-content>
-  </v-app>
+    <div class="body">
+      <!-- Menu -->
+      <main-menu />
+      <!-- Main block -->
+      <main-block />
+    </div>
+  </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
 import MainMenu from '@/components/MainMenu.vue';
 import MainBlock from '@/components/MainBlock.vue';
 
-@Component({
+export default {
+  name: 'Home',
   components: {
     MainMenu,
     MainBlock,
   },
-})
-export default class Home extends Vue {}
+  props: {
+    book: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+};
 </script>
 
-<style lang="scss">
-@import './assets/_vars.scss';
+<style>
+:root {
+  --main-text-color: #fffffa;
+  --main-bg-color: #222;
+  --head-bg-color: #41b883;
+  --body-bg-color: #525252;
+
+  --wings-1: #45ccca;
+  --wings-2: #8fd67a;
+  --wings-3: #e5d59a;
+  --wings-4: #e7966a;
+  --wings-5: #ed5589;
+  --wings-6: #b565c6;
+  --wings-7: #3366ff;
+  --wings-8: #7392ec;
+}
 
 html {
   font-size: 16px;
 }
 
 body {
-  //background: $main-bg-color;
+  /*background: var(--main-bg-color);*/
   font-family: sans-serif;
 }
 
@@ -58,13 +76,16 @@ a {
   text-decoration: none;
 }
 
-#app {
+.app {
   background-color: #fffffa;
-  display: flex;
-  flex-direction: column;
+  color: var(--main-bg-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 8fr;
+  grid-column-gap: 0;
+  grid-row-gap: 20px;
   max-width: 60%;
   margin: 0 auto;
-  color: $main-bg-color;
 }
 
 .header__name {
@@ -75,7 +96,7 @@ a {
 
 .body {
   display: flex;
-  //background-color: $body-bg-color;
+  /*background-color: var(--body-bg-color);*/
   background-color: #fffffa;
   flex-wrap: wrap;
   margin: 20px 0 0 0;
@@ -83,7 +104,7 @@ a {
 
 .menu > header,
 .block > header {
-  //background-color: #41b883;
+  /*background-color: #41b883;*/
   background-color: #fffffa;
 }
 
