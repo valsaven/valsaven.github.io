@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 function loadView(view) {
   return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`);
 }
 
-const routerHistory = createWebHistory();
+const routerHistory = createWebHashHistory();
 
 const router = createRouter({
   history: routerHistory,
