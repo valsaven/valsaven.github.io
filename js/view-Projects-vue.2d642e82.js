@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["view-Projects-vue"],{acca:function(e,c,n){"use strict";n.r(c);var o=n("5c40");const s={class:"projects"},t=Object(o["i"])("h2",null,"Coming soon...",-1);function r(e,c){return Object(o["s"])(),Object(o["e"])("div",s,[t])}var a={name:"Projects"};a.render=r;c["default"]=a}}]);
+//# sourceMappingURL=view-Projects-vue.2d642e82.js.map

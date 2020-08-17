@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["view-Books-vue"],{"4de9":function(e,n,o){"use strict";o.r(n);var u,l,s=o("2877"),w={},p=Object(s["a"])(w,u,l,!1,null,null,null);n["default"]=p.exports}}]);
-//# sourceMappingURL=view-Books-vue.3bb30094.js.map
