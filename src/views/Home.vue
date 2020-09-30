@@ -21,8 +21,4 @@ export default {
 .home-title {
   text-align: center;
 }
-
-.home-item {
-  margin: 10px 20px;
-}
 </style>

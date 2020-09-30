@@ -7,9 +7,9 @@
       <router-link
         v-for="(item, i) in menu"
         :key="i"
+        v-slot="{ href, navigate, isActive }"
         :to="item.path"
         custom
-        v-slot="{ href, navigate, isActive }"
       >
         <li
           :class="[
@@ -21,11 +21,11 @@
           class="grow menu-item"
         >
           <div
-            class="menu-item-icon"
             :class="[`obj-${i}`]"
+            class="menu-item-icon"
             @click="goToRoute(item)"
           >
-            <i class="menu-item-icon__icon" :class="item.icon" />
+            <i :class="item.icon" class="menu-item-icon__icon" />
           </div>
           <a
             :href="href"
@@ -137,6 +137,7 @@ export default {
   grid-row-gap: 8px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(8, 1fr);
+  margin: 1em 0;
   padding: 0 0 0 16px;
 }
 

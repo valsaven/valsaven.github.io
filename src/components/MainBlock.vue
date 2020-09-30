@@ -33,5 +33,6 @@ export default {
 
 .block-content {
   /*padding: 16px 0 0 20px !important;*/
+  padding: 1em;
 }
 </style>

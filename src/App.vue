@@ -1,29 +1,36 @@
 <template>
   <div
-    id="app"
+    :class="{ 'dark-theme': isNightTime }"
     class="app"
   >
-    <header class="header">
-      <h1 class="header__name">
-        <a
-          href="/"
-          title="Val Saven. Software Developer"
-          v-text="'valsaven.com'"
-        />
-      </h1>
-    </header>
-    <div class="body">
-      <!-- Menu -->
-      <main-menu />
-      <!-- Main block -->
-      <main-block />
+    <div class="app__wrapper">
+      <header class="header">
+        <h1 class="header__name">
+          <a
+            href="/"
+            title="Val Saven. Software Developer"
+            v-text="'valsaven.com'"
+          />
+        </h1>
+      </header>
+      <div class="body">
+        <!-- Menu -->
+        <main-menu/>
+        <!-- Main block -->
+        <main-block/>
+      </div>
+
     </div>
+
   </div>
 </template>
 
 <script>
 import MainMenu from '@/components/MainMenu.vue';
 import MainBlock from '@/components/MainBlock.vue';
+
+import './assets/reset.css';
+import './assets/dark-theme.css';
 
 export default {
   name: 'Home',
@@ -37,6 +44,12 @@ export default {
       default: () => ({}),
     },
   },
+  methods: {
+    isNightTime() {
+      const hours = new Date().getHours();
+      return hours > 18;
+    }
+  }
 };
 </script>
 
@@ -57,12 +70,7 @@ export default {
   --wings-8: #7392ec;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
-  /*background: var(--main-bg-color);*/
   font-family: sans-serif;
 }
 
@@ -72,12 +80,15 @@ h2 {
 }
 
 a {
-  color: #000 !important;
+  color: #000;
   text-decoration: none;
 }
 
 .app {
-  background-color: #fffffa;
+  height: 100vh;
+}
+
+.app__wrapper {
   color: var(--main-bg-color);
   display: grid;
   grid-template-columns: 1fr;
@@ -96,17 +107,10 @@ a {
 
 .body {
   display: flex;
-  /*background-color: var(--body-bg-color);*/
-  background-color: #fffffa;
   flex-wrap: wrap;
   margin: 20px 0 0 0;
 }
 
-.menu > header,
-.block > header {
-  /*background-color: #41b883;*/
-  background-color: #fffffa;
-}
 
 @media only screen and (max-device-width: 568px) {
   #app {
