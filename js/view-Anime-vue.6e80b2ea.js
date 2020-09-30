@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["view-Anime-vue"],{"8c21":function(n,e,c){"use strict";c.r(e);var o=c("5c40");const i={class:"block-body"},s=Object(o["i"])("h2",null,"Coming soon...",-1);function t(n,e){return Object(o["s"])(),Object(o["e"])("div",i,[s])}var r={name:"Anime"};r.render=t;e["default"]=r}}]);
-//# sourceMappingURL=view-Anime-vue.6e80b2ea.js.map
