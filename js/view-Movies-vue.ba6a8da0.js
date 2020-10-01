@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["view-Movies-vue"],{da27:function(e,n,o){"use strict";o.r(n);var c=o("7a23");const s={class:"block-body"},i=Object(c["f"])("h2",null,"Coming soon...",-1);function t(e,n,o,t,a,d){return Object(c["p"])(),Object(c["d"])("div",s,[i])}var a={name:"Movies"};a.render=t;n["default"]=a}}]);
-//# sourceMappingURL=view-Movies-vue.ba6a8da0.js.map
