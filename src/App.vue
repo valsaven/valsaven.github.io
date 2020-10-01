@@ -44,11 +44,19 @@ export default {
       default: () => ({}),
     },
   },
+  data() {
+    return {
+      isNightTime: false,
+    };
+  },
   methods: {
-    isNightTime() {
+    setNightTime() {
       const hours = new Date().getHours();
-      return hours > 18;
+      this.isNightTime = hours > 18;
     }
+  },
+  mounted() {
+    this.setNightTime();
   }
 };
 </script>
