@@ -62,6 +62,10 @@ export default {
 </script>
 
 <style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --main-text-color: #fffffa;
   --main-bg-color: #222;
