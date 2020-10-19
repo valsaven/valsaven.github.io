@@ -4,10 +4,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    // 'plugin:vue/recommended',
-    // '@vue/airbnb',
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    //'plugin:vue/recommended',
+    //'@vue/airbnb',
   ],
   parserOptions: {
     ecmaVersion: 2020,
