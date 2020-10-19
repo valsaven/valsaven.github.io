@@ -15,13 +15,11 @@
       </header>
       <div class="body">
         <!-- Menu -->
-        <main-menu/>
+        <main-menu />
         <!-- Main block -->
-        <main-block/>
+        <main-block />
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -49,15 +47,15 @@ export default {
       isNightTime: false,
     };
   },
+  mounted() {
+    this.setNightTime();
+  },
   methods: {
     setNightTime() {
       const hours = new Date().getHours();
       this.isNightTime = hours > 18;
-    }
+    },
   },
-  mounted() {
-    this.setNightTime();
-  }
 };
 </script>
 
@@ -118,7 +116,6 @@ a {
   flex-wrap: wrap;
   margin: 20px 0 0 0;
 }
-
 
 @media only screen and (max-device-width: 568px) {
   #app {

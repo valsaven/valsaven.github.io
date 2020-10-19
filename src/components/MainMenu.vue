@@ -25,7 +25,10 @@
             class="menu-item-icon"
             @click="goToRoute(item)"
           >
-            <i :class="item.icon" class="menu-item-icon__icon" />
+            <i
+              :class="item.icon"
+              class="menu-item-icon__icon"
+            />
           </div>
           <a
             :href="href"
@@ -94,9 +97,9 @@ export default {
         '(╥_╥)',
         '(´ヘ｀;)',
         '|ʘ‿ʘ)╯',
-          '(´∀`)',
-        '(´• ω •`)\''
-      ]
+        '(´∀`)',
+        '(´• ω •`)\'',
+      ],
     };
   },
   watch: {

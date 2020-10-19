@@ -14,7 +14,7 @@
     </a>
     <v-card-text>
       <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
+        <template #activator="{ on }">
           <h5
             class="game__title"
             v-on="on"

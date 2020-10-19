@@ -20,12 +20,12 @@
         :indeterminate="true"
       />
       <v-data-iterator
+        v-model:options="options"
         :items="games"
         :search="search"
-        v-model:options="options"
         no-data-text="Loading..."
       >
-        <template v-slot:default="props">
+        <template #default="props">
           <v-row>
             <v-col
               v-for="(item, i) in props.items"
@@ -41,8 +41,7 @@
         </template>
 
         <template
-          v-slot:items="props"
-
+          #items="props"
         >
           <td
             class="text-xs-center"

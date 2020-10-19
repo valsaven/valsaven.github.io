@@ -12,7 +12,7 @@
     </a>
     <v-card-text>
       <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
+        <template #activator="{ on }">
           <h4
             class="book-title"
             v-on="on"

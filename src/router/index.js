@@ -49,7 +49,7 @@ const router = createRouter({
       name: 'Contacts',
       component: loadView('Contacts'),
     },
-  ]
+  ],
 });
 
 export default router;
