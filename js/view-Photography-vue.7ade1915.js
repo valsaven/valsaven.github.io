@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["view-Photography-vue"],{"1b1a":function(o,n,e){"use strict";e.r(n);var t=e("7a23");const a={class:"block-body"},c=Object(t["h"])("h2",null,"Coming soon...",-1);function r(o,n,e,r,s,b){return Object(t["r"])(),Object(t["e"])("div",a,[c])}var s={name:"Photography"};s.render=r;n["default"]=s}}]);
+//# sourceMappingURL=view-Photography-vue.7ade1915.js.map
