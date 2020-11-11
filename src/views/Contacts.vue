@@ -35,7 +35,7 @@ export default {
         },
         {
           href: 'https://www.linkedin.com/in/valsaven',
-          title: "Val Saven's CV on LinkedIn",
+          title: 'Val Saven on LinkedIn',
           label: 'LinkedIn',
           icon: 'fab fa-linkedin-in',
         },
@@ -50,6 +50,18 @@ export default {
           title: 'Val Saven on Twitter',
           label: 'Twitter',
           icon: 'fab fa-twitter',
+        },
+        {
+          href: 'https://medium.com/@valsaven',
+          title: 'Val Saven on Medium',
+          label: 'Medium',
+          icon: 'fab fa-medium-m',
+        },
+        {
+          href: 'https://instagram.com/valsaven',
+          title: 'Val Saven on Instagram',
+          label: 'Instagram',
+          icon: 'fab fa-instagram instagram',
         },
       ],
     };
@@ -96,5 +108,18 @@ export default {
   align-items: center;
   display: flex;
   font-size: 18px;
+}
+
+.instagram {
+  color: transparent;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285AEB 90%
+  );
+  background-clip: text;
 }
 </style>

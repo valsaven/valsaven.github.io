@@ -49,5 +49,6 @@
   color: var(--dark-main-text-color) !important;
 }
 
-
-
+.dark-theme .sidebar-panel {
+  background-color: var(--dark-main-accent-color);
+}

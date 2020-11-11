@@ -3,6 +3,12 @@
     :class="{ 'dark-theme': isNightTime }"
     class="app"
   >
+    <burger
+      class="burger"
+      :is-sidebar-open="isSidebarOpen"
+      @click="sidebarToggle"
+    />
+
     <div class="app__wrapper">
       <header class="header">
         <h1 class="header__name">
@@ -13,9 +19,18 @@
           />
         </h1>
       </header>
+
       <div class="body">
         <!-- Menu -->
-        <main-menu />
+        <main-menu class="main-menu" />
+
+        <!-- Mobile menu -->
+        <sidebar
+          v-if="isSidebarOpen"
+          :is-sidebar-open="isSidebarOpen"
+          @sidebarToggle="sidebarToggle"
+        />
+
         <!-- Main block -->
         <main-block />
       </div>
@@ -24,8 +39,11 @@
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu.vue';
+import MainMenu from '@/components/Menu/Menu.vue';
 import MainBlock from '@/components/MainBlock.vue';
+
+import Burger from '@/components/Menu/Burger.vue';
+import Sidebar from '@/components/Menu/Sidebar.vue';
 
 import './assets/reset.css';
 import './assets/dark-theme.css';
@@ -33,8 +51,10 @@ import './assets/dark-theme.css';
 export default {
   name: 'Home',
   components: {
+    Burger,
     MainMenu,
     MainBlock,
+    Sidebar,
   },
   props: {
     book: {
@@ -44,6 +64,7 @@ export default {
   },
   data() {
     return {
+      isSidebarOpen: false,
       isNightTime: false,
     };
   },
@@ -55,6 +76,9 @@ export default {
       const hours = new Date().getHours();
       this.isNightTime = hours > 18;
     },
+    sidebarToggle() {
+      this.isSidebarOpen = !this.isSidebarOpen;
+    },
   },
 };
 </script>
@@ -65,6 +89,8 @@ export default {
   --main-bg-color: #222;
   --head-bg-color: #41b883;
   --body-bg-color: #525252;
+
+  --dashed-border-color: #1da1f2;
 
   --wings-1: #45ccca;
   --wings-2: #8fd67a;
@@ -96,30 +122,44 @@ a {
 
 .app__wrapper {
   color: var(--main-bg-color);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 8fr;
-  grid-column-gap: 0;
-  grid-row-gap: 20px;
-  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin: 0 auto;
+  max-width: 1280px;
 }
 
 .header__name {
   font-family: 'Poiret One', sans-serif;
-  /*font-size: 48px;*/
   margin: 20px 0;
 }
 
 .body {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px 0 0 0;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 0;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
 }
 
-@media only screen and (max-device-width: 568px) {
-  #app {
-    max-width: 100%;
+.burger {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .burger {
+    display: block;
+  }
+
+  .main-menu {
+    display: none !important;
+  }
+
+  .body {
+    display: flex;
   }
 }
 </style>

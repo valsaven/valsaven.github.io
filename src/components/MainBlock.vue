@@ -19,20 +19,23 @@ export default {
 .block {
   display: flex;
   flex-direction: column;
-  flex: 4;
-  padding-left: 14px;
 }
 
 .block-header {
   align-items: center;
-  border: 2px dashed black;
+  border: 2px dashed var(--dashed-border-color);
   display: flex;
   height: 68px;
   justify-content: center;
 }
 
 .block-content {
-  /*padding: 16px 0 0 20px !important;*/
   padding: 1em;
+}
+
+@media screen and (max-width: 767px) {
+  .block {
+    width: 100%;
+  }
 }
 </style>
