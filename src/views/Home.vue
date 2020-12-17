@@ -26,6 +26,7 @@ export default {
 }
 
 .home-item__text {
+  font-family: 'Lato', sans-serif;
   line-height: 2em;
 }
 </style>

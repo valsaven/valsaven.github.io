@@ -6,14 +6,14 @@
       class="contact"
     >
       <a
-        class="contact-title"
         :href="item.href"
         :title="item.title"
+        class="contact-title"
         target="_blank"
       >
         <i
-          class="contact-icon"
           :class="item.icon"
+          class="contact-icon"
         />
         {{ item.label }}
       </a>
@@ -107,7 +107,8 @@ export default {
 .contact-title {
   align-items: center;
   display: flex;
-  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
 }
 
 .instagram {

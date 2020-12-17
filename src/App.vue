@@ -4,8 +4,8 @@
     class="app"
   >
     <burger
-      class="burger"
       :is-sidebar-open="isSidebarOpen"
+      class="burger"
       @click="sidebarToggle"
     />
 
@@ -46,6 +46,7 @@ import Burger from '@/components/Menu/Burger.vue';
 import Sidebar from '@/components/Menu/Sidebar.vue';
 
 import './assets/reset.css';
+import './assets/fonts.css';
 import './assets/dark-theme.css';
 
 export default {
