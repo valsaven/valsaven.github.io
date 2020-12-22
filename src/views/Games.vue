@@ -4,9 +4,9 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
+        hide-details
         label="Search"
         single-line
-        hide-details
       />
     </v-card-title>
 
@@ -31,9 +31,9 @@
               v-for="(item, i) in props.items"
               :key="i"
               cols="12"
-              sm="6"
-              md="4"
               lg="3"
+              md="4"
+              sm="6"
             >
               <game-card :game="item" />
             </v-col>

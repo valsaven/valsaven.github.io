@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 function loadView(view) {
-  return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`);
+  return () => import(/* webpackChunkName: "view-[request]" */ `./views/${view}.vue`);
 }
 
 const routerHistory = createWebHashHistory();

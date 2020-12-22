@@ -39,15 +39,11 @@
 </template>
 
 <script>
-import MainMenu from '@/components/Menu/Menu.vue';
-import MainBlock from '@/components/MainBlock.vue';
+import MainMenu from './components/Menu/Menu.vue';
+import MainBlock from './components/MainBlock.vue';
 
-import Burger from '@/components/Menu/Burger.vue';
-import Sidebar from '@/components/Menu/Sidebar.vue';
-
-import './assets/reset.css';
-import './assets/fonts.css';
-import './assets/dark-theme.css';
+import Burger from './components/Menu/Burger.vue';
+import Sidebar from './components/Menu/Sidebar.vue';
 
 export default {
   name: 'Home',
