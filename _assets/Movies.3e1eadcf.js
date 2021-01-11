@@ -1,1 +1,0 @@
-import{o,c as a,a as n}from"./index.747a8a8e.js";var e={name:"Movies"};const s={class:"block-body"},r=n("h2",null,"Coming soon...",-1);e.render=function(n,e,i,t,c,d){return o(),a("div",s,[r])};export default e;
