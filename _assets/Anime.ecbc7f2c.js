@@ -1,0 +1,1 @@
+import{o as n,c as o,a}from"./index.747a8a8e.js";var e={name:"Anime"};const r={class:"block-body"},s=a("h2",null,"Coming soon...",-1);e.render=function(a,e,i,t,c,d){return n(),o("div",r,[s])};export default e;

@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["view-About-vue"],{f820:function(e,n,t){"use strict";t.r(n);var c=t("7a23");const o={class:"about"},s=Object(c["h"])("h1",null,"This is an about page",-1);function u(e,n,t,u,a,i){return Object(c["r"])(),Object(c["e"])("div",o,[s])}const a={};a.render=u;n["default"]=a}}]);
-//# sourceMappingURL=view-About-vue.7ded58cc.js.map

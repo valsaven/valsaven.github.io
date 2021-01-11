@@ -1,0 +1,1 @@
+import{o,c as a,a as n}from"./index.747a8a8e.js";var r={name:"Photography"};const e={class:"block-body"},s=n("h2",null,"Coming soon...",-1);r.render=function(n,r,t,c,d,i){return o(),a("div",e,[s])};export default r;
