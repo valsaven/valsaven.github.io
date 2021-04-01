@@ -38,8 +38,10 @@
   </ul>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'MenuList',
   props: {
     menu: {
@@ -47,7 +49,7 @@ export default {
       default: () => [],
     },
   },
-};
+});
 </script>
 
 <style scoped>
