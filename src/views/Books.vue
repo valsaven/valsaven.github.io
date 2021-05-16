@@ -1,12 +1,100 @@
 <template>
   <div>
-    <div
-      v-for="(book, index) in books"
-      :key="index"
-      class="book"
-    >
-      {{ book }}
-    </div>
+    <table class="books">
+      <tr>
+        <th>cover</th>
+        <th>title</th>
+        <th>author</th>
+        <th>isbn13</th>
+        <th>numPages</th>
+        <th>avgRating</th>
+        <th>numRatings</th>
+        <th>datePub</th>
+        <th>datePubEdition</th>
+        <th>rating</th>
+        <th>shelves</th>
+        <th>dateStarted</th>
+        <th>dateRead</th>
+        <th>dateAdded</th>
+      </tr>
+
+      <tr
+        v-for="(book, index) in books"
+        :key="index"
+        class="books"
+      >
+        <td class="book-cover">
+          <a :href="book.cover.href">
+            <img
+              :src="book.cover.src"
+              :alt="book.cover.alt"
+            >
+          </a>
+        </td>
+
+        <td class="book-title">
+          <a :href="book.title.href">
+            {{ book.title.text }}
+          </a>
+        </td>
+
+        <td>
+          <a :href="book.author.href">
+            {{ book.author.text }}
+          </a>
+        </td>
+
+        <td>
+          {{ book.isbn13 }}
+        </td>
+
+        <td>
+          {{ book.numPages }}
+        </td>
+
+        <td>
+          {{ book.avgRating }}
+        </td>
+
+        <td>
+          {{ book.numRatings }}
+        </td>
+
+        <td>
+          {{ book.datePub }}
+        </td>
+
+        <td>
+          {{ book.datePubEdition }}
+        </td>
+
+        <td>
+          {{ book.rating }}
+        </td>
+
+        <td>
+          {{ book.shelves }}
+        </td>
+
+        <td>
+          {{ book.dateStarted }}
+        </td>
+
+        <td>
+          {{ book.dateRead }}
+        </td>
+
+        <td>
+          {{ book.dateAdded }}
+        </td>
+      </tr>
+
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+    </table>
   </div>
 <!--  <v-card dark>-->
 <!--    <v-card-title class="search">-->
@@ -371,6 +459,8 @@ export default defineComponent({
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 200px;
+  white-space: pre-wrap;
 }
 
 .v-card .book-cover {
