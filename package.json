@@ -24,6 +24,6 @@
     "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-vue": "^7.9.0",
     "typescript": "^4.2.4",
-    "vite": "^2.3.2"
+    "vite": "^2.3.3"
   }
 }
