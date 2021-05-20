@@ -1,57 +1,56 @@
 <template>
   <div>
-    <table class="books">
-      <tr>
-        <th>Cover</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>ISBN13</th>
-        <th>Pages</th>
-        <th>Avg. rating</th>
-        <th>Number ratings</th>
-        <th>Published</th>
-        <th>Published (Edition)</th>
-        <th>Rating</th>
-        <th>Shelves</th>
-        <th>Added</th>
-      </tr>
+    <table>
+      <thead>
+        <tr>
+          <th
+            v-for="(header, index) in headers"
+            :key="index"
+            @click="sort(header.field)"
+          >
+            {{ header.title }}
+          </th>
+        </tr>
+      </thead>
 
-      <tr
-        v-for="(book, index) in books"
-        :key="index"
-        class="books"
-      >
-        <td class="book-cover">
-          <a :href="book.cover.href">
-            <img
-              :src="book.cover.src"
-              :alt="book.cover.alt"
-            >
-          </a>
-        </td>
+      <tbody>
+        <tr
+          v-for="(book, index) in sortedBooks"
+          :key="index"
+          class="books"
+        >
+          <td class="book-cover">
+            <a :href="book.cover.href">
+              <img
+                :src="book.cover.src"
+                :alt="book.cover.alt"
+              >
+            </a>
+          </td>
 
-        <td class="book-title">
-          <a :href="book.title.href">
-            {{ book.title.text }}
-          </a>
-        </td>
+          <td class="book-title">
+            <a :href="book.title.href">
+              {{ book.title.text }}
+            </a>
+          </td>
 
-        <td>
-          <a :href="book.author.href">
-            {{ book.author.text }}
-          </a>
-        </td>
+          <td>
+            <a :href="book.author.href">
+              {{ book.author.text }}
+            </a>
+          </td>
 
-        <td>{{ book.isbn13 }}</td>
-        <td>{{ book.numPages }}</td>
-        <td>{{ book.avgRating }}</td>
-        <td>{{ book.numRatings }}</td>
-        <td>{{ book.datePub }}</td>
-        <td>{{ book.datePubEdition }}</td>
-        <td>{{ book.rating }}</td>
-        <td>{{ book.shelves }}</td>
-        <td>{{ book.dateAdded }}</td>
-      </tr>
+          <td>{{ book.isbn13 }}</td>
+          <td>{{ book.numPages }}</td>
+          <td>{{ book.avgRating }}</td>
+          <td>{{ book.numRatings }}</td>
+          <td>{{ book.datePub }}</td>
+          <td>{{ book.datePubEdition }}</td>
+          <td>{{ book.rating }}</td>
+          <td>{{ book.shelves }}</td>
+          <td>{{ book.dateAdded }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -161,8 +160,93 @@ export default defineComponent({
   data() {
     return {
       books: [] as BookData[],
+      headers: [
+        {
+          field: 'cover',
+          title: 'Cover',
+        },
+        {
+          field: 'title',
+          title: 'Title',
+        },
+        {
+          field: 'author',
+          title: 'Author',
+        },
+        {
+          field: 'isbn13',
+          title: 'ISBN13',
+        },
+        {
+          field: 'numPages',
+          title: 'Pages',
+        },
+        {
+          field: 'avgRating',
+          title: 'Avg. rating',
+        },
+        {
+          field: 'numRatings',
+          title: 'Number ratings',
+        },
+        {
+          field: 'datePub',
+          title: 'Published',
+        },
+        {
+          field: 'datePubEdition',
+          title: 'Published (Edition)',
+        },
+        {
+          field: 'rating',
+          title: 'Rating',
+        },
+        {
+          field: 'shelves',
+          title: 'Shelves',
+        },
+        {
+          field: 'dateAdded',
+          title: 'Added',
+        },
+      ],
+      currentSort: 'name',
+      currentSortDir: 'asc',
     };
   },
+
+  computed: {
+    sortedBooks() {
+      const copyBooks = [...this.books];
+
+      return copyBooks.sort((a, b) => {
+        let modifier = 1;
+
+        if (this.currentSortDir === 'desc') {
+          modifier = -1;
+        }
+
+        let oldVal = a[this.currentSort];
+        let newVal = b[this.currentSort];
+
+        if (['numPages', 'numRatings'].includes(this.currentSort)) {
+          oldVal = Number(oldVal.replace(/[^0-9]/g, ''));
+          newVal = Number(newVal.replace(/[^0-9]/g, ''));
+        }
+
+        if (oldVal < newVal) {
+          return -1 * modifier;
+        }
+
+        if (oldVal > newVal) {
+          return modifier;
+        }
+
+        return 0;
+      });
+    },
+  },
+
   async mounted() {
     const books = localStorage.getItem('books');
 
@@ -180,10 +264,30 @@ export default defineComponent({
       });
     }
   },
+
+  methods: {
+    sort(s: string) {
+      if (s === this.currentSort) {
+        this.currentSortDir = this.currentSortDir === 'asc'
+          ? 'desc'
+          : 'asc';
+      }
+
+      this.currentSort = s;
+    },
+  },
 });
 </script>
 
 <style scoped>
+td, th {
+  padding: 5px;
+}
+
+th {
+  cursor:pointer;
+}
+
 tr:nth-child(even) {
   background-color: #f2f2f2
 }
