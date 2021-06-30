@@ -4,11 +4,11 @@ export const menuItems = [
     name: 'Home',
     icon: 'fas fa-home',
   },
-  // {
-  //   path: '/projects',
-  //   name: 'Projects',
-  //   icon: 'fas fa-code-branch',
-  // },
+  {
+    path: '/projects',
+    name: 'Projects',
+    icon: 'fas fa-code-branch',
+  },
   // {
   //   path: '/games',
   //   name: 'Games',

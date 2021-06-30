@@ -18,12 +18,6 @@ export default defineComponent({
   components: {
     MenuList,
   },
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-  },
   data() {
     return {
       activeItem: this.$route.name,
