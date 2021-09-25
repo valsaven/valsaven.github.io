@@ -3,7 +3,7 @@
     <div
       v-if="isSidebarOpen"
       class="sidebar-backdrop"
-      @click="this.$emit('sidebar-toggle')"
+      @click="$emit('sidebar-toggle')"
     />
     <transition name="slide">
       <div
@@ -16,11 +16,13 @@
   </div>
 </template>
 
-<script>
-import MenuItems from './MenuItems';
-import MenuList from './MenuList.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import MenuList from './MenuList.vue';
+import menuItems from './menu-items.ts';
+
+export default defineComponent({
   name: 'Sidebar',
   components: {
     MenuList,
@@ -32,9 +34,9 @@ export default {
     },
   },
   data: () => ({
-    menu: MenuItems,
+    menu: menuItems,
   }),
-};
+});
 </script>
 
 <style>

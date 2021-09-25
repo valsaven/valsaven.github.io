@@ -5,9 +5,9 @@
   >
     <slot>
       <button
-        type="button"
         class="burger-button"
         title="Menu"
+        type="button"
       >
         <span class="burger-bar burger-bar--1" />
         <span class="burger-bar burger-bar--2" />
@@ -16,8 +16,11 @@
     </slot>
   </div>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'Burger',
   props: {
     isSidebarOpen: {
@@ -25,7 +28,7 @@ export default {
       default: false,
     },
   },
-};
+});
 </script>
 
 <style>
