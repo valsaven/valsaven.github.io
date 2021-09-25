@@ -1,1 +1,0 @@
-import{o,c as e,a as n}from"./index.f4ed2aba.js";const s={name:"Projects"},a={class:"projects"},r=n("h2",null,"Coming soon...",-1);s.render=function(n,s,t,c,d,i){return o(),e("div",a,[r])};export default s;

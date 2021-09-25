@@ -1,0 +1,1 @@
+import{_ as o}from"./index.6748816d.js";import{o as n,c as e,e as r}from"./vendor.280edc92.js";const s={name:"Anime"},a={class:"block-body"},d=[r("h2",null,"Coming soon...",-1)];var i=o(s,[["render",function(o,r,s,i,m,t){return n(),e("div",a,d)}]]);export{i as default};

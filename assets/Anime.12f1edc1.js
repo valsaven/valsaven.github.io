@@ -1,1 +1,0 @@
-import{o as n,c as o,a}from"./index.f4ed2aba.js";const e={name:"Anime"},s={class:"block-body"},r=a("h2",null,"Coming soon...",-1);e.render=function(a,e,d,i,t,c){return n(),o("div",s,[r])};export default e;

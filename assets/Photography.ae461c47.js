@@ -1,1 +1,0 @@
-import{o,c as a,a as n}from"./index.f4ed2aba.js";const e={name:"Photography"},r={class:"block-body"},s=n("h2",null,"Coming soon...",-1);e.render=function(n,e,t,d,c,i){return o(),a("div",r,[s])};export default e;

@@ -1,0 +1,1 @@
+import{_ as o}from"./index.6748816d.js";import{o as s,c as e,e as n}from"./vendor.280edc92.js";const r={name:"Movies"},a={class:"block-body"},d=[n("h2",null,"Coming soon...",-1)];var i=o(r,[["render",function(o,n,r,i,t,c){return s(),e("div",a,d)}]]);export{i as default};
