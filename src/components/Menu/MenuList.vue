@@ -20,7 +20,6 @@
           :class="[`obj-${i}`]"
           class="menu-item-icon"
         >
-          <!--          @click="goToRoute(item)"-->
           <i
             :class="item.icon"
             class="menu-item-icon__icon"
@@ -38,8 +37,10 @@
   </ul>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'MenuList',
   props: {
     menu: {
@@ -47,7 +48,7 @@ export default {
       default: () => [],
     },
   },
-};
+});
 </script>
 
 <style scoped>

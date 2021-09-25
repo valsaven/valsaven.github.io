@@ -58,8 +58,6 @@
 </template>
 
 <script>
-// import { mapState, mapActions } from 'vuex';
-
 import GameCard from '../components/GameCard.vue';
 
 export default {

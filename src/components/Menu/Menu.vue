@@ -7,11 +7,13 @@
   </nav>
 </template>
 
-<script>
-import MenuItems from './MenuItems';
-import MenuList from './MenuList.vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+import MenuList from './MenuList.vue';
+import menuItems from './menu-items.ts';
+
+export default defineComponent({
   name: 'MainMenu',
   components: {
     MenuList,
@@ -19,7 +21,7 @@ export default {
   data() {
     return {
       activeItem: this.$route.name,
-      menu: MenuItems,
+      menu: menuItems,
       dailyKaomojis: [
         '(´• ω •`)\'', // Sunday
         '(・∀・)',
@@ -45,12 +47,8 @@ export default {
     updateActiveItem() {
       this.activeItem = this.$route.name;
     },
-    goToRoute(item) {
-      this.activeItem = item.name;
-      this.$router.push(item.path);
-    },
   },
-};
+});
 </script>
 
 <style scoped>
