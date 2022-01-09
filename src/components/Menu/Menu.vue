@@ -1,7 +1,7 @@
 <template>
   <nav class="menu">
     <header class="menu-header">
-      <h2 v-text="`Menu ${dailyKaomoji} `" />
+      <h2 class="menu-title">Menu <span class="menu-title__kaomoji">{{ dailyKaomoji }}</span></h2>
     </header>
     <menu-list :menu="menu" />
   </nav>
@@ -65,5 +65,16 @@ export default defineComponent({
   display: flex;
   height: 68px;
   justify-content: center;
+}
+
+.menu-title {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-title__kaomoji {
+  font-size: 12px;
+  margin-left: 10px;
 }
 </style>
