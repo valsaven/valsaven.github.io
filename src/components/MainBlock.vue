@@ -1,7 +1,7 @@
 <template>
   <article class="block">
     <header class="block-header">
-      <h2 v-text="`・゜・。. ${$route.name} ・゜・。.`" />
+      <h2 v-text="`・゜・。. ${currentPage} ・゜・。.`" />
     </header>
     <div class="block-content">
       <router-view />
@@ -9,10 +9,17 @@
   </article>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'MainBlock',
-};
+  computed: {
+    currentPage(): string {
+      return String(this.$route?.name) || '';
+    }
+  }
+});
 </script>
 
 <style scoped>

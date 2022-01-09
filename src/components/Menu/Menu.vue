@@ -11,7 +11,7 @@
 import { defineComponent } from 'vue';
 
 import MenuList from './MenuList.vue';
-import menuItems from './menu-items.ts';
+import menuItems from './menu-items';
 
 export default defineComponent({
   name: 'MainMenu',
@@ -22,7 +22,11 @@ export default defineComponent({
     return {
       activeItem: this.$route.name,
       menu: menuItems,
-      dailyKaomojis: [
+    };
+  },
+  computed: {
+    dailyKaomoji() {
+      const dailyKaomojis = [
         '(´• ω •`)\'', // Sunday
         '(・∀・)',
         '(-д-；)',
@@ -30,12 +34,9 @@ export default defineComponent({
         '(´ヘ｀;)',
         '|ʘ‿ʘ)╯',
         '(´∀`)',
-      ],
-    };
-  },
-  computed: {
-    dailyKaomoji() {
-      return this.dailyKaomojis[new Date().getDay()];
+      ];
+
+      return dailyKaomojis[new Date().getDay()];
     },
   },
   watch: {
