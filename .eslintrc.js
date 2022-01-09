@@ -4,8 +4,8 @@ module.exports = {
     node: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:vue/vue3-recommended',
-    '@vue/airbnb',
     '@vue/typescript/recommended',
   ],
   parserOptions: {

@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Home from './views/Home.vue';
 
 function loadView(view: string) {
   return () => import(/* webpackChunkName: "view-[request]" */ `./views/${view}.vue`);
@@ -17,29 +16,9 @@ const routes: Array<RouteRecordRaw> = [
     component: loadView('Projects'),
   },
   {
-    path: '/games',
-    name: 'Games',
-    component: loadView('Games'),
-  },
-  {
-    path: '/anime',
-    name: 'Anime',
-    component: loadView('Anime'),
-  },
-  {
-    path: '/movies',
-    name: 'Movies',
-    component: loadView('Movies'),
-  },
-  {
-    path: '/books',
-    name: 'Books',
-    component: loadView('Books'),
-  },
-  {
-    path: '/photography',
-    name: 'Photography',
-    component: loadView('Photography'),
+    path: '/favorites',
+    name: 'Favorites',
+    component: loadView('Favorites'),
   },
   {
     path: '/contacts',
