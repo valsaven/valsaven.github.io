@@ -38,14 +38,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue'
+
+interface MenuItem {
+  path: string;
+  name: string;
+  icon: string;
+}
+
+interface MenuItems extends Array<MenuItem>{}
 
 export default defineComponent({
   name: 'MenuList',
   props: {
     menu: {
-      type: Array,
-      default: () => [],
+      type: Object as PropType<MenuItems>,
+      required: true
     },
   },
 });

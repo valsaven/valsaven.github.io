@@ -27,8 +27,10 @@
   </v-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'GameCard',
   props: {
     game: {
@@ -41,7 +43,7 @@ export default {
       imageURL: 'http://media.steampowered.com/steamcommunity/public/images/apps',
     };
   },
-};
+});
 </script>
 
 <style scoped>

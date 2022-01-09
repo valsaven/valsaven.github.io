@@ -20,7 +20,7 @@
 import { defineComponent } from 'vue';
 
 import MenuList from './MenuList.vue';
-import menuItems from './menu-items.ts';
+import menuItems from './menu-items';
 
 export default defineComponent({
   name: 'Sidebar',

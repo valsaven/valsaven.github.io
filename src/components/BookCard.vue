@@ -62,8 +62,10 @@
   </v-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'BookCard',
   props: {
     book: {
@@ -71,7 +73,7 @@ export default {
       default: () => ({}),
     },
   },
-};
+});
 </script>
 
 <style scoped>
