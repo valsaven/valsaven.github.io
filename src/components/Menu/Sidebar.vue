@@ -48,7 +48,7 @@ export default defineComponent({
 .slide-enter,
 .slide-leave-to {
   transform: translateX(-100%);
-  transition: all 150ms ease-in 0s
+  transition: all 150ms ease-in 0s;
 }
 
 .sidebar-backdrop {
@@ -66,10 +66,14 @@ export default defineComponent({
   height: 100vh;
   left: 0;
   overflow-y: auto;
-  padding: 3rem 20px 2rem 20px;
+  padding: 48px 20px;
   position: fixed;
   top: 0;
-  width: 300px;
-  z-index: 999;
+  width: 100%;
+  z-index: 2;
+}
+
+.sidebar .active {
+  transform: none;
 }
 </style>

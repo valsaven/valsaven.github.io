@@ -43,7 +43,7 @@ export default defineComponent({
   position: relative;
   transition: transform .6s cubic-bezier(.165, .84, .44, 1);
   width: 32px;
-  z-index: 999;
+  z-index: 4;
 }
 
 .burger-button:focus {
@@ -91,11 +91,11 @@ export default defineComponent({
 }
 
 #burger.active .burger-bar {
-  background-color: #fff;
+  background-color: #000;
 }
 
 #burger.active .burger-bar--1 {
-  transform: rotate(45deg)
+  transform: rotate(45deg);
 }
 
 #burger.active .burger-bar--2 {
@@ -103,6 +103,6 @@ export default defineComponent({
 }
 
 #burger.active .burger-bar--3 {
-  transform: rotate(-45deg)
+  transform: rotate(-45deg);
 }
 </style>
