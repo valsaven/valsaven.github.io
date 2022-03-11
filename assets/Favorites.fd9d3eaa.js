@@ -1,0 +1,1 @@
+import{_ as o}from"./index.94b1c38f.js";import{d as e,o as s,c as t,e as n}from"./vendor.2d0e4791.js";const a=e({name:"Favorites"}),c={class:"block-body"},r=n("h2",null,"Coming soon...",-1),_=[r];function i(d,p,m,f,l,h){return s(),t("div",c,_)}var $=o(a,[["render",i]]);export{$ as default};
