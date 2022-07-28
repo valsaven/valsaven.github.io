@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
 function loadView(view: string) {
-  return () => import(/* webpackChunkName: "view-[request]" */ `./views/${view}.vue`);
+  return () => import(`./views/${view}.vue`);
 }
 
 const routes: Array<RouteRecordRaw> = [
