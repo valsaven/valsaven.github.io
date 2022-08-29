@@ -1,1 +1,0 @@
-import{d as o,_ as e,o as s,c as t,a as n}from"./index.147a5a8b.js";const a=o({name:"Favorites"}),c={class:"block-body"},r=n("h2",null,"Coming soon...",-1),_=[r];function d(i,p,l,f,m,h){return s(),t("div",c,_)}const $=e(a,[["render",d]]);export{$ as default};
