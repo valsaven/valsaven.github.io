@@ -10,7 +10,7 @@
         v-if="isSidebarOpen"
         class="sidebar-panel"
       >
-        <menu-list :menu="menu" />
+        <menu-list :menu="menu" @sidebar-toggle="$emit('sidebar-toggle')"/>
       </div>
     </transition>
   </div>

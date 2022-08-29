@@ -15,6 +15,7 @@
           `menu-item-${i + 1}`
         ]"
         class="grow menu-item"
+        @click="$emit('sidebar-toggle')"
       >
         <div
           :class="[`obj-${i}`]"

@@ -28,7 +28,7 @@
         <sidebar
           v-if="isSidebarOpen"
           :is-sidebar-open="isSidebarOpen"
-          @sidebarToggle="sidebarToggle"
+          @sidebar-toggle="sidebarToggle"
         />
 
         <!-- Main block -->
