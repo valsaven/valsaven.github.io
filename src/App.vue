@@ -73,7 +73,7 @@ export default defineComponent({
   methods: {
     setNightTime() {
       const hours = new Date().getHours();
-      this.isNightTime = hours < 6 || hours > 22;
+      this.isNightTime = hours < 6 || hours >= 22;
     },
     sidebarToggle() {
       this.isSidebarOpen = !this.isSidebarOpen;
