@@ -21,54 +21,47 @@
   </ul>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { Contact } from '../types';
 
-export default defineComponent({
-  name: 'Contacts',
-  data() {
-    return {
-      contacts: [
-        {
-          href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
-          title: 'Contact Val Saven',
-          label: 'Email',
-          icon: 'fas fa-envelope',
-        },
-        {
-          href: 'https://www.linkedin.com/in/valsaven',
-          title: 'Val Saven on LinkedIn',
-          label: 'LinkedIn',
-          icon: 'fab fa-linkedin-in',
-        },
-        {
-          href: 'https://github.com/valsaven',
-          title: 'Val Saven on Github',
-          label: 'GitHub',
-          icon: 'fab fa-github-alt',
-        },
-        {
-          href: 'https://twitter.com/valsaven',
-          title: 'Val Saven on Twitter',
-          label: 'Twitter',
-          icon: 'fab fa-twitter',
-        },
-        {
-          href: 'https://medium.com/@valsaven',
-          title: 'Val Saven on Medium',
-          label: 'Medium',
-          icon: 'fab fa-medium-m',
-        },
-        {
-          href: 'https://instagram.com/valsaven',
-          title: 'Val Saven on Instagram',
-          label: 'Instagram',
-          icon: 'fab fa-instagram instagram',
-        },
-      ],
-    };
+const contacts: Contact[] = [
+  {
+    href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
+    title: 'Contact Val Saven',
+    label: 'Email',
+    icon: 'fas fa-envelope',
   },
-});
+  {
+    href: 'https://www.linkedin.com/in/valsaven',
+    title: 'Val Saven on LinkedIn',
+    label: 'LinkedIn',
+    icon: 'fab fa-linkedin-in',
+  },
+  {
+    href: 'https://github.com/valsaven',
+    title: 'Val Saven on Github',
+    label: 'GitHub',
+    icon: 'fab fa-github-alt',
+  },
+  {
+    href: 'https://twitter.com/valsaven',
+    title: 'Val Saven on Twitter',
+    label: 'Twitter',
+    icon: 'fab fa-twitter',
+  },
+  {
+    href: 'https://medium.com/@valsaven',
+    title: 'Val Saven on Medium',
+    label: 'Medium',
+    icon: 'fab fa-medium-m',
+  },
+  {
+    href: 'https://instagram.com/valsaven',
+    title: 'Val Saven on Instagram',
+    label: 'Instagram',
+    icon: 'fab fa-instagram instagram',
+  },
+];
 </script>
 
 <style scoped>

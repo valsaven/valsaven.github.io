@@ -17,16 +17,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'Burger',
-  props: {
-    isSidebarOpen: {
-      type: Boolean,
-      default: false,
-    },
+<script setup lang="ts">
+defineProps({
+  isSidebarOpen: {
+    type: Boolean,
+    default: false,
   },
 });
 </script>

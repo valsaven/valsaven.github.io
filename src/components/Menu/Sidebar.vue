@@ -16,27 +16,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 import MenuList from './MenuList.vue';
 import menuItems from './menu-items';
 
-export default defineComponent({
-  name: 'Sidebar',
-  components: {
-    MenuList,
+defineProps({
+  isSidebarOpen: {
+    type: Boolean,
+    default: false,
   },
-  props: {
-    isSidebarOpen: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data: () => ({
-    menu: menuItems,
-  }),
 });
+
+const menu = menuItems;
 </script>
 
 <style>

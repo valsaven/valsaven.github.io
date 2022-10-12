@@ -7,48 +7,26 @@
   </nav>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 
 import MenuList from './MenuList.vue';
 import menuItems from './menu-items';
 
-export default defineComponent({
-  name: 'MainMenu',
-  components: {
-    MenuList,
-  },
-  data() {
-    return {
-      activeItem: this.$route.name,
-      menu: menuItems,
-    };
-  },
-  computed: {
-    dailyKaomoji() {
-      const dailyKaomojis = [
-        '(´• ω •`)\'', // Sunday
-        '(・∀・)',
-        '(-д-；)',
-        '(╥_╥)',
-        '(´ヘ｀;)',
-        '|ʘ‿ʘ)╯',
-        '(´∀`)',
-      ];
+const menu = menuItems;
 
-      return dailyKaomojis[new Date().getDay()];
-    },
-  },
-  watch: {
-    '$route.name': function () {
-      this.updateActiveItem();
-    },
-  },
-  methods: {
-    updateActiveItem() {
-      this.activeItem = this.$route.name;
-    },
-  },
+const dailyKaomoji = computed(() => {
+  const kaomojis = [
+    '(´• ω •`)\'', // Sunday
+    '(・∀・)',
+    '(-д-；)',
+    '(╥_╥)',
+    '(´ヘ｀;)',
+    '|ʘ‿ʘ)╯',
+    '(´∀`)',
+  ];
+
+  return kaomojis[new Date().getDay()];
 });
 </script>
 

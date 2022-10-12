@@ -38,48 +38,25 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-import MainMenu from './components/Menu/Menu.vue';
-import MainBlock from './components/MainBlock.vue';
-
+<script setup lang="ts">
 import Burger from './components/Menu/Burger.vue';
+import MainBlock from './components/MainBlock.vue';
+import MainMenu from './components/Menu/Menu.vue';
 import Sidebar from './components/Menu/Sidebar.vue';
 
-export default defineComponent({
-  name: 'Home',
-  components: {
-    Burger,
-    MainMenu,
-    MainBlock,
-    Sidebar,
-  },
-  props: {
-    book: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
-  data() {
-    return {
-      isSidebarOpen: false,
-      isNightTime: false,
-    };
-  },
-  mounted() {
-    this.setNightTime();
-  },
-  methods: {
-    setNightTime() {
-      const hours = new Date().getHours();
-      this.isNightTime = hours < 6 || hours >= 22;
-    },
-    sidebarToggle() {
-      this.isSidebarOpen = !this.isSidebarOpen;
-    },
-  },
-});
+let isSidebarOpen = false;
+let isNightTime = false;
+
+function setNightTime() {
+  const hours = new Date().getHours();
+  isNightTime = hours < 6 || hours >= 21;
+}
+
+function sidebarToggle() {
+  isSidebarOpen = !isSidebarOpen;
+}
+
+setNightTime();
 </script>
 
 <style>
