@@ -13,3 +13,11 @@ export interface MenuItem {
 
 export interface MenuItems extends Array<MenuItem> {
 }
+
+export type FavoritesItemType = 'anime'
+  | 'books'
+  | 'games'
+  | 'movies'
+  | 'music'
+  | 'photo';
+
