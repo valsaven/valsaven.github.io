@@ -1,1 +1,0 @@
-import{_ as o,o as e,c as s,a as c}from"./index.2241c1cd.js";const t={},n={class:"block-body"},_=c("h2",null,"Coming soon...",-1),a=[_];function r(d,i){return e(),s("div",n,a)}const f=o(t,[["render",r]]);export{f as default};
