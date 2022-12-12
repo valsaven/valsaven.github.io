@@ -1,13 +1,11 @@
 <template>
   <div class="sidebar">
     <div
-      v-if="isSidebarOpen"
       class="sidebar-backdrop"
       @click="$emit('sidebar-toggle')"
     />
     <transition name="slide">
       <div
-        v-if="isSidebarOpen"
         class="sidebar-panel"
       >
         <menu-list :menu="menu" @sidebar-toggle="$emit('sidebar-toggle')"/>
@@ -19,13 +17,6 @@
 <script setup lang="ts">
 import MenuList from './MenuList.vue';
 import menuItems from './menu-items';
-
-defineProps({
-  isSidebarOpen: {
-    type: Boolean,
-    default: false,
-  },
-});
 
 const menu = menuItems;
 </script>

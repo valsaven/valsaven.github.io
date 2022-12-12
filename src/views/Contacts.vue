@@ -32,12 +32,6 @@ const contacts: Contact[] = [
     icon: 'fas fa-envelope',
   },
   {
-    href: 'https://www.linkedin.com/in/valsaven',
-    title: 'Val Saven on LinkedIn',
-    label: 'LinkedIn',
-    icon: 'fab fa-linkedin-in',
-  },
-  {
     href: 'https://github.com/valsaven',
     title: 'Val Saven on Github',
     label: 'GitHub',
@@ -54,12 +48,6 @@ const contacts: Contact[] = [
     title: 'Val Saven on Medium',
     label: 'Medium',
     icon: 'fab fa-medium-m',
-  },
-  {
-    href: 'https://instagram.com/valsaven',
-    title: 'Val Saven on Instagram',
-    label: 'Instagram',
-    icon: 'fab fa-instagram instagram',
   },
 ];
 </script>

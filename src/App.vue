@@ -27,7 +27,6 @@
         <!-- Mobile menu -->
         <sidebar
           v-if="isSidebarOpen"
-          :is-sidebar-open="isSidebarOpen"
           @sidebar-toggle="sidebarToggle"
         />
 
@@ -39,12 +38,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
 import Burger from './components/Menu/Burger.vue';
 import MainBlock from './components/MainBlock.vue';
 import MainMenu from './components/Menu/Menu.vue';
 import Sidebar from './components/Menu/Sidebar.vue';
 
-let isSidebarOpen = false;
+let isSidebarOpen = ref(false);
 let isNightTime = false;
 
 function setNightTime() {
@@ -53,7 +54,7 @@ function setNightTime() {
 }
 
 function sidebarToggle() {
-  isSidebarOpen = !isSidebarOpen;
+  isSidebarOpen.value = !isSidebarOpen.value;
 }
 
 setNightTime();
