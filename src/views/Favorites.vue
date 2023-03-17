@@ -63,7 +63,7 @@ const menuItems: FavoritesItemType[] = [
 /* Dark Theme */
 .dark-theme .favorites__menu-item {
   background-color: var(--dark-main-accent-color);
-  border: none;
+  border-color: transparent;
   color: var(--dark-main-text-color);
 }
 </style>

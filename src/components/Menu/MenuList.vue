@@ -53,10 +53,8 @@ defineProps({
 <style scoped>
 .menu-list {
   display: grid;
-  grid-column-gap: 0;
-  grid-row-gap: 8px;
+  gap: 8px 0;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, 1fr);
   margin: 1em 0;
   padding: 0 0 0 16px;
 }
@@ -64,10 +62,8 @@ defineProps({
 .menu-item {
   align-items: center;
   display: grid;
+  gap: 0;
   grid-template-columns: 1fr 8fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0;
-  grid-row-gap: 0;
 }
 
 .menu-item-icon {

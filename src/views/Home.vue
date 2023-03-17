@@ -2,13 +2,13 @@
   <div class="block-body home">
     <div class="home-item">
       <p class="home-item__text">
-        Hi! My name is Val Saven. This is my working alias.
+        Hello! My name is Val Saven, which is my professional alias.
       </p>
       <p class="home-item__text">
-        Welcome to my homepage (´• ω •`).
+        Welcome to my homepage (´• ω •`)!
       </p>
       <p class="home-item__text">
-        If you want to contact me, please use the ones listed in the contacts menu.
+        If you'd like to get in touch with me, please refer to the contact information provided in the contacts menu.
       </p>
     </div>
   </div>

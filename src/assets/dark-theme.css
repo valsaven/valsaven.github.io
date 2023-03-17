@@ -24,18 +24,14 @@
 }
 
 .dark-theme .app__wrapper {
-  /*background-color: var(--dark-second-bg-color);*/
-}
-
-.dark-theme .block-header,
-.dark-theme .menu-header {
-  /*border: 2px dashed var(--dark-main-border-color);*/
-  border: none;
-  border-radius: 8px;
+  /* background-color: var(--dark-second-bg-color); */
 }
 
 .dark-theme .menu-header,
 .dark-theme .block-header {
+  /* border: 2px dashed var(--dark-main-border-color); */
+  border: none;
+  border-radius: 8px;
   background-color: var(--dark-main-accent-color);
 }
 

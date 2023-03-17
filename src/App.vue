@@ -113,10 +113,8 @@ a {
 
 .body {
   display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 0;
+  gap: 20px;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr;
 }
 
 .burger {

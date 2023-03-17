@@ -6,6 +6,21 @@ function loadView(view: string) {
   return () => import(`./views/${view}.vue`);
 }
 
+const favoritesRoutes = [
+  'anime',
+  'books',
+  'games',
+  'movies',
+  'music',
+  'photo',
+].map((type) => {
+  return {
+    path: type,
+    name: type[0].toUpperCase() + type.slice(1),
+    component: FavoritesItem,
+  };
+});
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -21,38 +36,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/favorites',
     name: 'Favorites',
     component: loadView('Favorites'),
-    children: [
-      {
-        path: 'anime',
-        name: 'Anime',
-        component: FavoritesItem,
-      },
-      {
-        path: 'books',
-        name: 'Books',
-        component: FavoritesItem
-      },
-      {
-        path: 'games',
-        name: 'Games',
-        component: FavoritesItem
-      },
-      {
-        path: 'movies',
-        name: 'Movies',
-        component: FavoritesItem
-      },
-      {
-        path: 'music',
-        name: 'Music',
-        component: FavoritesItem
-      },
-      {
-        path: 'photo',
-        name: 'Photo',
-        component: FavoritesItem
-      },
-    ]
+    children: favoritesRoutes,
   },
   {
     path: '/contacts',
