@@ -52,7 +52,7 @@ const contacts: Contact[] = [
 ];
 </script>
 
-<style scoped>
+<style>
 .contacts {
   padding: 0;
   list-style: none;

@@ -14,11 +14,7 @@
   </div>
 </template>
 
-<style scoped>
-.home-title {
-  text-align: center;
-}
-
+<style>
 .home-item__text {
   font-family: 'Lato', sans-serif;
   line-height: 2em;
