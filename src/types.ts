@@ -11,8 +11,7 @@ export interface MenuItem {
   icon: string;
 }
 
-export interface MenuItems extends Array<MenuItem> {
-}
+export type MenuItems = Array<MenuItem>
 
 export type FavoritesItemType = 'anime'
   | 'books'
@@ -20,4 +19,3 @@ export type FavoritesItemType = 'anime'
   | 'movies'
   | 'music'
   | 'photo';
-

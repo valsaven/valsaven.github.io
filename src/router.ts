@@ -13,13 +13,11 @@ const favoritesRoutes = [
   'movies',
   'music',
   'photo',
-].map((type) => {
-  return {
-    path: type,
-    name: type[0].toUpperCase() + type.slice(1),
-    component: FavoritesItem,
-  };
-});
+].map((type) => ({
+  path: type,
+  name: type[0].toUpperCase() + type.slice(1),
+  component: FavoritesItem,
+}));
 
 const routes: Array<RouteRecordRaw> = [
   {

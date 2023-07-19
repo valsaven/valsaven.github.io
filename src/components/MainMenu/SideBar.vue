@@ -6,9 +6,13 @@
     />
     <transition name="slide">
       <div
-        class="sidebar-panel"
+        :class="'sidebar-panel'"
+        class="dark:bg-vs-main-accent-color-dark"
       >
-        <menu-list :menu="menu" @sidebar-toggle="$emit('sidebar-toggle')"/>
+        <menu-list
+          :menu="menu"
+          @sidebar-toggle="$emit('sidebar-toggle')"
+        />
       </div>
     </transition>
   </div>
@@ -48,7 +52,7 @@ const menu = menuItems;
   height: 100vh;
   left: 0;
   overflow-y: auto;
-  padding: 48px 20px;
+  padding: 2rem 4rem;
   position: fixed;
   top: 0;
   width: 100%;

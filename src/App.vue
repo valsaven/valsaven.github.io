@@ -1,18 +1,19 @@
 <template>
   <div
-    :class="{ 'dark-theme': isNightTime }"
-    class="app"
+    :class="'app'"
+    class="h-screen dark:bg-vs-second-bg-color-dark"
   >
-    <burger
+    <burger-button
       :is-sidebar-open="isSidebarOpen"
-      class="burger"
+      class="absolute right-5 top-5 block md:hidden"
       @click="sidebarToggle"
     />
 
-    <div class="app__wrapper">
-      <header class="header">
-        <h1 class="header__name">
+    <div class="mx-auto my-0 flex h-full max-w-5xl flex-col text-vs-main-bg-color-light">
+      <header>
+        <h1 class="my-5 text-center font-poiret dark:text-vs-main-text-color-dark">
           <a
+            class="text-4xl dark:text-vs-main-text-color-dark"
             href="/"
             title="Val Saven. Software Developer"
             v-text="'valsaven.com'"
@@ -20,12 +21,15 @@
         </h1>
       </header>
 
-      <div class="body">
-        <!-- Menu -->
-        <main-menu class="main-menu" />
+      <div
+        class="flex gap-x-4 font-sans sm:grid"
+        :class="'body'"
+      >
+        <!-- Main Menu -->
+        <main-menu class="hidden sm:flex" />
 
         <!-- Mobile menu -->
-        <sidebar
+        <side-bar
           v-if="isSidebarOpen"
           @sidebar-toggle="sidebarToggle"
         />
@@ -40,101 +44,20 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import Burger from './components/Menu/Burger.vue';
+import BurgerButton from './components/MainMenu/BurgerButton.vue';
 import MainBlock from './components/MainBlock.vue';
-import MainMenu from './components/Menu/Menu.vue';
-import Sidebar from './components/Menu/Sidebar.vue';
+import MainMenu from './components/MainMenu/MainMenu.vue';
+import SideBar from './components/MainMenu/SideBar.vue';
 
-let isSidebarOpen = ref(false);
-let isNightTime = false;
-
-function setNightTime() {
-  const hours = new Date().getHours();
-  isNightTime = hours < 6 || hours >= 21;
-}
+const isSidebarOpen = ref(false);
 
 function sidebarToggle() {
   isSidebarOpen.value = !isSidebarOpen.value;
 }
-
-setNightTime();
 </script>
 
 <style>
-:root {
-  --main-text-color: #fffffa;
-  --main-bg-color: #222;
-  --head-bg-color: #41b883;
-  --body-bg-color: #525252;
-
-  --dashed-border-color: #1da1f2;
-
-  --wings-1: #45ccca;
-  --wings-2: #8fd67a;
-  --wings-3: #e5d59a;
-  --wings-4: #e7966a;
-  --wings-5: #ed5589;
-  --wings-6: #b565c6;
-  --wings-7: #3366ff;
-  --wings-8: #7392ec;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-h1,
-h2 {
-  text-align: center;
-}
-
-a {
-  color: #000;
-  text-decoration: none;
-}
-
-.app {
-  height: 100vh;
-}
-
-.app__wrapper {
-  color: var(--main-bg-color);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 0 auto;
-  max-width: 960px;
-}
-
-.header__name {
-  font-family: 'Poiret One', sans-serif;
-  margin: 20px 0;
-}
-
 .body {
-  display: grid;
-  gap: 20px;
   grid-template-columns: 1fr 4fr;
-}
-
-.burger {
-  display: none;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
-@media screen and (max-width: 767px) {
-  .burger {
-    display: block;
-  }
-
-  .main-menu {
-    display: none !important;
-  }
-
-  .body {
-    display: flex;
-  }
 }
 </style>
