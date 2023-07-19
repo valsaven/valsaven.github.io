@@ -23,23 +23,23 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: loadView('Home'),
+    component: loadView('HomePage'),
   },
   {
     path: '/projects',
     name: 'Projects',
-    component: loadView('Projects'),
+    component: loadView('ProjectsPage'),
   },
   {
     path: '/favorites',
     name: 'Favorites',
-    component: loadView('Favorites'),
+    component: loadView('FavoritesPage'),
     children: favoritesRoutes,
   },
   {
     path: '/contacts',
     name: 'Contacts',
-    component: loadView('Contacts'),
+    component: loadView('ContactsPage'),
   },
 ];
 

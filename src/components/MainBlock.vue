@@ -1,6 +1,6 @@
 <template>
   <!-- Main Block -->
-  <article class="flex flex-col">
+  <article class="flex w-full flex-col">
     <!-- block header -->
     <header
       class="flex h-16 items-center justify-center

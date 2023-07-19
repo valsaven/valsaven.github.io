@@ -1,6 +1,7 @@
 <template>
+  <!-- Favorites Page -->
   <div class="flex flex-col">
-    <div class="flex w-full justify-between">
+    <div class="flex w-full flex-wrap justify-center gap-4">
       <router-link
         v-for="(item, i) in menuItems"
         :key="i"

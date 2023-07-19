@@ -1,5 +1,5 @@
 <template>
-  <!-- Contacts -->
+  <!-- Contacts Page -->
   <ul class="list-none p-0">
     <li
       v-for="(item, i) in contacts"
