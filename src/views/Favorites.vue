@@ -1,18 +1,22 @@
 <template>
-  <div class="favorites">
-    <div class="favorites__menu">
+  <div class="flex flex-col">
+    <div class="flex w-full justify-between">
       <router-link
         v-for="(item, i) in menuItems"
         :key="i"
-        class="favorites__menu-item"
+        class="flex h-8 w-24 cursor-pointer items-center justify-center rounded-lg
+        border border-dashed border-vs-dashed-border-color text-center
+        dark:border-transparent
+        dark:bg-vs-main-accent-color-dark
+        dark:text-vs-main-text-color-dark"
         :to="`/favorites/${item}`"
       >
         {{ item }}
       </router-link>
     </div>
 
-    <div class="favorites__body">
-      <router-view/>
+    <div class="flex justify-center p-4">
+      <router-view />
     </div>
   </div>
 </template>
@@ -29,41 +33,3 @@ const menuItems: FavoritesItemType[] = [
   'photo',
 ];
 </script>
-
-<style>
-.favorites {
-  display: flex;
-  flex-direction: column;
-}
-
-.favorites__menu {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.favorites__menu-item {
-  align-items: center;
-  border-radius: 8px;
-  border: 1px dashed var(--dashed-border-color);
-  cursor: pointer;
-  display: flex;
-  height: 2rem;
-  justify-content: center;
-  text-align: center;
-  width: 16%;
-}
-
-.favorites__body {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-}
-
-/* Dark Theme */
-.dark-theme .favorites__menu-item {
-  background-color: var(--dark-main-accent-color);
-  border-color: transparent;
-  color: var(--dark-main-text-color);
-}
-</style>
