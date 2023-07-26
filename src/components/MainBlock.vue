@@ -1,23 +1,27 @@
 <template>
   <!-- Main Block -->
+  <!-- TODO: width: 896px  -->
   <article class="flex w-full flex-col">
     <!-- block header -->
     <header
       class="flex h-16 items-center justify-center
-        border-2 border-dashed border-vs-dashed-border-color
+        border-2
+        border-dashed border-vs-dashed-border-color px-0
         dark:rounded-lg
         dark:border-2 dark:border-dashed dark:border-vs-main-border-color-dark
-        dark:bg-vs-main-accent-color-dark"
+        dark:bg-vs-main-accent-color-dark
+        sm:justify-between
+        sm:px-8
+        md:px-16
+        lg:px-32"
     >
-      <h2
-        class="text-center text-2xl dark:text-vs-main-text-color-dark"
-        v-text="`・゜・。. ${currentPage} ・゜・。.`"
-      />
-
-      <button @click="toggleTheme">
+      <button
+        class="mr-4 h-8 w-8 sm:mr-0"
+        @click="toggleTheme"
+      >
         <!-- eslint-disable max-len -->
         <svg
-          class="ml-4 h-8 w-8 text-2xl"
+          class="text-2xl"
           viewBox="0 0 50 50"
         >
           <path
@@ -28,6 +32,24 @@
         </svg>
         <!-- eslint-enable max-len -->
       </button>
+
+      <h2
+        class="text-center text-lg
+          dark:text-vs-main-text-color-dark
+          sm:text-xl md:text-2xl"
+        v-text="`・゜・。. ${translatedRouteName} ・゜・。.`"
+      />
+
+      <div class="ml-4 flex gap-2 sm:ml-0">
+        <language-buttons
+          v-for="lang in languages"
+          :key="lang.code"
+          :language="lang.code"
+          :icon="lang.icon"
+          :active="locale === lang.code"
+          @click="changeLanguage(lang.code)"
+        />
+      </div>
     </header>
 
     <!-- block-content -->
@@ -39,11 +61,17 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 
+import LanguageButtons from './LanguageButtons.vue';
+import { VIconType } from './VIcon/types';
+
+const { t, locale } = useI18n();
 const route = useRoute();
-const isDark = ref(document.documentElement.classList.contains('dark'));
+
 const currentPage = computed(() => String(route.name) || '');
+const isDark = ref(document.documentElement.classList.contains('dark'));
 
 function toggleTheme() {
   const isDarkMode = document.documentElement.classList.contains('dark');
@@ -58,4 +86,32 @@ function toggleTheme() {
     isDark.value = true;
   }
 }
+
+const languages = [
+  {
+    code: 'jp',
+    icon: VIconType.FlagJp,
+  },
+  {
+    code: 'en',
+    icon: VIconType.FlagGb,
+  },
+];
+
+function changeLanguage(lang: string) {
+  locale.value = lang;
+  localStorage.setItem('language', lang);
+}
+
+function getTranslatedRouteName(routeName: string) {
+  if (route.path.includes('favorites/')) {
+    return t(`favorites.${routeName}`);
+  }
+
+  const localRouteName = currentPage.value.toLocaleLowerCase();
+
+  return t(`routes.${localRouteName}`);
+}
+
+const translatedRouteName = computed(() => getTranslatedRouteName(route.name as string));
 </script>

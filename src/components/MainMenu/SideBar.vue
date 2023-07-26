@@ -20,9 +20,29 @@
 
 <script setup lang="ts">
 import MenuList from './MenuList.vue';
-import menuItems from './menu-items';
 
-const menu = menuItems;
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+
+const { t } = useI18n();
+
+const menu = computed(() => [
+  {
+    path: '/',
+    name: t('routes.home'),
+    icon: 'fas fa-home',
+  },
+  {
+    path: '/favorites',
+    name: t('routes.favorites'),
+    icon: 'fas fa-star',
+  },
+  {
+    path: '/contacts',
+    name: t('routes.contacts'),
+    icon: 'far fa-address-card',
+  },
+]);
 </script>
 
 <style>

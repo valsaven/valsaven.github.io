@@ -9,7 +9,7 @@
       @click="sidebarToggle"
     />
 
-    <div class="mx-auto my-0 flex h-full max-w-5xl flex-col text-vs-main-bg-color-light">
+    <div class="mx-auto my-0 flex h-full max-w-6xl flex-col text-vs-main-bg-color-light">
       <header>
         <h1 class="my-5 text-center font-poiret dark:text-vs-main-text-color-dark">
           <a
