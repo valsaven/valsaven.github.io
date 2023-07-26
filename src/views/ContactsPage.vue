@@ -25,34 +25,37 @@
 </template>
 
 <script setup lang="ts">
-import { Contact } from '../types';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const contacts: Contact[] = [
+const { t } = useI18n();
+
+const contacts = computed(() => [
   {
     href: 'mailto:val.saven@gmail.com?subject=Message%20from%20valsaven.com',
-    title: 'Contact Val Saven',
-    label: 'Email',
+    title: t('contacts.email.title'),
+    label: t('contacts.email.label'),
     icon: 'fas fa-envelope text-[#d44638]',
   },
   {
     href: 'https://github.com/valsaven',
-    title: 'Val Saven on Github',
-    label: 'GitHub',
+    title: t('contacts.github.title'),
+    label: t('contacts.github.label'),
     icon: 'fab fa-github-alt text-[#24292e] dark:text-vs-main-text-color-dark',
   },
   {
     href: 'https://twitter.com/valsaven',
-    title: 'Val Saven on Twitter',
-    label: 'Twitter',
+    title: t('contacts.twitter.title'),
+    label: t('contacts.twitter.label'),
     icon: 'fab fa-twitter text-[#1c9ceb]',
   },
   {
     href: 'https://medium.com/@valsaven',
-    title: 'Val Saven on Medium',
-    label: 'Medium',
+    title: t('contacts.medium.title'),
+    label: t('contacts.medium.label'),
     icon: 'fab fa-m text-[#24292e] dark:text-vs-main-text-color-dark',
   },
-];
+]);
 </script>
 
 <style>

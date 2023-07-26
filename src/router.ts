@@ -13,9 +13,9 @@ const favoritesRoutes = [
   'movies',
   'music',
   'photo',
-].map((type) => ({
-  path: type,
-  name: type[0].toUpperCase() + type.slice(1),
+].map((route) => ({
+  path: route,
+  name: route,
   component: FavoritesItem,
 }));
 

@@ -12,7 +12,7 @@
         dark:text-vs-main-text-color-dark"
         :to="`/favorites/${item}`"
       >
-        {{ item }}
+        {{ $t(`favorites.${item}`) }}
       </router-link>
     </div>
 

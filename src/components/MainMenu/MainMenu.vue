@@ -10,7 +10,7 @@
     >
       <!-- menu-title -->
       <h2 class="flex items-center justify-center text-center text-2xl dark:text-vs-main-text-color-dark">
-        Menu
+        {{ $t('menu') }}
         <span
           class="ml-2.5 cursor-pointer text-xs"
           @click="toggleTheme"
@@ -26,11 +26,29 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import MenuList from './MenuList.vue';
-import menuItems from './menu-items';
 
-const menu = menuItems;
+const { t } = useI18n();
+
+const menu = computed(() => [
+  {
+    path: '/',
+    name: t('routes.home'),
+    icon: 'fas fa-home',
+  },
+  {
+    path: '/favorites',
+    name: t('routes.favorites'),
+    icon: 'fas fa-star',
+  },
+  {
+    path: '/contacts',
+    name: t('routes.contacts'),
+    icon: 'far fa-address-card',
+  },
+]);
 
 const dailyKaomoji = computed(() => {
   const kaomojis = [
