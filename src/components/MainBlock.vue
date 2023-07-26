@@ -42,7 +42,7 @@ import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const isDark = ref(false);
+const isDark = ref(document.documentElement.classList.contains('dark'));
 const currentPage = computed(() => String(route.name) || '');
 
 function toggleTheme() {
