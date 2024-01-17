@@ -1,0 +1,45 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li * {
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.favorites {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favorites__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.favorites__menu-item {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px dashed #1DA1F2FF;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  height: 2rem;
+  justify-content: center;
+  text-align: center;
+  width: 6rem;
+}
+
+.dark .favorites__menu-item {
+  background-color: rgb(29, 29, 29);
+  border: transparent;
+  color: #fff;
+}

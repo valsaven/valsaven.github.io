@@ -1,0 +1,26 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<h2>こんにちは!</h2>
+
+			<p>私の名前はVal Savenで、これは私のプロフェッショナルな別名です。</p>
+
+			<p>私のホームページへようこそ (´• ω •`)！</p>
+
+			<p>もし私に連絡したい場合は、コンタクトメニューで提供される連絡先情報を参照してください。</p>
+		</main>
+		<Footer />
+	</body>
+</html>
