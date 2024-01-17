@@ -1,12 +1,21 @@
-node_modules
-.DS_Store
-dist
-*.local
+# build output
+dist/
+# generated types
+.astro/
 
-# Log files
+# dependencies
+node_modules/
+
+# logs
 npm-debug.log*
-*.log
 
-# Editor directories and files
-.idea
-.vscode
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# ide
+.idea/
+.vscode/

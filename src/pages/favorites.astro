@@ -1,0 +1,44 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import '../styles/pages/favorites.css';
+
+const menuItems = [
+	{ title: 'anime', path: 'anime' },
+	{ title: 'books', path: 'books' },
+	{ title: 'games', path: 'games' },
+	{ title: 'movies', path: 'movies' },
+	{ title: 'music', path: 'music' },
+	{ title: 'photo', path: 'photo' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+
+<body>
+	<Header title={SITE_TITLE} />
+
+	<main>
+		<div class="favorites">
+			<ul class="favorites__menu">
+				{menuItems.map((item) => (
+					<li>
+						<a class="favorites__menu-item" href=`favorites/${item.path}`>
+							{item.title}
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</main>
+
+	<Footer />
+</body>
+</html>
