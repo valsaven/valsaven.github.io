@@ -9,6 +9,11 @@ const homeUrl = `${currentLocale}/`;
 const blogUrl = `${currentLocale}/blog`;
 const favoritesUrl = `${currentLocale}/favorites`;
 
+const isHomeActive = currentPath === '/' || currentPath === '/ja/';
+const isBlogActive = currentPath.startsWith('/blog') || currentPath.startsWith('/ja/blog');
+const isENActive = currentLocale === '';
+const isJPActive = currentLocale === '/ja';
+
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -16,21 +21,15 @@ import { SITE_TITLE } from '../consts';
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href={homeUrl}>Home</HeaderLink>
-			<HeaderLink href={blogUrl}>Blog</HeaderLink>
-			<!--<HeaderLink href={favoritesUrl}>Favorites</HeaderLink>-->
+			<HeaderLink href={homeUrl} isActive={isHomeActive}>Home</HeaderLink>
+			<HeaderLink href={blogUrl} isActive={isBlogActive}>Blog</HeaderLink>
+			<!--<HeaderLink href={favoritesUrl} isActive={isFavoritesActive}>Favorites</HeaderLink>-->
 		</div>
 
 		<!-- Language switch buttons -->
 		<nav>
-			<a href={basePath} title="English">
-				EN
-				<!-- TODO: Add icon or flag image for English language -->
-			</a>
-			<a href={`/ja${basePath}`} title="Japanese">
-				JP
-				<!-- TODO: Add icon or flag image for Japanese language -->
-			</a>
+			<HeaderLink href={basePath} isActive={isENActive}>EN</HeaderLink>
+			<HeaderLink href={`/ja${basePath}`} isActive={isJPActive}>JP</HeaderLink>
 		</nav>
 	</nav>
 </header>
@@ -59,28 +58,5 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-}
-
-nav a {
-	padding: 1em 0.5em;
-	color: var(--black);
-	border-bottom: 4px solid transparent;
-	text-decoration: none;
-}
-
-nav a.active {
-	text-decoration: none;
-	/*border-bottom-color: var(--accent);*/
-}
-
-.social-links,
-.social-links a {
-	display: flex;
-}
-
-@media (max-width: 720px) {
-	.social-links {
-		display: none;
-	}
 }
 </style>
