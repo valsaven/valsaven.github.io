@@ -89,6 +89,18 @@ a:hover {
 	color: var(--accent);
 }
 
+header nav a {
+	padding: 1em 0.5em;
+	color: var(--black);
+	border-bottom: 4px solid transparent;
+	text-decoration: none;
+}
+
+header nav a.active {
+	font-weight: bolder;
+	text-decoration: none;
+}
+
 p {
 	margin-bottom: 1em;
 }
@@ -150,6 +162,10 @@ hr {
 
 	main {
 		padding: 1em;
+	}
+
+	header nav h2 {
+		display: none;
 	}
 }
 
