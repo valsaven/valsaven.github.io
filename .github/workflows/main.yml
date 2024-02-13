@@ -1,0 +1,76 @@
+name: Dynamic Build, Tag and Deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-tag-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Extract version and commit message
+        run: |
+          LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          NEW_VERSION=$(echo "$LAST_COMMIT_MESSAGE" | head -1 | sed -n 's/v\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p')
+          echo "$LAST_COMMIT_MESSAGE" > $GITHUB_WORKSPACE/COMMIT_MSG.txt
+          echo "version=$NEW_VERSION" >> $GITHUB_ENV
+          echo "commit_message_file=$GITHUB_WORKSPACE/COMMIT_MSG.txt" >> $GITHUB_ENV
+
+      - name: Checkout master branch
+        run: |
+          git fetch
+          git checkout master
+
+      - name: Clean up target directory
+        run: |
+          shopt -s extglob
+          cd . || exit
+          rm -rf !(robots.txt|README.md|CNAME|.gitignore|dist|COMMIT_MSG.txt)
+
+      - name: Copy files from dist
+        run: |
+          cp -R dist/* .
+
+      - name: Import GPG key
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | GPG_TTY=$(tty) gpg --batch --yes --import --passphrase $GPG_PASSPHRASE
+          gpg --list-secret-keys --keyid-format LONG
+
+      - name: Verify COMMIT_MSG.txt existence and content
+        run: |
+          cat "${{ env.commit_message_file }}" || echo "COMMIT_MSG.txt not found!"
+
+      - name: Push changes and tags to master
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          FULL_GPG_KEY_FINGERPRINT: ${{ secrets.FULL_GPG_KEY_FINGERPRINT }}
+        run: |
+          git config user.name "Val Saven"
+          git config user.email "val.saven@gmail.com"
+          git config --global gpg.program gpg
+          git config --global commit.gpgsign true
+          git config --global user.signingkey $FULL_GPG_KEY_FINGERPRINT
+          echo "${GPG_PASSPHRASE}" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --quick-set-expire $FULL_GPG_KEY_FINGERPRINT never
+          git add .
+          git commit -S -F "${{ env.commit_message_file }}"
+          git tag -a "v${{ env.version }}" -m "version ${{ env.version }}" -s
+          git push origin master && git push origin "v${{ env.version }}"

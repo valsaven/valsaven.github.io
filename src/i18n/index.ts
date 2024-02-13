@@ -15,7 +15,7 @@ const t = (key: string, locale: keyof Translations = 'en') => {
   for (let level of levels) {
     result = result[level];
     if (result === undefined) {
-      return undefined; // TODO: Или какое-то значение по умолчанию
+      return undefined;
     }
   }
 

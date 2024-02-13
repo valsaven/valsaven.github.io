@@ -19,3 +19,6 @@ npm-debug.log*
 # ide
 .idea/
 .vscode/
+
+# ci
+COMMIT_MSG.txt
