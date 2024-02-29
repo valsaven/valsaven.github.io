@@ -96,6 +96,12 @@ header nav a {
 	text-decoration: none;
 }
 
+header nav:first-child {
+	margin: auto;
+	max-width: calc(100% - 2em);
+	width: 960px;
+}
+
 header nav a.active {
 	font-weight: bolder;
 	text-decoration: none;
