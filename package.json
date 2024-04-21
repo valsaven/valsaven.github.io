@@ -1,11 +1,11 @@
 {
   "name": "valsaven",
-  "version": "8.0.7",
+  "version": "8.0.9",
   "type": "module",
   "private": true,
   "engines": {
     "node": ">=21",
-    "npm": ">=10.2.4"
+    "npm": ">=10.5.2"
   },
   "scripts": {
     "dev": "astro dev",
@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.2.2",
+    "@astrojs/mdx": "^2.3.1",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.2",
-    "astro": "^4.5.12",
-    "typescript": "^5.4.3"
+    "@astrojs/sitemap": "^3.1.4",
+    "astro": "^4.6.3",
+    "typescript": "^5.4.5"
   }
 }
