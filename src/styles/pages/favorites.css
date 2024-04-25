@@ -1,14 +1,3 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul li * {
-  text-decoration: none;
-  transition: 0.2s ease;
-}
-
 .favorites {
   align-items: center;
   display: flex;
@@ -21,6 +10,9 @@ ul li * {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .favorites__menu-item {

@@ -1,8 +1,6 @@
-main {
-  width: 960px;
-}
+.posts-list {}
 
-ul {
+.posts-list__items {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -11,74 +9,105 @@ ul {
   padding: 0;
 }
 
-ul li {
+.posts-list__item {
   width: calc(50% - 1rem);
+
+  * {
+    text-decoration: none;
+    transition: .2s ease;
+  }
 }
 
-ul li * {
-  text-decoration: none;
-  transition: 0.2s ease;
-}
-
-ul li:first-child {
-  width: 100%;
+.posts-list__item:first-child {
   margin-bottom: 1rem;
   text-align: center;
+  width: 100%;
+
+  .posts-list__title {
+    font-size: 2rem;
+  }
+
+  .posts-list__image {
+    max-width: 260px;
+    width: 100%;
+  }
 }
 
-ul li:first-child img {
-  max-width: 300px;
+.posts-list__link {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    .posts-list__title,
+    .posts-list__date {
+      color: rgb(var(--accent));
+    }
+  }
+}
+
+.posts-list__image-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
   width: 100%;
 }
 
-ul li img {
-  max-width: 200px;
-}
-
-ul li:first-child .title {
-  font-size: 2rem;
-}
-
-ul li img {
-  margin-bottom: 0.5rem;
+.posts-list__image {
   border-radius: 12px;
+  max-height: 100%;
+  max-width: 200px;
+  object-fit: contain;
 }
 
-ul li a {
-  display: block;
-}
-
-.title {
+.posts-list__title {
   margin: 0;
   color: rgb(var(--black));
   line-height: 1;
 }
 
-.date {
+.posts-list__date {
   margin: 0;
   color: rgb(var(--gray));
 }
 
-ul li a:hover h4,
-ul li a:hover .date {
-  color: rgb(var(--accent));
-}
-
 @media (max-width: 720px) {
-  ul {
-    gap: 0.5em;
+  .posts-list {
+    gap: 0.5rem;
   }
 
-  ul li {
+  .posts-list__item {
     width: 100%;
     text-align: center;
   }
 
-  ul li:first-child {
+  .posts-list__item:first-child {
     margin-bottom: 0;
+
+    .posts-list__image {
+      max-width: 160px;
+    }
+
+    .posts-list__title {
+      font-size: 1.5rem;
+    }
   }
 
-  ul li:first-child .title {
-    font-size: 1.5rem;
+  .posts-list__image {
+    max-width: 100px;
+  }
+
+  .posts-list__title {
+    font-size: 1.25rem;
+  }
+
+  .posts-list__date {
+    font-size: 0.875rem;
   }
 }

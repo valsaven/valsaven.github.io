@@ -45,11 +45,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</body>
 </html>
 
-<style>
+<style lang="postcss">
 main {
 	margin: 0;
 	max-width: 100%;
-	width: calc(100% - 2em);
 }
 
 .hero-image {
@@ -89,5 +88,38 @@ main {
 
 .last-updated-on {
 	font-style: italic;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+</style>
+
+<style is:global>
+.prose p {
+	margin-bottom: 2em;
+}
+
+blockquote {
+	border-left: 4px solid var(--accent);
+	font-size: 1.25rem;
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+
+code {
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+	padding: 2px 6px;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+
+	> code {
+		all: unset;
+	}
 }
 </style>

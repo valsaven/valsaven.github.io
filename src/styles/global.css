@@ -25,56 +25,41 @@
 }
 
 body {
+	background-size: 100% 600px;
+	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	color: rgb(var(--gray-dark));
+	display: flex;
+	flex-direction: column;
 	font-family: 'Atkinson', sans-serif;
+	font-size: 16px;
+	line-height: 1.7;
 	margin: 0;
+	max-height: 100vh;
+	min-height: 100vh;
+	overflow-wrap: break-word;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
 	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	max-width: 960px;
 	margin: auto;
-	padding: 3em 1em;
+	padding: 2rem 1rem;
+	flex-grow: 1;
+	overflow: auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
+h1, h2, h3, h4, h5, h6 {
 	color: rgb(var(--black));
 	line-height: 1.2;
+	margin: 0 0 0.5rem 0;
 }
 
-h1 {
-	font-size: 3.052em;
-}
-
-h2 {
-	font-size: 2.441em;
-}
-
-h3 {
-	font-size: 1.953em;
-}
-
-h4 {
-	font-size: 1.5rem;
-}
-
-h5 {
-	font-size: 1.25em;
-}
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
 
 strong,
 b {
@@ -82,18 +67,11 @@ b {
 }
 
 a {
-	color: var(--accent);
-}
-
-a:hover {
-	color: var(--accent);
-}
-
-header nav a {
-	padding: 1em 0.5em;
 	color: var(--black);
-	border-bottom: 4px solid transparent;
-	text-decoration: none;
+
+	&:hover {
+		color: var(--accent);
+	}
 }
 
 header nav:first-child {
@@ -102,22 +80,9 @@ header nav:first-child {
 	width: 960px;
 }
 
-header nav a.active {
-	font-weight: bolder;
-	text-decoration: none;
-}
-
-p {
-	margin-bottom: 1em;
-}
-
-.prose p {
-	margin-bottom: 2em;
-}
-
 textarea {
-	width: 100%;
 	font-size: 16px;
+	width: 100%;
 }
 
 input {
@@ -129,36 +94,9 @@ table {
 }
 
 img {
-	max-width: 100%;
+	border-radius: 8px;
 	height: auto;
-	border-radius: 8px;
-}
-
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-
-pre > code {
-	all: unset;
-}
-
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
-}
-
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	max-width: 100%;
 }
 
 @media (max-width: 720px) {
@@ -167,28 +105,10 @@ hr {
 	}
 
 	main {
-		padding: 1em;
+		padding: 2rem;
 	}
 
 	header nav h2 {
 		display: none;
 	}
-}
-
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
 }

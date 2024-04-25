@@ -7,10 +7,11 @@ const basePath = currentPath.replace(/^\/(en|ja)/, '');
 
 const homeUrl = `${currentLocale}/`;
 const blogUrl = `${currentLocale}/blog`;
-const favoritesUrl = `${currentLocale}/favorites`;
+// const favoritesUrl = `${currentLocale}/favorites`;
 
 const isHomeActive = currentPath === '/' || currentPath === '/ja/';
 const isBlogActive = currentPath.startsWith('/blog') || currentPath.startsWith('/ja/blog');
+// const isFavoritesActive = currentPath.startsWith('/favorites') || currentPath.startsWith('/ja/favorites');
 const isENActive = currentLocale === '';
 const isJPActive = currentLocale === '/ja';
 
@@ -46,7 +47,7 @@ header {
 
 h2 {
 	margin: 0;
-	font-size: 1em;
+	font-size: 1.25rem;
 }
 
 h2 a,

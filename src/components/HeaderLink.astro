@@ -15,3 +15,28 @@ const hrefString = typeof href === 'string' ? href : href.toString();
 <a href={hrefString} class:list={[className, { active: isActive }]} {...props}>
 	<slot />
 </a>
+
+<style>
+a {
+	border-bottom: 4px solid transparent;
+	color: var(--black);
+	font-size: 1.25rem;
+	padding: 1em 0.5em;
+	text-decoration: none;
+
+	&:hover {
+		color: var(--accent);
+	}
+}
+
+a.active {
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+@media (max-width: 720px) {
+	a {
+		font-size: 1rem;
+	}
+}
+</style>
