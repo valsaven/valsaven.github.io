@@ -1,6 +1,6 @@
 {
   "name": "valsaven",
-  "version": "8.1.0",
+  "version": "8.1.1",
   "type": "module",
   "private": true,
   "engines": {
@@ -15,15 +15,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.3.1",
+    "@astrojs/check": "^0.6.0",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.4",
-    "astro": "^4.7.0",
+    "astro": "^4.8.3",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
     "postcss": "^8.4.38",
-    "postcss-nesting": "^12.1.2"
+    "postcss-nesting": "^12.1.3"
   }
 }
