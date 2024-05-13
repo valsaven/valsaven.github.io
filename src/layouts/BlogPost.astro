@@ -65,15 +65,15 @@ main {
 .prose {
 	color: rgb(var(--gray-dark));
 	margin: auto;
-	max-width: calc(100% - 2em);
-	padding: 1em;
+	max-width: calc(100% - 2rem);
+	padding: 1rem;
 	width: 720px;
 }
 
 .title {
 	line-height: 1;
-	margin-bottom: 1em;
-	padding: 1em 0;
+	margin-bottom: 1rem;
+	padding: 1rem 0;
 	text-align: center;
 }
 
@@ -93,6 +93,17 @@ main {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
+}
+
+@media (max-width: 720px) {
+	.hero-image img {
+		max-width: 128px;
+	}
+
+	.title {
+		margin-bottom: .5rem;
+		padding: .5rem 0;
+	}
 }
 </style>
 
@@ -120,6 +131,12 @@ pre {
 
 	> code {
 		all: unset;
+	}
+}
+
+@media (max-width: 720px) {
+	pre {
+		font-size: 1rem;
 	}
 }
 </style>
