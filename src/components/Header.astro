@@ -14,13 +14,10 @@ const isBlogActive = currentPath.startsWith('/blog') || currentPath.startsWith('
 // const isFavoritesActive = currentPath.startsWith('/favorites') || currentPath.startsWith('/ja/favorites');
 const isENActive = currentLocale === '';
 const isJPActive = currentLocale === '/ja';
-
-import { SITE_TITLE } from '../consts';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href={homeUrl} isActive={isHomeActive}>Home</HeaderLink>
 			<HeaderLink href={blogUrl} isActive={isBlogActive}>Blog</HeaderLink>
