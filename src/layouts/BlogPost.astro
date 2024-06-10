@@ -45,7 +45,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</body>
 </html>
 
-<style lang="postcss">
+<style>
 main {
 	margin: 0;
 	max-width: 100%;
@@ -68,6 +68,12 @@ main {
 	max-width: calc(100% - 2rem);
 	padding: 1rem;
 	width: 720px;
+}
+
+[data-theme="dark"] {
+	.prose {
+		color: rgb(var(--gray-light))
+	}
 }
 
 .title {
@@ -125,13 +131,21 @@ code {
 	padding: 2px 6px;
 }
 
+[data-theme="dark"] code {
+	background-color: var(--bg-accent);
+}
+
+[data-theme="dark"] pre code {
+	background-color: initial;
+}
+
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+}
 
-	> code {
-		all: unset;
-	}
+pre > code {
+	all: unset;
 }
 
 @media (max-width: 720px) {

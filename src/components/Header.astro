@@ -24,6 +24,11 @@ const isJPActive = currentLocale === '/ja';
 			<!--<HeaderLink href={favoritesUrl} isActive={isFavoritesActive}>Favorites</HeaderLink>-->
 		</div>
 
+		<button class="toggle-theme">
+			<span class="material-symbols-outlined light-icon">light_mode</span>
+			<span class="material-symbols-outlined dark-icon">brightness_3</span>
+		</button>
+
 		<!-- Language switch buttons -->
 		<nav>
 			<HeaderLink href={basePath} isActive={isENActive}>EN</HeaderLink>
@@ -34,17 +39,16 @@ const isJPActive = currentLocale === '/ja';
 
 <style>
 header {
+	background-color: var(--background-color);
+	border-bottom: 2px dashed #1da1f2;
+	box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	margin: 0;
 	padding: 0 1em;
-	background: white;
-	box-shadow: 0 2px 8px rgba(var(--black), 5%);
-
-	border-bottom: 2px dashed rgb(29 161 242);
 }
 
 h2 {
-	margin: 0;
 	font-size: 1.25rem;
+	margin: 0;
 }
 
 h2 a,
@@ -53,8 +57,58 @@ h2 a.active {
 }
 
 nav {
-	display: flex;
 	align-items: center;
+	display: flex;
 	justify-content: space-between;
 }
+
+.toggle-theme {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+	height: 1.5rem;
+	padding: 0;
+	width: 1.5rem;
+}
+
+.dark-icon {
+	display: none;
+}
+
+html[data-theme="dark"] {
+	.light-icon {
+		display: none;
+	}
+
+	.toggle-theme {
+		transform: rotate(145deg);
+	}
+
+	.dark-icon {
+		display: inline;
+	}
+}
 </style>
+
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+	const setTheme = (theme) => {
+		document.documentElement.setAttribute('data-theme', theme);
+		localStorage.setItem('theme', theme);
+	};
+
+	const currentTheme = localStorage.getItem('theme') || 'light';
+	setTheme(currentTheme);
+
+	const toggleThemeButton = document.querySelector('.toggle-theme');
+	if (toggleThemeButton) {
+		toggleThemeButton.addEventListener('click', () => {
+			const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+			setTheme(newTheme);
+		});
+	} else {
+		console.error('Toggle button not found.');
+	}
+});
+</script>

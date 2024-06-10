@@ -1,13 +1,3 @@
-:root {
-	--accent: #1da1f2ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-}
-
 @font-face {
 	font-family: 'Atkinson';
 	src: url('/fonts/atkinson-regular.woff') format('woff');
@@ -24,10 +14,53 @@
 	font-display: swap;
 }
 
+:root {
+	--accent: #1da1f2ff;
+	--accent-dark: #000d8a;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+
+	--background-color-light: #f5f5f5;
+	--background-color-dark: #2e2e2e;
+	--text-color-light: #000;
+	--text-color-dark: #e6e6e6;
+	--accent-color: #1da1f2;
+
+	--bg-primary: #222;
+	--bg-secondary: #525252;
+	--bg-accent: #353535;
+
+	--bg-primary-dark: #222;
+	--bg-secondary-dark: #525252;
+	--bg-accent-dark: #353535;
+}
+
+[data-theme="light"] {
+	--background-color: var(--background-color-light);
+	--text-color: var(--text-color-light);
+}
+
+[data-theme="dark"] {
+	--background-color: var(--bg-primary-dark);
+	--text-color: var(--text-color-dark);
+}
+
+.material-symbols-outlined {
+	color: var(--text-color);
+	font-variation-settings:
+			'FILL' 1,
+			'wght' 400,
+			'GRAD' 0,
+			'opsz' 24
+}
+
 body {
 	background-size: 100% 600px;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	color: rgb(var(--gray-dark));
+	background: var(--background-color);
+	color: var(--text-color);
 	display: flex;
 	flex-direction: column;
 	font-family: 'Atkinson', sans-serif;
@@ -43,15 +76,15 @@ body {
 }
 
 main {
-	max-width: 960px;
-	margin: auto;
-	padding: 2rem 1rem;
 	flex-grow: 1;
+	margin: auto;
+	max-width: 960px;
 	overflow: auto;
+	padding: 2rem 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: rgb(var(--black));
+	color: var(--text-color);
 	line-height: 1.2;
 	margin: 0 0 0.5rem 0;
 }
@@ -67,7 +100,7 @@ b {
 }
 
 a {
-	color: var(--black);
+	color: var(--text-color);
 
 	&:hover {
 		color: var(--accent);
@@ -78,19 +111,6 @@ header nav:first-child {
 	margin: auto;
 	max-width: calc(100% - 2em);
 	width: 960px;
-}
-
-textarea {
-	font-size: 16px;
-	width: 100%;
-}
-
-input {
-	font-size: 16px;
-}
-
-table {
-	width: 100%;
 }
 
 img {
