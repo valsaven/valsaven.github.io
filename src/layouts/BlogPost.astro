@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
@@ -17,13 +18,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body>
 		<Header />
-		<main>
+		<main class="post">
 			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-				</div>
 				<div class="prose">
 					<div class="title">
+						{heroImage &&
+
+							<Image
+								class="post-image post-image--sm"
+								width={128}
+								height={128}
+								loading="eager"
+								src={heroImage}
+								alt=""
+							/>
+						}
+
+						<h2>{title}</h2>
+
 						<div class="date">
 							<FormattedDate date={pubDate} />
 							{
@@ -34,9 +46,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 								)
 							}
 						</div>
-						<h2>{title}</h2>
-						<hr />
 					</div>
+
+					<hr class="divider" />
+
 					<slot />
 				</div>
 			</article>
@@ -46,28 +59,29 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 </html>
 
 <style>
-main {
+.post {
 	margin: 0;
 	max-width: 100%;
-}
-
-.hero-image {
-	width: 100%;
-}
-
-.hero-image img {
-	border-radius: 12px;
-	display: block;
-	margin: 0 auto;
-	max-width: 320px;
 }
 
 .prose {
 	color: rgb(var(--gray-dark));
 	margin: auto;
 	max-width: calc(100% - 2rem);
-	padding: 1rem;
 	width: 720px;
+}
+
+.title {
+	align-items: center;
+	display: flex;
+	line-height: 1;
+	text-align: center;
+	gap: 1rem;
+	width: 100%;
+}
+
+.title h2 {
+	flex-grow: 1;
 }
 
 [data-theme="dark"] {
@@ -76,53 +90,46 @@ main {
 	}
 }
 
-.title {
-	line-height: 1;
-	margin-bottom: 1rem;
-	padding: 1rem 0;
-	text-align: center;
-}
-
-.title h2 {
-	margin: 0 0 0.5em 0;
-}
-
 .date {
 	color: rgb(var(--gray));
-	margin-bottom: 0.5em;
+	max-width: 48px;
 }
 
 .last-updated-on {
 	font-style: italic;
 }
 
-hr {
+.divider {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
+	margin: 2rem 0;
 }
 
 @media (max-width: 720px) {
-	.hero-image img {
+	.hero-image {
 		max-width: 128px;
 	}
 
 	.title {
-		margin-bottom: .5rem;
-		padding: .5rem 0;
+		flex-direction: column-reverse;
+
+		h2 {
+			font-size: 1.75rem;
+		}
 	}
 }
 </style>
 
 <style is:global>
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1.25rem;
 }
 
 blockquote {
 	border-left: 4px solid var(--accent);
 	font-size: 1.25rem;
 	margin: 0;
-	padding: 0 0 0 20px;
+	padding-left: 1.25rem;
 }
 
 code {
@@ -140,8 +147,8 @@ code {
 }
 
 pre {
-	padding: 1.5em;
 	border-radius: 8px;
+	padding: 1.5rem;
 }
 
 pre > code {
@@ -151,6 +158,7 @@ pre > code {
 @media (max-width: 720px) {
 	pre {
 		font-size: 1rem;
+		padding: 1rem;
 	}
 }
 </style>

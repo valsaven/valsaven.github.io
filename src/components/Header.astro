@@ -16,56 +16,52 @@ const isENActive = currentLocale === '';
 const isJPActive = currentLocale === '/ja';
 ---
 
-<header>
-	<nav>
-		<div class="internal-links">
-			<HeaderLink href={homeUrl} isActive={isHomeActive}>Home</HeaderLink>
-			<HeaderLink href={blogUrl} isActive={isBlogActive}>Blog</HeaderLink>
-			<!--<HeaderLink href={favoritesUrl} isActive={isFavoritesActive}>Favorites</HeaderLink>-->
-		</div>
+<header class="header">
+	<div class="internal-links">
+		<HeaderLink href={homeUrl} isActive={isHomeActive}>Home</HeaderLink>
+		<HeaderLink href={blogUrl} isActive={isBlogActive}>Blog</HeaderLink>
+		<!--<HeaderLink href={favoritesUrl} isActive={isFavoritesActive}>Favorites</HeaderLink>-->
+	</div>
 
-		<button class="toggle-theme">
-			<span class="material-symbols-outlined light-icon">light_mode</span>
-			<span class="material-symbols-outlined dark-icon">brightness_3</span>
-		</button>
+	<button class="toggle-theme">
+		<span class="material-symbols-outlined light-icon">light_mode</span>
+		<span class="material-symbols-outlined dark-icon">brightness_3</span>
+	</button>
 
-		<!-- Language switch buttons -->
-		<nav>
-			<HeaderLink href={basePath} isActive={isENActive}>EN</HeaderLink>
-			<HeaderLink href={`/ja${basePath}`} isActive={isJPActive}>JP</HeaderLink>
-		</nav>
-	</nav>
+	<!-- Language switch buttons -->
+	<div class="internal-links">
+		<HeaderLink href={basePath} isActive={isENActive}>EN</HeaderLink>
+		<HeaderLink href={`/ja${basePath}`} isActive={isJPActive}>JP</HeaderLink>
+	</div>
 </header>
 
 <style>
-header {
+.header {
+	align-items: center;
 	background-color: var(--background-color);
 	border-bottom: 2px dashed #1da1f2;
 	box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	margin: 0;
-	padding: 0 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	max-width: calc(100% - 2rem);
+	padding: 0 1rem;
 }
 
-h2 {
-	font-size: 1.25rem;
-	margin: 0;
-}
-
-h2 a,
-h2 a.active {
-	text-decoration: none;
-}
-
-nav {
+.internal-links {
 	align-items: center;
 	display: flex;
-	justify-content: space-between;
+	flex-grow: 4;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
 }
 
 .toggle-theme {
 	background: none;
 	border: none;
 	cursor: pointer;
+	flex-grow: 1;
 	font-size: 1.5rem;
 	height: 1.5rem;
 	padding: 0;
@@ -81,12 +77,19 @@ html[data-theme="dark"] {
 		display: none;
 	}
 
+	.dark-icon {
+		display: inline;
+	}
+
 	.toggle-theme {
 		transform: rotate(145deg);
 	}
+}
 
-	.dark-icon {
-		display: inline;
+@media (max-width: 768px) {
+	.navbar {
+		gap: 2rem;
+		justify-content: space-between;
 	}
 }
 </style>
