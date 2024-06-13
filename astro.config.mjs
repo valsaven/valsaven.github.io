@@ -11,4 +11,15 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en', 'ja']
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'entry.[hash].mjs',
+          chunkFileNames: 'chunks/chunk.[hash].mjs',
+          assetFileNames: 'assets/asset.[hash][extname]',
+        },
+      },
+    },
+  },
 });
