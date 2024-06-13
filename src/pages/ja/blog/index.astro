@@ -41,7 +41,14 @@ const posts = (await getCollection('blog'))
 							<li class="posts-list__item">
 								<a href={`/ja/blog/${post.slug}/`} class="posts-list__link">
 									<div class="posts-list__image-container">
-										<Image class="posts-list__image" width={720} height={360} src={post.data.heroImage} alt={`記事のイラスト：${post.data.title}`} />
+										<Image
+											class="post-image"
+											width={200}
+											height={200}
+											loading="eager"
+											src={post.data.heroImage}
+											alt={`記事のイラスト：${post.data.title}`}
+										/>
 									</div>
 									<h4 class="posts-list__title">{post.data.title}</h4>
 									<p class="posts-list__date">
