@@ -38,12 +38,6 @@
 	--bg-accent-dark: #353535;
 }
 
-/* RESET */
-
-h1, h2, h3, h4, h5, h6, p {
-	margin: 0;
-}
-
 [data-theme="light"] {
 	--background-color: var(--background-color-light);
 	--text-color: var(--text-color-light);
@@ -60,7 +54,7 @@ h1, h2, h3, h4, h5, h6, p {
 			'FILL' 1,
 			'wght' 400,
 			'GRAD' 0,
-			'opsz' 24
+			'opsz' 24;
 }
 
 html {
@@ -77,7 +71,6 @@ body {
 	font-family: 'Atkinson', sans-serif;
 	font-size: 16px;
 	line-height: 1.7;
-	margin: 0;
 	min-height: 100%;
 	overflow-wrap: break-word;
 	padding: 0;
