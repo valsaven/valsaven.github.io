@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostsList from '../../../components/PostsList.astro';
+
+export async function getStaticPaths() {
+	const languages = ['ja'];
+	return languages.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+
+const posts = (await getCollection('blog'))
+	.filter(post => post.data.lang === lang)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout lang={lang}>
+	<PostsList posts={posts} lang={lang} />
+</BaseLayout>

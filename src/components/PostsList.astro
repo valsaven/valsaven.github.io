@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  lang: string;
+}
+
+const { posts, lang } = Astro.props;
+
+const getPostUrl = (lang: string, slug: string) => {
+  const cleanSlug = slug.replace(/^(en|ja)\//, '');
+
+  if (lang === 'en') {
+    return `/blog/${cleanSlug}/`;
+  } else {
+    return `/${lang}/blog/${cleanSlug}/`;
+  }
+};
+---
+
+<section class="posts-list">
+  <ul class="posts-list__items">
+    {posts.map((post) => (
+        <li class="posts-list__item">
+          <a href={getPostUrl(lang, post.slug)} class="posts-list__link">
+            <div class="posts-list__image-container">
+              <Image
+                  class="post-image"
+                  width={120}
+                  height={120}
+                  loading="eager"
+                  src={post.data.heroImage}
+                  alt={`Illustration for the article: ${post.data.title}`}
+              />
+            </div>
+            <h4 class="posts-list__title">{post.data.title}</h4>
+            <p class="posts-list__date">
+              <FormattedDate date={post.data.pubDate} />
+            </p>
+          </a>
+        </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+.posts-list__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.posts-list__item {
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: var(--bg-accent);
+  width: 100%;
+
+  * {
+    text-decoration: none;
+    transition: .2s ease;
+  }
+}
+
+.posts-list__link {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: .75rem;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    .posts-list__title,
+    .posts-list__date {
+      color: rgb(var(--accent));
+    }
+  }
+}
+
+.posts-list__image-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.posts-list__title {
+  flex: 1;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.posts-list__date {
+  margin: 0;
+  color: rgb(var(--gray));
+}
+
+@media (max-width: 720px) {
+  .posts-list {
+    gap: 0.5rem;
+  }
+
+  .posts-list__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .posts-list__link {
+    flex-direction: column;
+  }
+
+  .posts-list__title {
+    font-size: 1.25rem;
+  }
+
+  .posts-list__date {
+    font-size: 0.875rem;
+  }
+}
+</style>

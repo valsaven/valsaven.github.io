@@ -1,30 +1,12 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
+
+const lang = 'en';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>Hello!</h1>
-
-			<p>Welcome to my homepage (´• ω •`)</p>
-
-			<p>If you'd like to get in touch with me, please refer to the contact information at the bottom of the page.</p>
-		</main>
-		<Footer />
-	</body>
-</html>
-
-<style>
-p {
-	margin: 1rem 0;
-}
-</style>
+<BaseLayout lang={lang}>
+	<h1>{t('home.p1', lang)}</h1>
+	<p>{t('home.p2', lang)}</p>
+	<p>{t('home.p3', lang)}</p>
+</BaseLayout>

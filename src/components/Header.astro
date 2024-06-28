@@ -35,6 +35,30 @@ const isJPActive = currentLocale === '/ja';
 	</div>
 </header>
 
+<script>
+const setTheme = (theme: string) => {
+	document.documentElement.setAttribute('data-theme', theme);
+	localStorage.setItem('theme', theme);
+};
+
+const toggleTheme = () => {
+	const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+	const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+	setTheme(newTheme);
+};
+
+const savedTheme = localStorage.getItem('theme') || 'light';
+setTheme(savedTheme);
+
+document.addEventListener('DOMContentLoaded', () => {
+	const toggleButton = document.querySelector('.toggle-theme');
+
+	if (toggleButton) {
+		toggleButton.addEventListener('click', toggleTheme);
+	}
+});
+</script>
+
 <style>
 .header {
 	align-items: center;
@@ -91,25 +115,3 @@ html[data-theme="dark"] {
 	}
 }
 </style>
-
-<script defer>
-document.addEventListener('DOMContentLoaded', () => {
-	const setTheme = (theme) => {
-		document.documentElement.setAttribute('data-theme', theme);
-		localStorage.setItem('theme', theme);
-	};
-
-	const currentTheme = localStorage.getItem('theme') || 'light';
-	setTheme(currentTheme);
-
-	const toggleThemeButton = document.querySelector('.toggle-theme');
-	if (toggleThemeButton) {
-		toggleThemeButton.addEventListener('click', () => {
-			const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-			setTheme(newTheme);
-		});
-	} else {
-		console.error('Toggle button not found.');
-	}
-});
-</script>

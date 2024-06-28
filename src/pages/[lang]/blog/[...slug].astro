@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BlogPost from '../../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.filter(post => post.data.lang !== 'en').map(post => ({
+    params: {
+      lang: post.data.lang,
+      slug: post.slug.split('/').pop()
+    },
+    props: post,
+  }));
+}
+
+const { lang } = Astro.params;
+if (!lang) {
+  throw new Error('Language parameter is missing');
+}
+
+const post = Astro.props as CollectionEntry<'blog'>;
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data} lang={lang}>
+  <Content />
+</BlogPost>

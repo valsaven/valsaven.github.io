@@ -6,158 +6,167 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { lang: string };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, lang } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+<html lang={lang}>
+<head>
+	<BaseHead title={title} description={description} />
+</head>
 
-	<body>
-		<Header />
-		<main class="post">
-			<article>
-				<div class="prose">
-					<div class="title">
-						{heroImage &&
-
-							<Image
-								class="post-image post-image--sm"
-								width={128}
-								height={128}
-								loading="eager"
-								src={heroImage}
-								alt=""
-							/>
-						}
-
-						<h2>{title}</h2>
-
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+<body>
+<Header />
+<main class="post-wrapper">
+	<article>
+		<div class="post">
+			<div class="title">
+				{heroImage &&
+					<Image
+						class="post-image"
+						width={128}
+						height={128}
+						loading="eager"
+						src={heroImage}
+						alt=""
+					/>
+				}
+				<h1>{title}</h1>
+				<div class="date">
+					<FormattedDate date={pubDate} />
+					{updatedDate && (
+						<div class="last-updated-on">
+							{lang === 'en' ? 'Last updated on' : '最終更新日'} <FormattedDate date={updatedDate} />
 						</div>
-					</div>
-
-					<hr class="divider" />
-
-					<slot />
+					)}
 				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+			</div>
+			<hr class="divider" />
+			<slot />
+		</div>
+	</article>
+</main>
+<Footer />
+</body>
 </html>
 
 <style>
-.post {
+.post-wrapper {
 	margin: 0;
 	max-width: 100%;
 }
 
-.prose {
+.post {
 	color: rgb(var(--gray-dark));
-	margin: auto;
-	max-width: calc(100% - 2rem);
-	width: 720px;
-}
-
-.title {
-	align-items: center;
-	display: flex;
-	line-height: 1;
-	text-align: center;
-	gap: 1rem;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 5%;
 	width: 100%;
-}
 
-.title h2 {
-	flex-grow: 1;
+	.title {
+		align-items: center;
+		background-color: var(--bg-accent);
+		border-radius: 8px;
+		display: flex;
+		gap: 1rem;
+		line-height: 1;
+		padding: 1rem;
+		text-align: center;
+		width: 100%;
+
+		h1 {
+			flex-grow: 1;
+		}
+	}
+
+	.date {
+		color: rgb(var(--gray));
+	}
+
+	.last-updated-on {
+		font-style: italic;
+	}
+
+	.divider {
+		border: none;
+		border-top: 1px solid rgb(var(--gray-light));
+		margin: 2rem 0;
+	}
 }
 
 [data-theme="dark"] {
-	.prose {
-		color: rgb(var(--gray-light))
+	.post {
+		color: rgb(var(--gray-light));
 	}
-}
-
-.date {
-	color: rgb(var(--gray));
-}
-
-.last-updated-on {
-	font-style: italic;
-}
-
-.divider {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-	margin: 2rem 0;
 }
 
 @media (max-width: 720px) {
-	.hero-image {
-		max-width: 128px;
-	}
+	.post {
+		padding: 0;
 
-	.title {
-		flex-direction: column-reverse;
+		.hero-image {
+			max-width: 128px;
+		}
 
-		h2 {
-			font-size: 1.75rem;
+		.title {
+			flex-direction: column-reverse;
+
+			h2 {
+				font-size: 1.75rem;
+			}
 		}
 	}
 }
 </style>
 
 <style is:global>
-.prose p {
-	margin-bottom: 1.25rem;
+.post {
+	p {
+		margin-bottom: 1.25rem;
+	}
+
+	blockquote {
+		border-left: 4px solid var(--accent);
+		font-size: 1.25rem;
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+
+	code {
+		background-color: rgb(var(--gray-light));
+		border-radius: 2px;
+		padding: 2px 6px;
+	}
+
+	pre {
+		border-radius: 8px;
+		padding: 1.5rem;
+
+		> code {
+			all: unset;
+		}
+	}
 }
 
-blockquote {
-	border-left: 4px solid var(--accent);
-	font-size: 1.25rem;
-	margin: 0;
-	padding-left: 1.25rem;
-}
+[data-theme="dark"] {
+	.post {
+		code {
+			background-color: var(--bg-accent-dark);
+		}
 
-code {
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-	padding: 2px 6px;
-}
-
-[data-theme="dark"] code {
-	background-color: var(--bg-accent);
-}
-
-[data-theme="dark"] pre code {
-	background-color: initial;
-}
-
-pre {
-	border-radius: 8px;
-	padding: 1.5rem;
-}
-
-pre > code {
-	all: unset;
+		pre code {
+			background-color: initial;
+		}
+	}
 }
 
 @media (max-width: 720px) {
-	pre {
-		font-size: 1rem;
-		padding: 1rem;
+	.post {
+		pre {
+			font-size: 1rem;
+			padding: 1rem;
+		}
 	}
 }
 </style>
