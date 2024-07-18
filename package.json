@@ -1,11 +1,11 @@
 {
   "name": "valsaven",
-  "version": "8.4.1",
+  "version": "8.4.2",
   "type": "module",
   "private": true,
   "engines": {
-    "node": ">=21",
-    "npm": ">=10.5.2"
+    "node": ">=22",
+    "npm": ">=10.8.2"
   },
   "scripts": {
     "dev": "astro dev --host",
@@ -15,12 +15,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/mdx": "^3.1.5",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
-    "astro": "^4.11.3",
-    "modern-normalize": "^2.0.0",
-    "typescript": "^5.5.3"
+    "astro": "^4.14.6",
+    "modern-normalize": "^3.0.0",
+    "typescript": "^5.5.4"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.21.1"
   }
 }
