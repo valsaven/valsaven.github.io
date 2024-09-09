@@ -1,6 +1,6 @@
 {
   "name": "valsaven",
-  "version": "8.4.3",
+  "version": "8.4.4",
   "type": "module",
   "private": true,
   "engines": {
@@ -19,7 +19,7 @@
     "@astrojs/mdx": "^3.1.5",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
-    "astro": "^4.15.2",
+    "astro": "^4.15.4",
     "modern-normalize": "^3.0.0",
     "typescript": "^5.5.4"
   },
