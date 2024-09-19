@@ -1,6 +1,6 @@
 {
   "name": "valsaven",
-  "version": "8.4.4",
+  "version": "8.4.5",
   "type": "module",
   "private": true,
   "engines": {
@@ -16,16 +16,16 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
-    "@astrojs/mdx": "^3.1.5",
+    "@astrojs/mdx": "^3.1.6",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
-    "astro": "^4.15.4",
-    "modern-normalize": "^3.0.0",
-    "typescript": "^5.5.4"
+    "astro": "^4.15.7",
+    "modern-normalize": "^3.0.1",
+    "typescript": "^5.6.2"
   },
   "optionalDependencies": {
     "@esbuild/darwin-x64": "^0.23.1",
-    "@rollup/rollup-darwin-x64": "^4.21.2",
-    "@rollup/rollup-linux-x64-gnu": "^4.21.2"
+    "@rollup/rollup-darwin-x64": "^4.21.3",
+    "@rollup/rollup-linux-x64-gnu": "^4.21.3"
   }
 }
